@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 1200px;
+            margin: auto;
+            background-color: rgb(245, 245, 245);
+            padding: 50px;
+        }
+        .audio{
+            float: right;
+        }
+        .aTagWrap{
+            height: 250px;
+            /* background-color: rgb(252, 197, 197); */
+            padding-bottom: 20px;
+        }
+        a{
+            float: left;
+            /* border: 1px solid black; */
+            padding: 15px;
+            position: absolute;
+            
+        }
+        a:nth-child(2){
+            left: 50%;
+        }
+        p{
+            width: 500px;
+        }
+        .defaultVideo{
+            /* background-color: rgb(253, 211, 217); */
+            margin-bottom: 50px;
+        }
+        .iframeVideo>iframe{
+            margin-bottom: 30px;
+        }
+        video{
+            width: 579px;
+            /* margin-right: 90px; */
+            padding: 9px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <h1>
+                2022년 8월 23일
+                <!-- 오디오 영역 -->
+                <div class="audio">
+                    <audio src="171221-jazz-style-piano-day-happy-love-life-20558.mp3" controls loop></audio>
+                    <!-- 
+                        audio 태그는 음악을 재생하는 태그이다. 
+                        속성은 video이며 video에서 사용한 속성을 모두 똑같이 사용할 수 있다.
+                    -->
+                </div><!--//.audio-->
+            </h1>
+            <div class="aTagWrap">
+                <a href="https://naver.com">
+                    <h2>네이버</h2>
+                    <p>
+                        a 태그는 뭐냐? 링크다. 
+                        웹 페이지에서 다른 페이지를 눌렀을 때 이동을 하는데
+                        그 것을 감싸고 있는 것이 a이다. 굳이 따지자면 inline이다.
+                        a 태그는 style을 안쓰고 자식으로 스타일을 설정한다.
+                        href 속성은 이동할 주소이다. (하이퍼 링크)
+                        href는 기본적으로 현재 주소를 기준으로 한다. < 서버 들어가면
+                        더 정확하고 자세하게 알려주신다고 한다.
+                        다른 웹 페이지로 이동하고 싶으면 주소를 가져다 넣으면 된다.
+                    </p>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <h2>유튜브</h2>
+                    <p>
+                        a 태그에 속성 target(웹 페이지를 어떻게 이동할 것인가)을 _blank로 설정하면 새 창으로 이동한다.
+                        보통 공식 페이지로 이동 <- 이런 거 할 때 많이 사용한다.
+                    </p>
+                </a>
+            </div><!--//.aTagWrap-->
+        </div><!--//.header-->
+        <div class="body">
+            <div class="video">
+                <h2>블록체인의 개념</h2>
+                <div class="iframeVideo">
+                    <iframe width="1200" height="680" src="https://www.youtube.com/embed/nZzdDg5N9jc?list=PL5CBKg4LPW2cr7PPCwu8C6TQF9gHYMrBF" title="[블록체인] 쓸모있는 네모, 블록체인 - 애쓰디애쓴 지식영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="1200" height="680" src="https://www.youtube.com/embed/d872StMM2Yw?list=PL5CBKg4LPW2cr7PPCwu8C6TQF9gHYMrBF" title="[블록체인] 블록체인, 해킹될 수 있다?! 애쓰디애쓴 지식영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="1200" height="680" src="https://www.youtube.com/embed/XjY4H_Gt0Ew?list=PL5CBKg4LPW2cr7PPCwu8C6TQF9gHYMrBF" title="[블록체인] 가상화폐가 없는 블록체인?! 애쓰디애쓴 지식영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="1200" height="680" src="https://www.youtube.com/embed/9gOOZgo9YDU?list=PL5CBKg4LPW2cr7PPCwu8C6TQF9gHYMrBF" title="[블록체인] 블록체인이 세상을 바꾼다?! 애쓰디애쓴 지식영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div><!--//.iframeVideo-->
+                <h2>나의 해파리들</h2>
+                <div class="defaultVideo">
+                    <!-- 색이 변하는 해파리 -->
+                    <video src="128012.mp4" controls autoplay loop muted></video>
+                    <!-- 촉수가 있는 해파리 -->
+                    <video src="26818.mp4" controls="true" autoplay loop muted></video>
+                    <!-- 보름달 물해파리 -->
+                    <video src="106868.mp4" controls="true" autoplay loop muted></video>
+                    <!-- 한 마리의 해파리 -->
+                    <video src="13823.mp4" controls="true" autoplay loop muted></video>
+                    <!-- 유튜브 영상을 링크로 그냥 가져오면 영상이 나오지 않는다. -->
+                    <!-- <video src="https://www.youtube.com/watch?v=1jpdXIOhabI" controls></video> -->
+                    <!-- 
+                        video 태그는 영상을 출력하기 위해 사용한다. 
+                        src에 주소를 입력한다. 주소라고 하느 이유는 후에 서버나갈때 재설명.
+                        현재는 일단 파일명을 입력한다(폴더 경로와 파일명)
+
+                        controls 속성을 넣어줘야 영상의 컨트롤 박스가 출력된다!!!
+
+                        autoplay 속성은 영상 로드가 완료되면 바로 재생한다.
+                        욕나오는 단점이 하나 있는데, 웹 페이지를 들어갔을 때
+                        오디오가 바로 나오면 안 되는게 권장사항이다.....(W3C)
+                        IOS이걸 정말 빡세게 따져서 ios에서 자동 재생을 할 수 없다.
+
+                        loop 속성은 말 그대로 반복이다.
+
+                        muted 속성은 이름 그대로 음소거이다. (IOS에서 중요하다!)
+
+                        태그의 속성은 이름만 넣을 경우 값을 true로 설정한다
+                        참거짓(true, false!)의 값을 갖는 속성은 이름만으로 처리가능하다.
+                        이름만 넣을 수도 있는 속성들은 기본값이 false라는 뜻이다.
+                    -->
+                </div><!--//.defaultVideo-->
+            </div><!--//.video-->
+        </div><!--//.body-->
+        <div class="footer" style="margin-bottom: 12px;">
+            <h3 style="margin: 0;"># 오늘 배운 것들<br/></h3>
+            <h4 style="margin: 0;">
+                - a(링크), audio(오디오), video(비디오)<br/>
+                - style(스타일, CSS)<br/>
+                - id와 class 그리고 문법 순서<br/>
+                - style에서 태그를 찾는 방법 등
+            </h4>
+        </div><!--//.footer-->
+    </div><!--//.wrap-->
+</body>
+</html>

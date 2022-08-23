@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>style</title>
+    <style>
+        /* 
+        태그들의 스타일 속성을 모아둔 공간. 혹은 미리 설정한다. 
+        style 태그 내에서 쓰는 문법(방식)은 CSS작성 방식과 같다.
+        div, body, h1 등의 태그에 스타일을 미리 공통되게 한번에 적용가능하다.
+        
+        */
+        div{
+            background-color: lightblue;
+            min-height: 10px;
+            /* border: 1px solid black;
+            margin-bottom: 10px; */
+        }
+        *{
+            /* 
+                *은 모든 태그에 적용하는 것이다. *은 여러 곳에서 사용될 수 있으며, 
+                CSS문법에서는 모든 태그에 설정할 때 사용한다. CSS가 아니어도 자주 쓰인다.
+            */
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        #test{
+            /* #은 태그의 id속성을 찾아 style을 적용한다. */
+            background-color: lightgray;
+        }
+        .test{
+            /* #은 태그의 class속성을 찾아 style을 적용한다. */
+            background-color: lightpink;
+
+        }
+
+        /* 
+            스타일이 적용되는 순서에 대해서.. (중요, 알기)
+            1. 각 태그의 기본값(기본속성)이 적용이 된다.
+            2. <style>에서 태그명으로 설정된 스타일
+            3. class로 설정된 스타일
+            4. id로 설정된 스타일
+            5. 태그에 style 속성으로 설정된 스타일
+
+            CSS 문법 .test#aset
+            * -> 계산식 돌려봐
+            계산식 =>
+            div, h1, body 등의 태그명 = 1
+            .class 등의 클래스명 = 2
+            #id 등의 아이디명 = 3
+            p.test = 3, p#test1.test1 = 6,
+            .parent > .child2 = 4 이런 식으로 따져서
+            숫자가 제일 큰 놈의 CSS가 살아남는다.
+
+        */
+
+        p.test{
+            /* p태그인데 test클래스를 가지고 있는 놈을 찾아 스타일을 준다. */
+            background-color: aqua;
+        }
+
+        p#test1.test1{
+            /* 
+                붙여 쓴 이름은 하나의 태그에 전부 있어야 찾을 수 있다. 
+                p이면서 아이디 속성이 test이고, 클래스도 test인애를 찾음..
+            */
+            background-color: lightgoldenrodyellow;
+        }
+
+        .parent{
+            width: 300px;
+            height: 300px;
+            background-color: beige;
+        }
+
+        .child1, .parent>.child2{
+            /* 
+                , 로 여러 클래스를 한번에 선택해 적용 가능하다.
+                >은 직속(1촌) 자식만을 찾는 것이다. (손자 등등은 안찾음, 자기자식)
+            */
+            width: 200px;
+            height: 100px;
+            margin: auto;
+            background-color: rgb(30, 66, 36);
+        }
+        
+        .child2{
+            width: 100px;
+            width: calc(100% - 10px - 1rem - 1em);
+            /* 
+                calc(*** - ***)는 단위와 상관 없이 계산을 해준다.
+                ex) calc(100% - 10px) -> 100%가 100px이면 계산뒤 90px로 설정해준다.
+                만약 100%가 4234px이면 4224px로 계산해서 설정해주는 것이다. 
+            */
+            height: 50px;
+            margin: auto;
+            background-color: lightblue;
+        }
+
+        .parent .child3{
+            /* 
+                parent 클래스를 가진 태그의 자식들 중 child1 클래스를 가진 태그를 찾는다. 
+                자식을 포함한 손자 증손자 등등 모든 태그를 찾는다..
+                띄어쓰기는 자식을 찾는 것을 의미한다.
+                */
+            background-color: forestgreen;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="test" class="test">#test, .test</div>
+    <div class="test test001">.test, .test001</div>
+    <p class="test">.test, p는 입력한 값이 없으면 높이가 0이라 안뜸</p>
+    <p id="test1" class="test1">#test1, .test1</p>
+    <!-- 
+        class는 이름 그대로 반 이라고 생각하면 편하다.
+        여러 태그들에게 공통된 속성이나 공통된 태그라면 
+        class속성을 주어 한 번에 처리한다.
+        구조에서 하나의 태그로 묶어서 자식으로 처리해도 되지만, 
+        class로 처리하면 더 깔끔하다. class가 제일 깔끔하다.
+        id는 identity로, 하나만 설정 가능한 이름이다.
+        id는 태그들끼리 중복되면 안된다.
+        html 상에서는 중복 체크를 안하지만, javascript쓸 때 후회한다.
+        id와 class의 차이점은 자바스크립트 들어가면 알게된다고 한다.
+     -->
+    <div style="background-color: red; min-height: 10px;"></div>
+    <div style="background-color: red; min-height: 10px;"></div>
+    
+    <ol>
+        <li>ol-li.. 모든 요소의 패딩과 마진을 삭제한 상태</li>
+    </ol>
+
+    <div class="parent">
+        <div class="child1">
+            <div class="child2"></div>
+        </div>
+        <div class="child1">
+            <div class="child2 child3">.child2, .child3</div>
+        </div>
+        <div class="child2">
+            <div class="child2">.child2</div>
+        </div>
+    </div>
+</body>
+</html>
