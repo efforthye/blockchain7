@@ -1,0 +1,205 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <form action="#" method="">
+        <!-- 
+            form은 사용자가 입력하는 데이터를 서버에 보내주는 태그(중요) 
+            자세하게는 자바스크립트 들어가서 하고, 지금은 모양과 입력만 본다.
+            POST와 GET방식이 있는데, 서버 들어가서 할 것이고. 지금은 그런게 있다 정도만 알기.
+            table, ol, ul처럼 form도 부모로서 쓴다.(중요)
+            자동완성을 할 때 action이 생기는데 action속성은 어디에 보낼지 서버의 주소를 입력하는 것이다.(중요)
+            #은 W3C에서 주소가 없을 때 넣도록 권장하는 권장사항이다. 어디든 주소가 없으면 #을 넣기(중요)
+            method 속성에는 get, host가 있는데 뭐가 다른지는 서버 들어가서 배운다.
+            method 속성은 데이터를 어떤 방식으로 보낼 것인지 설정한다. <<위에서 얘기한 GET, POST..
+            GET은 주소에 입력한 데이터가 나온다.
+            POST는 
+            거의 쓸 일은 없지만 target은 a(링크)랑 같다.
+        -->
+        <fieldset>
+            <!-- 
+                fieldset은 쓰고 싶으면 쓰기, 필드셋 태그는 폼 안의 영역을 구분해 주며, 사실 div를 써도 상관없다.
+                fieldset은 기본 style이 있어서 넣기만 해도 선이 눈에 보인다. 그냥 div에 css를 넣는 경우가 더 많다.
+            -->
+            <legend>필드셋의 제목으로, 필드셋의 왼쪽 위에 뜨며 설문조사 처럼 쓰인다.</legend>
+            <input type="text" id="text" name="dkanrjsk" autofocus/>
+            <!-- 
+                input 태그는 이름 그대로 사용자가 데이터를 입력하는 영역이다.(중요)
+                type 속성에서 사용할 것이 매우 다양하다..
+                text는 이름 그대로 글을 적는 것이다.
+                id 속성은 조금있다 왜 넣는지 알려줌
+                name 속성은 서버에 보낼 때 어떤 이름을 갖고 있는지, 데이터에 대한 이름을 같이 보낸다.(중요)
+                일단 name속성에 아무거나를 적어놨고, 인풋에 ㅇㅅㅇ를 입력했더니 아래처럼 나왔다.
+                http://127.0.0.1:5500/New.No.003/form/index.html?dkanrjsk=ㅇㅅㅇ#
+                Javascript쓰면 쓸 일이 생긴다고 한다.
+                id 속성은 label 태그와 연결하기 위해 사용한다.
+            -->
+            <label for="text">아무거나 입력해 보세요.</label>
+            <!-- 
+                label 태그는 입력 값에 대한 제목을 사용자에게 보여준다.
+                ex) 성명, 이름, 번호, 메일 등 
+                for 속성은 input 태그와 연결하기 위해 사용하며
+                label for은 input id랑 같아야 연결된다.
+                라벨 부분 클릭시 연결된 input에 바로 입력할 수 있도록 해준다.(focus : 포커스)
+            -->
+
+            <label for="pw">
+                비밀번호 : 
+                <input type="password" id="pw" name="pw">
+            </label>
+            <!-- 
+                input에서 type 속성이 password값을 가지는 input 태그는 말 그대로 비밀번호를 입력할 수 있게 해준다.
+                -> 입력된 데이터를 알아서 동그라미로 가려준다.
+            -->
+
+            <label for="tel">
+                전화번호 : 
+                <input type="tel" id="tel" name="tel">
+            </label>
+            <!-- input type tel은 어차피 필터링이 안돼서 text와 거의 다름없으며, 나중에 자바스크립트로 처리해 주어야 한다. -->
+
+            <div>
+                <label for="number">나이 :</label>
+                <input type="number" id="number" name="age">
+                <!-- 
+                    e는 숫자로 취급
+                    label과  
+                -->
+            </div>
+             
+            <div>
+                <label for="url">주소를 입력해 주세요.</label>
+                <input type="url" id="url" name="url">
+            </div>
+            <div>
+                <label for="search">검색어 입력해 주세요.</label>
+                <input type="search" id="search">
+            </div>
+            <div>
+                <label for="email">이메일을 입력해 주세요.</label>
+                <input type="email" id="email">
+                <!-- 
+                    이메일은 필터링이 잘 되어있어 제대로 작성하지 않으면 데이터를 넘길 수 없다.
+                 -->
+            </div>
+            <div>
+                <label for="checkbox">동의 하십니까?</label>
+                <input type="checkbox" id="checkbox" checked />
+                <!-- 
+                    checkbox는 이름 그대로 체크 박스이다.
+                    input에 checked라는 속성을 설정하면 체크된 상태로 출력된다.
+                 -->
+            </div>
+            <div>
+                좋아하는 과일은?
+                <input type="radio" id="radio1" name="radio">
+                <label for="radio1">바나나</label>
+                <input type="radio" id="radio2" name="radio">
+                <label for="radio2">복숭아</label>
+                <input type="radio" id="radio3" name="radio">
+                <label for="radio3">귤</label>
+                <input type="radio" id="radio4" name="radio1">
+                <label for="radio4">중복되는 과일</label>
+                <!-- 
+                    type radio는 하나만 선택할 수 있는 여러 개의 체크박스이다.
+
+                    중복되는 과일이 중복될 수 있는 이유는 name이 다르기 때문이다.
+                    name을 사용해서 중복을 체크한다..
+                    라디오 주파수 하나를 맞추면 다른 소리 못 듣는 것처럼 하나만 선택할 수 있다는 뜻이다.
+                    name은 라디오의 개수로 취급하면 된다고 생각..
+                    name이 여러개면 그놈을 선택했을 때 취소가 되지 않는다고 한다.
+                 -->
+            </div>
+
+            <div>
+                <input type="text" id="text1">
+                <!-- 
+                    label의 for 속성과 input의 id 속성이 같은 값을 가지면
+                    위치와 상관 없이 label 클릭 시 input에 입력할 수 있도록 커서가 이동된다.
+                -->
+            </div>
+
+            <input type="file" />
+            <input type="image" src="../../images/friends.png" name="" id="">
+            <!-- 
+                input type image는 버튼을 이미지로 출력할 때 사용한다.
+                image를 넣어서 버튼을 대체한다.
+            -->
+
+            <button>
+                <img src="../../images/friends.png" alt="#">
+            </button>
+            <div style="cursor: pointer;">보내기</div>
+            
+            <div>
+                <label for="birthday">생일은</label>
+                <input type="date" id="birthday">
+            </div>
+
+            <div>
+                <input type="color">
+                <!-- 많이 사용하게 될 것 같다고 한다. -->
+            </div>
+
+            <textarea cols="30" rows="10"></textarea>
+            <!-- 
+                커다란 영역이 생기는데 이가 textarea이다. 여러줄 입력 가능한 input이다.
+                텍스트 입력을 여러줄로 할 수 있고, 상황에 따라 그림을 그리거나 사용자가 늘리거나 줄일 수도 있다.
+            -->
+            <select name="area">
+                <!-- 
+                    select는 선택하는 입력값이고, 다만 한 칸에 보여준다.
+                    옆의 내림 표시를 누르면 선택할 수 있는 목록이 쫘르륵 뜨며 
+                    option에 설정한 목록들이 뜨느다.
+                    option은 select에서 선택할 메뉴들이며, option의 속성인 value가 중요하다.
+                    option value에 넣는 것은 자유인데, 보내줄 것이라서..
+                    value는 입력된 값인데, select option은 입력된 값이라서 value를 미리 설정해두어야 한다.
+                    option은 무조건 select의 자식으로 들어가야 한다.(중요중요) css가 엮여있다.
+                    서버에서는 그럼 seoul을 받았을 떄 서울이라고 답하는 그것을 또다시 똑같이 설정해 주어야 한다.(중요)
+                -->
+                <option value="seoul">서울</option>
+                <option value="rudrleh">경기도</option>
+                <option value="in">인천</option>
+                <option value="Busan">부산</option>
+                <option value="rkddnjseh">강원도</option>
+            </select>
+
+            <input type="text" placeholder="미입력시 미리 출력되는 텍스트, 입력하면 사라진다.(중요)">
+            <!-- autofocus 속성은 페이지 진입 시 자동으로 바로 입력할 수 있게 커서를 넣어주는 것이다.(중요) -->
+
+
+
+            <button type="reset">입력값초기화</button>
+            <button type="submit">
+                <!-- 
+                    button은 누르는 것, 이름 그대로 버튼이다.(중요) 
+                    보통 a는 다른 웹 페이지로 이동만 할 때 쓰이지만
+                    button은 그냥 다 쓴다. a 대신 버튼을 쓰기도 한다.(중요)
+                    button은 기본적으로 작동하는 게 없어서 Javascript를 넣어야 하지만
+                    a처럼 무조건 작동하는 게 없어서 오히려 편하다고 한다.
+                    이동하지 않고 작업하고 싶을 떄 button을 쓰면 된다.
+
+                    type은 어떠한 작동을 할 것인지 기본 작동을 설정하는 것이다.
+                    type submit은 form의 데이터를 보낼 때 사용한다.(중요)
+                -->
+                보내기
+            </button>
+        </fieldset>
+
+    </form>
+
+    <div>
+        <label for="test1">클릭 테스트</label>
+    </div>
+
+    <!-- 
+        서버한테 회원가입을 하기 위해 개인정보를 줄 때
+        아이디는 hyerim 비번은 hyerim 이름은 hyerim이고 직업은 hyerim이고 취미는 game일 때
+        왼쪽(아이디/비번/이름/직업/취미)이 name이고 오른쪽(사용자가입력한값,hyerim/game)이 value라는 뜻이다.
+    -->
+</body>
+</html>
