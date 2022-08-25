@@ -1,0 +1,49 @@
+body{
+    margin: 0; padding: 0;
+}
+.wrap{
+    background-color: #9F8180;
+    max-width: 1200px;
+    min-width: 550px;
+    color: #072E17;
+    margin: auto;
+    border: 10px double #072E17;
+
+}
+.header{
+    padding: 30px 90px 10px 90px;
+}
+.menuLogo{
+    position: absolute;
+    left: 45%;
+}
+
+.menuWrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 30px;
+
+}
+.menu{
+    position: relative;
+    width: 450px;
+    border-radius: 8px;
+    margin: 20px;
+
+    background: fixed;
+    background-size: contain;
+    background-color: #F5F6F0;
+
+    padding: 10px;
+
+}
+.menuImg{
+    width: 140px;
+    height: 140px;
+    left: 20px; top: 20px;
+    border-radius: 5px 0 0 0;
+
+    float: left;
+    margin-right: 10px;
+}

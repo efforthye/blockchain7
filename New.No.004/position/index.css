@@ -1,0 +1,52 @@
+.position1{
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    position: relative;
+    /* 
+        relative는 이전 영역의 위치를 기준으로 한다. (이해가 안됨, 중요)
+        정확히는 inline-block, float처럼 연속되는 공간을 기준으로
+        흐름에 맞춰서 한다.
+        첫 번째 자식이라면 부모의 좌측 상단(top, left)를 기준으로
+        첫번째 자식이 아니면 이전 형제의 좌측 상단(left, top)을 기준으로
+        만약에 block이면 좌측 하단(left, bottom)에 맞춘다.
+    */
+
+    top: 100px; 
+    left: 100px;
+
+}
+
+.position2{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    /* background-image: url(../../images/goodgood.png);
+    background-size: contain; */
+
+    position: absolute;
+    /* 
+        position absolute는 이전 영역과 같은 위치를 기준으로 한다. 
+        부모의 좌측 상단을 기준으로 한다. 
+        절대적 위치 : 흐름을 맞추지 않고 위치를 정하는 것이다.
+        상단 부모의 position이 있어야 적용된다. 없으면 자신의 부모의 부모 영역을 확인한다.
+    */
+    position: relative;
+    position: fixed;
+    /* fixed는 브라우저 기준으로 위치를 고정시킨다. 이거는 그냥 고정이고 */
+    position: sticky;
+    /* position sticky는 내렸을 때 고정된다. 완전 신기
+        메뉴를 고정시키는 느낌, 내려도 안 사라지는 애를 이걸로 설정할 수 있다.(중요)
+        설정된 위치 밖으로 나가지 못하도록 막는다. 어떻게 사용하는지 잘 모르겠다.
+    */
+
+    /* 상단, 우측, 아래, 좌측 */
+    top: 100px;
+    /* right: 100px;
+    bottom: 100px; */
+    left: 100px;
+
+}
+.position3{
+    background-color: rgba(167, 173, 255, 0.342);
+}

@@ -1,0 +1,23 @@
+.border{
+    width: 100px;
+    height: 100px;
+    
+    border-radius: 10px; /* 자주 사용할 예정임, 100%하면 원이 만들어진다. */
+    /* 외관선의 모서리를 깎아 둥글게 만든다. 반지름을 입력한다(중요) */
+
+    border: 1px solid black;
+    /* 정말 자주 쓰는 것이다. 외곽선을 그린다. */
+    border: 10px dashed red;
+    /* 외곽선을 점선으로 그린다. */
+    border: 10px double blue;
+    /* 외곽선을 두줄로 그린다. */
+    border: 10px dotted violet;
+    /* 외관선을 점으로 찍는다. */
+    border: none;
+    /* 외곽선 삭제이다. */
+
+    border-width: 10px;
+    border-color: brown;
+
+
+}
