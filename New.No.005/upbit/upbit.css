@@ -1,0 +1,263 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.headerListWrap a{
+    /* color: #424242; */
+    color: #f4f4f4;
+}
+
+hr{
+    background-color: #f4f4f4;
+    color: #f4f4f4;
+    border-color: #f4f4f4;
+}
+#header{
+    min-height: 80px;
+    background-color: rgb(0, 0, 0);
+    background-image: url(a274e8c6-a07a-4af2-acf8-87fdbc73f2d6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: imgSlide 6s ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes imgSlide {
+    0%{
+        /* transform: scale(5); */
+    }
+    25%{
+        background-image: url(f9cf7999-162a-4704-b116-8cd5d8afef99.png);
+    }
+    50%{
+        /* transform: scale(0.9); */
+        /* background-image: url(0cc1f543-5d7a-45d7-810d-79237510319b.png); */
+    }
+    75%{
+        background-image: url(121073ce-69d4-4e88-b5c4-98b468bd8668.png);
+    }
+    100%{
+        /* transform: scale(1); */
+        /* background-image: url(af0ef92f-902d-4aa1-8ce1-902bf9109a3c.png); */
+    }
+}
+.header{
+    width: 1400px;
+    height: 900px;
+    /* background-color: rgb(107, 189, 189); */
+    margin: auto;
+}
+.headerTop{
+    height: 80px;
+
+    /* background-color: aqua; */
+}
+.headerLeft{
+    /* background-color: rgb(245,245,245); */
+    height: 80px;
+    width: 60%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+.headerLogo{
+    /* background-color: aqua; */
+    width: 20%;
+    height: 80px;
+    float: left;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.headerListWrap{
+    /* background-color: aquamarine; */
+    float: left;
+}
+.headerList{
+    float: left;
+    margin-left: 30px;
+}
+.headerList:hover{
+    font-weight: 600;
+}
+.headerRight{
+    /* background-color: antiquewhite; */
+    width: 40%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    float: right;
+    padding-left: 380px;
+    box-sizing: border-box;
+}
+.headerRight>a{
+    float: right;
+    padding: 0 10px;
+}
+.headerRight:hover{
+    text-decoration: solid;
+}
+#body{
+    /* background-color: aliceblue; */
+    width: 1280px;
+    margin: auto;
+}
+
+.textWrap{
+    /* background-color: rgb(104, 104, 6); */
+    background-image: url(background_whatIsNft_fullImage.910ebd5.png);
+    background-size: cover;
+    height: 120px;
+    padding: 50px;
+    margin: 50px 0;
+}
+.textWrap>h2{
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+/* .marketplace{
+    padding: 25px 0;
+} */
+
+.sectionTop{
+    margin: 20px 0;
+}
+.sectionTop>h2{
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.sectionList{
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    overflow: hidden;
+}
+
+.cardItem{
+    width: 302px;
+    height: 513px;
+    /* background-color: azure; */
+    float: left;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    border-radius: 5px;
+}
+.cardItem div{
+    margin: 10px 0;
+}
+.cardItem:nth-child(4n){
+    margin-right: 0;
+}
+
+.cardItemImg>img{
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.cardItemImg>img:hover{
+    animation: imgHover 1s ease;
+}
+@keyframes imgHover {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.9);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.saleCount{
+    margin-top: 10px;
+    padding: 0 5px;
+}
+.itemSale{
+    background-color: #EDEFF4;
+    border-radius: 6px;
+    margin: 2px 0;
+    display: inline;
+    font-size: 12px;
+}
+.likeCount{
+    float: right;
+}
+.itemPrice{
+    font-weight: 600;
+}
+.grayTxt{
+    color: #999;
+}
+
+.itemOwner{
+    float: right;
+    color: #424242;
+}
+.itemOwner>img{
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    transform: translateY(6px);
+    margin-right: 5px;
+}
+
+.kbollect{
+    /* background-color: rgb(245,245,245); */
+    margin-bottom: 40px;
+}
+
+
+#footer{
+    background-color: #222;
+    color: #f4f4f4;
+    height: 140px;
+    padding: 30px 0;
+}
+
+.footer{
+    width: 1400px;
+    margin: auto;
+    background-color: rgb(136, 120, 120);
+}
+
+.footerLeft{
+    /* background-color: rgb(107, 0, 0); */
+    width: 12%;
+    float: left;
+}
+.footerCenter{
+    /* background-color: rgb(107, 70, 0); */
+    width: 63%;
+    float: left;
+    color: #9EA79E;
+    font-size: 14px;
+
+}
+.footerNav{
+    color: #f4f4f4;
+}
+.footerInfo{
+    margin: 10px 0;
+}
+
+.footerRight{
+    /* background-color: rgb(85, 85, 0); */
+    width: 25%;
+    float: left;
+}
+.footerRight ul{
+    text-align: right;
+}
+.footerRight li{
+    display: inline;
+}
+.footerRight p{
+    text-align: right;
+    font-size: 13px;
+}
