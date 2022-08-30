@@ -109,33 +109,154 @@ hr{
 
 .textWrap{
     /* background-color: rgb(104, 104, 6); */
-    background-image: url(background_whatIsNft_fullImage.910ebd5.png);
-    background-size: cover;
-    height: 120px;
     padding: 50px;
     margin: 50px 0;
 }
+.textWrap p{
+    margin-top: 20px;
+}
+.textWrap strong{
+    font-size: 24px;
+}
 .textWrap>h2{
-    margin-bottom: 20px;
     font-weight: normal;
+}
+.topBanner{
+    background-image: url(banner_main_pc_kbo.6504768.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    background-color: rgb(245,245,245);
+}
+.topBanner>a{
+    color: #222;
+}
+
+.dropsTopText{
+    text-align: center;
+    /* background-color: #424242; */
+    padding: 20px 0;
+
+}
+.dropsTopText>h3{
+    font-size: 42px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.dropsItem{
+    background-color: rgb(245,245,245);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* margin: 20px 0; */
+
+}
+.bigDropsImg{
+    width: 625px;
+    height: 625px;
+    background-image: url(af0ef92f-902d-4aa1-8ce1-902bf9109a3c.png);
+    background-size: cover;
+    display: inline-block;
+    border-radius: 5px;
+    /* margin-left: 5px; */
+}
+/* .dropsTextWrap{
+    color: rgb(255, 255, 255);
+} */
+.bigDropsImg{
+    position: relative;
+    float: left;
+}
+.bigDropsImg>.dropsTextWrap{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: #EDEFF4;
+    font-weight: 600;
+    font-size: 17px;
+    background-repeat: repeat;
+}
+
+.smallImages{
+    background-color: rgba(255, 247, 238, 0.986);
+    width: 625px;
+    /* width: 630px; */
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly;
+    align-items: center; */
+    justify-content: space-between;
+    align-items: stretch;
+}
+.smallImage{
+    width: 300px;
+    height: 300px;
+    background-color: #424242;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgba(255, 255, 255, 0.842);
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-bottom: 5px; */
+
+
+}
+.smallImage>.dropsText{
+    position: absolute;
+    bottom: 10px; left: 10px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.addSee{
+    width: 260px;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+    line-height: 60px;
+    margin: 20px auto;
+    
+}
+.drops>a{
+    color: #424242;
+    background-color: #999;
+    vertical-align: middle;
+    width: 260px; height: 60px;
+
+}
+
+.centerBanner{
+    background-image: url(background_whatIsNft_fullImage.910ebd5.png);
+    background-size: cover;
+    height: 120px;
+
 }
 
 /* .marketplace{
     padding: 25px 0;
 } */
 
-.sectionTop{
-    margin: 20px 0;
+.marketTopText{
+   margin: 20px 0;
 }
-.sectionTop>h2{
+.marketTopText>h2{
     font-size: 40px;
     margin-bottom: 5px;
 }
 
-.sectionList{
+.marketTopText{
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between; */
+    overflow: hidden;
+}
+.itemList{
     overflow: hidden;
 }
 

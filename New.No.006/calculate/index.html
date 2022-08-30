@@ -1,0 +1,152 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate</title>
+    <style>
+        .hi{
+            width: 100px; height: 100px;
+            background-color: rgb(245,245,245);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        /* .h1:hover{
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1); */
+            /* background-color: white;
+            border: 1px solid black;
+        } */
+    </style>
+</head>
+<body>
+    <div class="hi">
+
+    </div>
+    <script>
+
+        // 형변환 : 자료형을 바꿔준다. ex) string -> number
+        // 형변환은 나중에 다시 배운다고 한다. 일단은 연산자가 더 중요(중요!)
+        
+        // 4교시, 연산자 : 말 그대로 연산(계산)하는 명령어이다.
+        // 연산자를 알아야 조건문을 사용할 수 있다.(중요)
+        // +, -, *, /, %, **, --, -, !, &&, ||, =, +=, -=, *=, /=, %=, 
+        // **=, ==, ===, !=, !==, >, <, >=, <=
+        // +는 모르면 안되지? 
+        // 숫자는 + 더하기 자체, 글자는 두개의 글자가 있다면 붙인다.
+        let plus1 = "자료";
+        let plus2 = "구조";
+        console.log(plus1+plus2);
+        // 숫자랑 글자를 더하면? 그냥 글자로 취급해서 붙인다. 형변환이 중요하다!
+        
+        // -는 숫자에서만 사용한다.
+        // *는 숫자에서 사용합니다.
+        // /는 숫자에서 사용합니다.
+        // %는 숫자에서 사용합니다. 나머지를 구하는 것이다.
+        console.log(4/3); //나누기 : 1.333333
+        console.log(4%3); //나머지 : 1.333333 -> 1
+        console.log(5%3); //나머지 : 1.666666 -> 2
+
+        // **는 숫자에서 사용합니다. 제곱입니다.
+        console.log(3**4); //3의 4제곱 : 81
+
+        // ++, -- 둘다 카운터용으로 사용한다. 숫자를 하나 늘리거나 줄이거나 할 때 사용한다. (중요)
+        // 개념 확실히 알기(중요) 나는 잘 알고있기는 함 계산과 출력의 순서
+        let count = 0;
+        console.log(++count); //1
+        // ++은 +1을 한다. 앞에 붙으면 +1을 하고서 그 줄을 실행한다.
+        console.log(--count); //0
+        // --은 -1을 한다. 앞에 붙으면 -1을 하고서 그 줄을 실행한다.
+        console.log(count++); //0
+        // ++은 +1을 한다. 뒤에 붙으면 그 줄을 실행하고서 +1을 한다.
+        console.log(count--); //1
+        // --은 -1을 한다. 뒤에 붙으면 그 줄을 실행하고서 -1을 한다.
+        console.log(count); //0
+
+        // 1. ++count : 1을 더하고 console.log를 실행한다.
+        count = count+1; //1
+        console.log(count);
+        // 2. --count : 1을 빼고 console.log를 실행한다.
+        count = count-1; //0
+        console.log(count);
+        // 3. count++ : console.log를 실행하고 1을 더한다.
+        console.log(count);
+        count = count+1; //0
+        // 4. count-- : console.log를 실행하고 1을 빼준다.
+        console.log(count);
+        count = count-1; //1
+        // 클릭하면 카운트 올리고, 클릭하면 카운트 내리고 할 때 사용한다고 한다.
+
+        // -, ! : 현재 상태의 부정이다.
+        // 변수가 true면 false로 바꿔준다.
+        // !!는 부정의 부정이다. 만약 현재가 boolean값이 아닌데 
+        // boolean값으로 바꿔주고 싶을 때 !!를 많이 사용한다.(중요)
+        let exclamation = 1; //1은 true이기 때문이다.
+        console.log(!exclamation); //false
+        console.log(!!exclamation); //true
+        console.log(typeof exclamation); //number
+        console.log(typeof !exclamation); //boolean
+        console.log(typeof !!exclamation); //boolean
+
+        // = : 대입 연산자, 좌측에다가 우측의 값을 정의한다.
+        let test = 1;
+        // +=, -=, *=, /=, %=, **=
+        test += 2; //3
+        // test = test + 2 라는 뜻이라고 한다. 
+        //(중요, 테스트의 값에 +2를 해주고 재정의한다.)
+        test -= 2; //1
+        // test = test - 2 : test의 값에 -2를 해주고 재정의
+        // *=, /=, %=, **= 도 마찬가지로 계산하고 재정의해준다.
+        let test1 = 2;
+        test1 **= 3; //2의 3제곱 : 8
+        console.log(test1);
+
+        const test2 = 1;
+        const test3 = 2;
+        const test4 = 1;
+        const test5 = "1";
+        // =을 지금까지는 같다는 의미로 사용했을텐데 그게아니라 코딩에서는 대입연산자이다.
+        // 같다는 의미는 ==로 사용해야 한다.(중요)
+        console.log(test2 == test3); //false
+        console.log(test2 == test4); //true
+        console.log(test2 == test5); //true
+        // == 는 값이 같다는 의미이다.
+        console.log(test2 === test5); //false
+        // === 는 값과 자료형이 같은지 확인하는 것이다.
+        
+        console.log(test2 != test3); //true
+        console.log(test2 != test4); //false
+        console.log(test2 != test5); //false
+        console.log(test2 !== test5); //true, 2는 1이로 5는"1"인데..
+        // ! : 부정의 의미
+        // != 은 같지 않은가를 확인한다.
+        // !== 은 === 과 마찬가지로 자료형까지 확인한다. (중요)
+        console.log(!(test2 == test3)); //true, 1과 3은 같지않다.
+
+        // > 초과, < 미만, >= 이상, <= 이하
+        // const test2 = 1;
+        // const test3 = 2;
+        // const test4 = 1;
+        // const test5 = "1";
+        console.log(test2 < test3); // true
+        console.log(test2 < test4); // false, 같기때문
+        console.log(test2 < test5); // false, 같기때문
+
+        console.log(test2 > test3); // false
+        console.log(test2 > test4); // false
+        console.log(test2 > test5); // false
+
+        console.log(test2 <= test3); // true
+        console.log(test2 <= test4); // true
+        console.log(test2 <= test5); // true
+
+        console.log(test2 >= test3); // false
+        console.log(test2 >= test4); // true
+        console.log(test2 >= test5); // true
+
+        
+
+
+
+    </script>
+</body>
+</html>
