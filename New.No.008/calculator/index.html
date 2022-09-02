@@ -1,0 +1,77 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <script src="index.js"></script>
+    <style>
+        button{
+            width: 30px;
+        }
+        .wrap{
+            background-color: rgb(245,245,245);
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 오늘의 과제 : 숫자 선택(2개)를 하고, +, -, *, /, % 중 하나를 누르면-->
+    <!-- 계산된 값이 alert 창으로 출력되도록 한다. -->
+
+    <!-- 
+        누르자마자 바로 결과가 나오지 않고 = 을 눌러야만 결과가 나오게
+     -->
+     <p>숫자 2개를 먼저 선택하고 버튼중 하나를 누르면 계산된 값이 alert창으로 출력</p>
+
+    <div class="wrap">
+
+        <br>
+        <button onclick="num(7)">7</button>
+        <button onclick="num(8)">8</button>
+        <button onclick="num(9)">9</button>
+        <button onclick="calculate('multi')">*</button><br/>
+        <button onclick="num(4)">4</button>
+        <button onclick="num(5)">5</button>
+        <button onclick="num(6)">6</button>
+        <button onclick="calculate('minus')">-</button><br/>
+        <button onclick="num(1)">1</button>
+        <button onclick="num(2)">2</button>
+        <button onclick="num(3)">3</button>
+        <button onclick="calculate('plus')">+</button><br/>
+        <button onclick="calculate('division')">/</button>
+        <button onclick="num(0)">0</button>
+        <button onclick="calculate('percent')">%</button>
+        <button onclick="result()">=</button>
+    </div>
+
+
+</body>
+</html>
+
+
+
+        <!-- <button onclick="calculate(plus)">+</button> -->
+        <!-- 이렇게 하면 plus라는 변수를 찾으려 해서 안된다. -->
+
+        <!-- <br>
+        <button onclick="num(0)">0</button>
+        <button onclick="num(1)">1</button>
+        <button onclick="num(2)">2</button>
+        <button onclick="num(3)">3</button>
+        <button onclick="num(4)">4</button>
+        <button onclick="num(5)">5</button>
+        <button onclick="num(6)">6</button>
+        <button onclick="num(7)">7</button>
+        <button onclick="num(8)">8</button>
+        <button onclick="num(9)">9</button>
+        <br/> -->
+        <!-- <button onclick="calculate(plus)">+</button> -->
+        <!-- 이렇게 하면 plus라는 변수를 찾으려 해서 안된다. -->
+        <!-- <button onclick="calculate('multi')">*</button>
+        <button onclick="calculate('minus')">-</button>
+        <button onclick="calculate('plus')">+</button>
+        <button onclick="calculate('division')">/</button>
+        <button onclick="calculate('percent')">%</button>
+        <button onclick="result()">=</button> -->
