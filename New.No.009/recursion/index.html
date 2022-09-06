@@ -1,0 +1,41 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recursion, 재귀함수</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        // 재귀함수란 자기 자신을 호출하는 함수이다.
+        // 거의 쓸 일이 없지만 기억은 해두자.
+        // 4 팩토리얼이면 4*3*2*1 이다.
+        // 함수의 매개변수 숫자가 계속 줄어들어 다 없어질 때까지 그 값을 곱한다는 뜻이다.
+
+        function factorial(num){
+            if(num == 1) return 1;
+            //console.log("현재 숫자 : "+num+" / 곱셈 : "+num+" * "+factorial(num-1));
+            // console.log(`현재 숫자 : ${num} / 곱셈 : ${num} * `+factorial(num-1)+``);
+            console.log(`현재숫자 : ${num}`);
+            return num * factorial(num-1);
+            // return에서 factorial 함수가 factorial 함수를 호출했다. (이해 잘하기)
+        }
+        console.log(factorial(1)); //여기서부터 읽어야 한다.
+        console.log(factorial(2));
+        console.log(factorial(3));
+        console.log(factorial(4));
+        console.log(factorial(5));
+
+        // 과제(정현, 재훈, 성진, 우석, 영준, 정규, 혜림)
+        // 피보나치 수(1, 1, 2, 3, 5, 8, 13, 21, ... 이렇게 앞의 두 개를 더해주는 것이다.), 
+        // 하노이의 탑(조건 : 봉 3개, 첫번째 봉에서 3번째 봉까지 블록을 이동시킴)
+        // 블록은 1번에 하나만 옮길 수 있다. 순서는 기존 쌓여있는 순서와같게 쌓아야 한다.
+        // 블록이 1개면 한번에 끝나겠지, 작은 블럭은 큰 블럭 아래에 넣을 수 없다.
+        // 하노이탑 알고리즘, 블럭은 매개변수로 넣는다. (입력받는 것도 해보던지)
+        // 재귀함수 연습이다. 위의 인원 제외한 나머지는 하고 싶으면 하기.
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
