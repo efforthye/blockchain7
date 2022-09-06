@@ -57,6 +57,12 @@ for(let i = 1; i <= userSelNum; i++){
             }
         }
 
+
+        
+    }
+}
+
+
         // //만약 유저가 고른게 홀수면 홀수만 출력되도록 하기..
         // if(number%2 === 1){
         //     console.log(`${number}은(는) 홀수`);
@@ -64,9 +70,6 @@ for(let i = 1; i <= userSelNum; i++){
         //     // 아니면 짝수를 콘솔에 찍어준다.
         //     console.log(`${number}은(는) 짝수`);
         // }
-        
-    }
-}
 
 
 
