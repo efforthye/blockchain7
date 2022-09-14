@@ -4,9 +4,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- 이 놈 말고 나머지는 외워야 한다.(중요) -->
     <!-- 손코딩 시험을 봤다고 한다. 면접볼 때 할 수도 있기 때문에.. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>홀수 짝수</title>
     <script src="index.js"></script>
+    <style>
+        div{
+            cursor: pointer;
+            border: 1px solid black;
+            width: 100px;
+            height: 40px;
+            background-color: lightblue;
+            margin: 5px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;
+        }
+        div:first-child{
+            background-color: lightgoldenrodyellow;
+        }
+        div:nth-child(2){
+            background-color: lightpink;
+        }
+    </style>
 </head>
 <body>
+    <div onclick="odd()">odd</div>
+    <div onclick="even()">even</div>
+    <div onclick="oddeven()">odd or even</div>
 </body>
 </html>
