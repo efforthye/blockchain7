@@ -1,0 +1,88 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        .toDoList{
+            width: 800px;
+            margin: auto;
+            background-color: rgb(245,245,245);
+            padding: 20px;
+            text-align: center;
+
+        }
+        #content{
+            width: 300px;
+            height: 25px;
+        }
+        #table{
+            /* background-color: aliceblue; */
+            width: 800px;
+        }
+        #tableItem{
+            text-align: center;
+        }
+        td{
+            height: 35px;
+        }
+        .addArea{
+            margin: 12px 0;
+            text-align: center;
+        }
+        .checked{
+            text-decoration: line-through;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="toDoList">
+        <h1>To Do List</h1>
+
+        <table id="table">
+            <thead>
+                <tr id="tableHeader">
+                    <!-- <th>번호</th>
+                    <th>확인</th>
+                    <th>내용</th>
+                    <th>시간</th>
+                    <th>추가/삭제</th> -->
+                </tr>
+                <tr class="addArea">
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" name="content" id="content"></td>
+                    <td><input type="text" name="time" id="time"></td>
+                    <td><button id="addBtn">추가</button></td>
+                </tr>
+                <!-- tr의 id(#tableHeader)를 통해 innerHTML로 th와 내용들을 추가한다. -->
+            </thead>
+            <tbody id="tableItem">
+                <!-- 
+                    add를 통해 받아온 값을 tbody의 맨 마지막 자식으로 넣어준다. 
+                    번호는 자동으로 넣어준다. 확인은 기본 x로 넣어준다.
+                    삭제도 일단
+                -->
+                <tr>
+                    <td>0</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td>노션 정리하기</td>
+                    <td>9시~11시</td>
+                    <td><button class="delete">삭제</button></td>
+                    <!-- 삭제 버튼을 클릭하면 해당 부모 요소가 사라진다. -->
+                </tr>
+                <!-- tr 반복 -->
+                <!-- tbody의 id(#tableItem)를 통해 tr을 변수로 만들어 추가하고 td와 내용들을 추가한다.  -->
+            </tbody>
+        </table>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+<!-- /* .add{
+    height: 150px;
+} */ -->
