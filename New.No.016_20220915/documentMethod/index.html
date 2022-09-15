@@ -1,0 +1,20 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Method</title>
+    <script>
+        function tempOnLoad(){
+            console.log("testing");
+        }
+    </script>
+</head>
+<!-- body가 로드되면 tempOnLoad()함수가 호출된다. -->
+<body onload="tempOnLoad()">
+<!-- 위의 줄이 끝나면 body를 생성해서 DOM에 추가하는데, 그 때 onload메서드가 실행된다. -->
+    <div id="root"></div>
+
+    <script src="index.js"></script>
+</body>
+</html>
