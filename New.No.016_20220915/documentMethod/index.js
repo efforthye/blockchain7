@@ -20,7 +20,37 @@ root.onwheel = (e) => {
     // console.log(e);
     // 현재 실행한 놈이 어떤 놈인지 알아낸다.(delete에서 사용한다.)
     console.log(e.target);
-}
+};
+
+// on 어쩌구 하는 메서드를 쓰는데 그게 뭐냐?
+// on***은 전부 이벤트 함수라고 부른다.(중요)
+// 즉 클릭, 키다운, 입력 등 사용자의 입력에 대해서 이벤트가 발생했을 때 실행된다.(게임에 쓸수있을듯)
+// onchange는 변화가 완료됐을 때
+document.getElementById('name').onchange = (e) =>{
+    // e.target은 해당 메서드가 어디서 실행됐는지 포커스혹은 마우스 등 의 위치가 기준이 될수 있다.
+    console.log(e.target.value);
+};
+// 입력했을 때(중요)
+document.getElementById('name').oninput = (e) =>{
+    // e.target은 해당 메서드가 어디서 실행됐는지 포커스혹은 마우스 등 의 위치가 기준이 될수 있다.
+    console.log(e.target.value);
+};
+
+// addEventListener()은 클릭? (중요)
+// 이벤트 함수를 엘리먼트에 추가하는 방법을 배운 것이다.
+document.getElementById('name').addEventListener('click', (e)=>{
+    console.log(e.target);
+});
+// 이렇게 바꿔도 상관없다.
+document.getElementById('name').addEventListener('click', ()=>{
+    console.log("인풋을 클릭했어~");
+});
+
+// ontouch..? 핸드폰 터치도 인식할 수 있다.
+// 다중터치도 인식 된다고 한다.
+// onresize를 사용해 브라우저의 크기가 달라졌을때 크기 측정(콘솔로그가능)
+// 너비 몇 높이 몇
+
 
 
 // 10번 for문을 돌려 10개의 div를 만든다.
@@ -39,3 +69,11 @@ for(let i = 0; i<10; ++i){
     // root.prepend(tempElem);
 
 }
+
+
+// 스타일을 바꿀 수 있다. (html 태그의 속성에 넣는 것과 같다.)
+document.getElementById('name').style.backgroundColor="lightgray";
+
+// 1px solid black이 출력된다.
+let border = document.getElementById('name').style.border;
+console.log(border);

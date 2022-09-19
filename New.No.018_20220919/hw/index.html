@@ -1,0 +1,94 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <img src="images/free-icon-bitcoin-838352.png" alt="비트코인" class="bitcoin">
+            <!-- span안의 value값을 document. 으로 가져와 int로 형변환하고 값을 변경시킬수 있게 한다. -->
+            <p id="coinCount" class="coinCount"></p>
+        </div>
+        <!-- 가운데 원 겁나 크게 검정색으로 만들기 -->
+        <div id="content">
+            <div class="backgroundCircle"></div>
+            <!-- 이겼다X2 졌다 비겼다 만들기 -->
+            <div id="victory1" class="victoryDefeat victory1">이겼다</div>
+            <div id="victory2" class="victoryDefeat victory2">이겼다</div>
+            <div id="defeat" class="victoryDefeat"><span>졌다</span></div>
+            <div id="same" class="victoryDefeat"><span>비겼다</span></div>
+            <div class="arrow"></div>
+
+            <div class="circleTop"></div>
+            <div class="circle">
+                <!-- 작은 원이 있던 자리 -->
+                <div id="num">
+                    <div class="num num1">4</div>
+                    <div class="num num2">1</div>
+                    <div class="num num3">2</div>
+                    <div class="num num4">7</div>
+                    <div class="num num5">4</div>
+                    <div class="num num6">2</div>
+                    <div class="num num7">3</div>
+                    <div class="num num8">20</div>
+                    <div class="num num9">1</div>
+                    <div class="num num10">2</div>
+                    <div class="num num11">6</div>
+                    <div class="num num12">1</div>
+                    <div class="num num13">3</div>
+                    <div class="num num14">2</div>
+                    <div class="num num15">1</div>
+                    <div class="num num16">1</div>
+                    <!-- className으로 innerText해서 값을 뽑아와 int로 형변환해준다. -->
+                </div>
+
+            </div>
+            <div class="smallCircleWrap">
+                <div class="smallCircleTop"></div>
+                <div class="smallCircle">
+                    <div class="circleImgTop"></div>
+                    <div id="circleImg" class="circleImg">
+                    </div>
+                </div>
+            </div>
+        </div><!--//#content-->
+        <div id="footer">
+            <!-- Rock Paper Scissors -->
+            <div id="RPS">
+                <!-- 위에 rps()함수가 선언 되어있지 않아 사용할 수 없다. -->
+                <!-- <div id="scissors" onclick="rps(s)"> -->
+                <div id="scissors" class="s">
+                    <img src="images/free-icon-scissors-7218725.png" alt="가위" class="rps">
+                    <div><span>가위</span></div>
+                </div>
+                <div id="rock" class="r">
+                    <img src="images/free-icon-closed-fist-4660167.png" alt="바위" class="rps">
+                    <span>바위</span>
+                </div>
+                <div id="paper" class="p">
+                    <img src="images/free-icon-hand-palm-3562233.png" alt="보" class="rps">
+                    <span>보</span>
+                </div>
+            </div>
+            <div class="coinHoleWrap">
+                <div class="ironPlate">
+                    <div class="coinHole"></div>
+                </div>
+                <!-- <button type="button" class="startBtn">START</button> -->
+                <div id="startBtnWrap">
+                    <button type="button" id="startBtn" class="startBtn">START</button>
+                    <!-- <button type="button" id="startBtn" class="startBtn start">START</button> -->
+                    <!-- <button type="button" id="startBtn" class="start">START</button> -->
+                    <!-- 코인 버튼을 누르면 display none으로 일단 없앤다. -->
+                </div>
+            </div>
+        </div><!--//#footer-->
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

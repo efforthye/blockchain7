@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+}
+.header{
+    background-color: rgb(245,245,245);
+}
+.headImg{
+    /* background-position : 배경의 위치를 정해준다. 
+        백그라운드 포지션 2개의 %를 준 이유는 모르겠다. */
+    /* background-image: url(./1e337aca6926e6390da9170be3bb09db.png);
+    background-position: 50% 273%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    overflow: hidden; */
+    
+    background-image: url(./1e337aca6926e6390da9170be3bb09db.png);
+    background-position: 50% 1%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    overflow: hidden;
+    /* width: 100%; */
+}

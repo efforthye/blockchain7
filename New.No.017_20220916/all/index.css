@@ -1,0 +1,31 @@
+div{
+    /* # CSS 문법 : div, .div1, #id, .class 등을 선택자라고 한다. */
+    /* # Tag 선택자 : div, a, p 등의 태그에 적용하는 것. */
+    /* # class 선택자 : .class, .div1, .div2 등 .***으로 설정해 CSS 스타일을 적용하는 것.  */
+    /* # 이외에 id 선택자(#), 가상 클래스(의사 선택자, 의사 요소) 등이 있다. 알아서 찾아 보라고 함.  */
+    
+    /* # CSS 속성 : display, justify-content, align-items, width, height,  */
+    /* bacground-color, z-index, opacity, color, text-align, font-size 등을 뜻한다. */
+    /* CSS 속성과 HTML의 속성(Attribute:src,alt,style,class등)은 다른 것이므로 구분해야 한다. */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 255, 255, 0.13);
+}
+.div1{
+    width: 400px;
+    height: 400px;
+    background-color: rgb(255, 77, 77);
+}
+.div2{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(255, 188, 62);
+}
+.div3{
+    background-color: rgb(255, 255, 66);
+}
+.div4{
+    background-color: yellowgreen;
+}

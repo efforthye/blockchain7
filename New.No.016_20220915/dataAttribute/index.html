@@ -1,0 +1,55 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dataSet{
+            height: 60px;
+            width: 200px;
+            text-align: center;
+            line-height: 60px;
+            font-weight: 700;
+            font-size: 20px;
+            color: lightcoral;
+            cursor: pointer;
+            border: 3px dotted lightcoral;
+            border-radius: 10px;
+            background-color: rgb(245,245,245);
+        }
+    </style>
+</head>
+<body>
+    <div id="dataSet" data-count="0" data-type="a">count</div>
+
+    <script>
+
+        // 현재 #dataSet의 data 속성중 count를 가져와서 일단 0을 띄웠다. 
+        // 속성을 data-***을 설정하면, javascript에서 dataset이라는 
+        // 프로퍼티 객체에 ***이라는 프로퍼티로 저장된다.
+        console.log(document.getElementById("dataSet").dataset.count);
+        console.log(document.getElementById("dataSet").dataset.type);
+
+
+        // #dataSet을 클릭하면 클릭한 숫자를 가져옴
+        document.getElementById("dataSet").onclick = (e) =>{
+
+            // dataset은 이렇게 수정도 가능하다.
+            e.target.dataset.count = parseInt(e.target.dataset.count)+1;
+            console.log(e.target.dataset.count);
+
+            // 지금 시간을 #dataSet의 data-time에 담아준다.
+            // data- 속성에 접근하는 것이 dataset이라고 생각하면 된다.
+            document.getElementById("dataSet").dataset.a = Date.now();
+
+            // Date.now 메서드는 현재 시간을 가져온다.
+            console.log(
+                new Date(parseInt(document.getElementById("dataSet").dataset.a))
+            );
+        }
+
+    
+    </script>
+</body>
+</html>

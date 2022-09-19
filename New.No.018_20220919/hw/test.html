@@ -1,0 +1,209 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circleWrap{
+            margin: auto;
+            width: 560px;
+            height: 560px;
+            background-color: rgb(245,245,245);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            border-radius: 50%;
+            position: relative;
+
+            background: conic-gradient(
+                white 0deg 11.25deg,
+                brown 11.25deg 33.75deg, white 33.75deg 56.25deg,
+                brown 56.25deg 78.75deg , white 78.75deg 101.25deg, 
+                brown 101.25deg 123.75deg , white 123.75deg 146.25deg, 
+                brown 146.25deg 168.75deg, white 168.75deg 191.25deg, 
+                brown 191.25deg 213.75deg, white 213.75deg 236.25deg, 
+                brown 236.25deg 258.75deg, white 258.75deg 281.25deg , 
+                brown 281.25deg 303.75deg, white 303.75deg 326.25deg, 
+                brown 326.25deg 348.75deg, white 348.75deg 360deg
+            );
+
+            /* transform: rotate( -12deg ); */
+            /* 11.25 ~ +22.5 */
+        }
+        .num:nth-child(2n){
+            color: brown;
+        }
+        .num{
+            /* background-color: lightcoral; */
+            display: inline;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            /* 텍스트는 div로 각각 배치 */
+            /* left: 130px; */
+        }
+        .num1{
+            transform: rotate(22.5deg);
+            left: 179px;
+            top: 10px;
+        }
+        .num2{
+            transform: rotate(45deg);
+            left: 222px;
+            top: 38px;
+        }
+        .num3{
+            transform: rotate(67.5deg);
+            left: 250px;
+            top: 80px;
+        }
+        .num4{
+            transform: rotate(90deg);
+            left: 260px;
+            top: 130px;
+        }
+        .num5{
+            transform: rotate(112.5deg);
+            left: 250px;
+            top: 180px;
+        }
+        .num6{
+            transform: rotate(135deg);
+            left: 222px;
+            top: 222px;
+        }
+        .num7{
+            transform: rotate(157.5deg);
+            left: 179px;
+            top: 250px;
+        }
+        .num8{
+            transform: rotate(180deg);
+            left: 130px;
+            top: 260px;
+        }
+        .num9{
+            transform: rotate(202.5deg);
+            left: 80px;
+            top: 250px;
+        }
+        .num10{
+            transform: rotate(225deg);
+            left: 38px;
+            top: 222px;
+        }
+        .num11{
+            transform: rotate(247.5deg);
+            left: 10px;
+            top: 180px;
+
+        }
+        .num12{
+            transform: rotate(270deg);
+            left: 0px;
+            top: 130px;
+        }
+        .num13{
+            transform: rotate(292.5deg);
+            left: 10px;
+            top: 80px;
+        }
+        .num14{
+            transform: rotate(315deg);
+            left: 38px;
+            top: 38px;
+
+        }
+        .num15{
+            transform: rotate(337.5deg);
+            left: 80px;
+            top: 10px;
+        }
+        .num16{
+            left: 130px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="circleWrap">
+        <div class="circle" id="circle">
+            <div class="num num1">4</div>
+            <div class="num num2">1</div>
+            <div class="num num3">2</div>
+            <div class="num num4">7</div>
+            <div class="num num5">4</div>
+            <div class="num num6">2</div>
+            <div class="num num7">3</div>
+            <div class="num num8">20</div>
+            <div class="num num9">1</div>
+            <div class="num num10">2</div>
+            <div class="num num11">6</div>
+            <div class="num num12">1</div>
+            <div class="num num13">3</div>
+            <div class="num num14">2</div>
+            <div class="num num15">1</div>
+            <div class="num num16">1</div>
+        </div>
+    </div>
+    <script>
+        ///* 속성으로 #circle에 style background를 추가하고 */
+        ///* 16개 11.25 22.5 */
+        ///* 씩 증가하는 for문을 만들어서 적용시킨다. */
+        // let circle = document.getElementById("circle");
+        
+        // for(let i = 11.25; i<361; i+22.5){
+        //     circle.style.background=`conic-gradient(brown 0 ${i}deg, white ${i}deg`;
+
+        // }
+
+
+
+
+
+         /* background: conic-gradient(
+                white 0 12deg, 
+                brown 12deg 36deg, white 36deg 60deg,
+                brown 60deg 84deg , white 84deg 108deg,
+                brown 108deg 132deg, white 132deg 156deg,
+                brown 156deg 180deg, white 180deg 204deg,
+                brown 204deg 228deg, white 228deg 252deg,
+                brown 252deg 276deg, white 276deg 300deg,
+                brown 300deg 324deg, white 324deg 348deg,
+                brown 348deg 100%
+        ); */
+
+        // circle class element 안에 innerHTML로
+        // += 해줘서 div for문을 forEach로 배열에서 빼서 돌려주고
+
+        // const circle = document.getElementById('circle');
+
+        // // 눈금 그리기
+        // for (let i = 0; i < 30; i++) {
+        // const line = document.createElement('div');
+        // line.classList.add('line');
+        // line.style.transform = `rotate(${6 * i}deg)`;
+        // if (i % 5) {
+        //     line.classList.add('thin');
+        // } else {
+        //     line.classList.add('thick');
+        // }
+        // circle_1.appendChild(line);
+        // }
+
+        // 색깔은 gradient 로 주고
+        // 텍스트만 배열의 div로 해서 줘야겠다.
+    </script>
+</body>
+</html>

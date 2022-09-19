@@ -1,0 +1,44 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit</title>
+</head>
+<body>
+    <form action="/asdf" name="formTest">
+        <input type="text" id="inputTest">
+        <button type="submit">확인</button>
+    </form>
+    <!-- 네이버 링크를 클릭하면 새탭으로 naver가 열린다. -->
+    <a id="testA" href="https://naver.com" target="_blank">네이버</a>
+
+    <script>
+        // form은 getElementbyId.. 이런 것이 아니어도 이렇게 가져올 수 있다.
+        console.log(document.forms);
+
+        // name이 formTest에 해당하는 form 전부 출력함
+        console.log(document.forms["formTest"]);
+
+        // name formTest안에있는 #inputTest를 찾는다.
+        console.log(document.forms["formTest"]["inputTest"]);
+
+        // 이벤트 매개변수 e는 모든 이벤트에 대한 정보를 갖고 있다.
+        document.forms["formTest"].onsubmit=(e)=>{
+            // preventDefault() 메서드는 기존에 실행되는 기능을 막는다.
+            // 즉 이벤트가 실행될 때 기본적(무조건적)으로 실행되는 코드를 실행되지 않도록 만든다.
+            e.preventDefault();
+        }
+        document.getElementById("testA").onclick = (e) =>{
+
+            // prevent : 예방하다. 기본을 예방하다. form에서 정말 많이 쓰인다고 한다.
+            e.preventDefault();
+            // form을 사용할 때 꼭 써야할 듯(아이디 비밀번호 입력 확인 등)
+
+            console.log(e);
+        }
+
+
+    </script>
+</body>
+</html>
