@@ -1,3 +1,5 @@
+alert(":: 가위바위보 게임 ::");
+
 // 컴퓨터의 게임 진행 상태 : 1이면 게임중 아니면 게임중아님
 let game = 0;
 
@@ -32,7 +34,7 @@ let coinCountElem = document.getElementById("coinCount");
 let coinCount = 1000;
 
 // 그 값을 코인 개수 엘리먼트에 innerHTML로 넣어준다.
-coinCountElem.innerHTML += coinCount;
+coinCountElem.innerHTML = coinCount;
 console.log(coinCountElem);
 
 // 가위바위보 엘리먼트를 가져온다.
@@ -56,6 +58,48 @@ paperElem.onclick = () =>{
     rockPaperScissors(paper); //매개면수 p
 }
 
+// 초기화 함수(뭔가 잘못됐다. 그놈들이 나오고 나서 한 5초뒤에 초기화해야하는듯?)
+function init(){
+    console.log("초기화");
+
+    // 시작 버튼을 보이게 한다.
+    startBtn.style.display="block";
+    // startBtn.style.transition="all 2s";
+    startBtn.classList.remove("start");
+    startBtn.classList.add("startBtn");
+
+    // user선택과 com선택을 초기화해준다.
+    userRPS = "";
+    comRPS = "";
+
+    // 게임 진행 상태를 0으로 초기화해준다.
+    game = 0;
+
+    // 가위바위보 상태를 0으로
+    kababo = 0;
+
+    // 컴퓨터 가위바위보를 다시 느리게 해준다.
+    circleImgElem.classList.remove("circleImg2");
+    circleImgElem.classList.add("circleImg"); //ok
+
+    // 배경 이미지를 움직이게 해준다.
+    circleImgElem.style.animation = "rsp1 2s 1s infinite linear";
+
+    // 유저가 선택한 가위바위보 표시를 없애준다.
+    scissorsImg.classList.remove("userPick");
+    rockImg.classList.remove("userPick");
+    paperImg.classList.remove("userPick");
+
+    // 이겼다 졌다 비겼다 표시가 만약 있으면 없애준다.
+    document.getElementById("same").classList.remove("same");
+    document.getElementById("defeat").classList.remove("defeat");
+    document.getElementById("victory1").classList.remove("victory");
+    document.getElementById("victory2").classList.remove("victory");
+
+    // 돌아간 룰렛을 초기화해준다.
+    roulet.style.rotate=`0deg`;
+}
+
 // 게임 시작 버튼을 누르면
 startBtn.onclick = () =>{
     console.log("가위바위보 게임 시작");
@@ -67,7 +111,6 @@ startBtn.onclick = () =>{
 
     // 만약 코인이 100원 미만이라면 alert와 return을 해준다.
     if(coinCount<100){
-        alert("게임 한 판에 코인 100원이 소모됩니다.");
         alert("돈은 두둑히 챙겨주셔야죠");
         return;
     }
@@ -150,6 +193,11 @@ function rockPaperScissors(rps){
 
     // 배경 이미지를 멈춰준다.
     circleImgElem.style.animation = "rsp1 0s infinite linear";
+    // setTimeout(()=>{
+    //     circleImgElem.style.animation = "rsp1 0s infinite linear";
+    // }, 1000);
+    
+    // indexOf를 하면 배열에서 위치를 찾아줌
 
     // 컴퓨터가 고른 가위바위보에 맞게 화면을 바꿔준다.
     // console.log(comRPS);
@@ -311,48 +359,6 @@ function rockPaperScissors(rps){
 
 }
 
-// 초기화 함수(뭔가 잘못됐다. 그놈들이 나오고 나서 한 5초뒤에 초기화해야하는듯?)
-function init(){
-    console.log("초기화");
-
-    // 시작 버튼을 보이게 한다.
-    startBtn.style.display="block";
-    // startBtn.style.transition="all 2s";
-    startBtn.classList.remove("start");
-    startBtn.classList.add("startBtn");
-
-    // user선택과 com선택을 초기화해준다.
-    userRPS = "";
-    comRPS = "";
-
-    // 게임 진행 상태를 0으로 초기화해준다.
-    game = 0;
-
-    // 가위바위보 상태를 0으로
-    kababo = 0;
-
-    // 컴퓨터 가위바위보를 다시 느리게 해준다.
-    circleImgElem.classList.remove("circleImg2");
-    circleImgElem.classList.add("circleImg"); //ok
-
-    // 배경 이미지를 움직이게 해준다.
-    circleImgElem.style.animation = "rsp1 2s 1s infinite linear";
-
-    // 유저가 선택한 가위바위보 표시를 없애준다.
-    scissorsImg.classList.remove("userPick");
-    rockImg.classList.remove("userPick");
-    paperImg.classList.remove("userPick");
-
-    // 이겼다 졌다 비겼다 표시가 만약 있으면 없애준다.
-    document.getElementById("same").classList.remove("same");
-    document.getElementById("defeat").classList.remove("defeat");
-    document.getElementById("victory1").classList.remove("victory");
-    document.getElementById("victory2").classList.remove("victory");
-
-    // 돌아간 룰렛을 초기화해준다.
-    roulet.style.rotate=`0deg`;
-
-}
 
 
 
@@ -378,7 +384,7 @@ function init(){
 // - 가위바위보 함수 호출 부분 바꾸기
 
 // 3. 스타일은 클래스를 만들어서 classList add 해준다. 보통 js에서 스타일은 계산할 때만 쓴다.
-// - 애니메이션 멈추는 부분 바꾸기
+// - 애니메이션 멈추는 부분 바꾸기 (on class 추가)
 
 // 4. 게임 진행 상태를 배열에 집어넣고 상태를 바꿔주고 비교하는 식으로 예외처리 방향을 알려줌
 // - 자기 마음
@@ -386,3 +392,8 @@ function init(){
 // 5. 주석은 쓰지 않아도 읽을 수 있기 때문에 보통은 달지 않는다.
 // - 자기 마음
 
+// 6. 코인을 innerHTML에 += 하지 말고 =으로 해줘야 한다.
+// 
+
+// 7. 클래스를 가져오지 말고 getAttribute로 가져와야 한다.
+// 

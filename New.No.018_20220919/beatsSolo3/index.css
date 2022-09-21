@@ -1,24 +1,122 @@
+/* 부모의 rem을 따라감 */
+/* 계산을 비율로 알아서 해줌 */
+
 body{
     margin: 0;
 }
 .header{
     background-color: rgb(245,245,245);
 }
+
+/* 미디어 쿼리 참고 : https://juni-official.tistory.com/134 */
+/* PC */
+@media screen and (min-width:1024px) {
+
+}
+
+/* 태블릿 */
+@media screen and (min-width:768px) and (max-width: 1023px) {
+
+}
+
+/* 모바일 */
+@media screen and (max-width:767px){
+
+}
+
+.navigation{
+    position: fixed;
+    z-index: 1;
+    height: 70px;
+    background-color: rgb(245,245,245);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    width: 100%;
+    margin-right: 3%;
+}
+.navCenter>img{
+    margin: 3px;
+}
+.navCenter>img:hover{
+    cursor: pointer;
+    background-color: rgba(173, 216, 230, 0.363);
+}
+.navRight{
+    margin-right: 3%;
+}
+.navRight:hover{
+    cursor: pointer;
+}
+
 .headImg{
     /* background-position : 배경의 위치를 정해준다. 
-        백그라운드 포지션 2개의 %를 준 이유는 모르겠다. */
-    /* background-image: url(./1e337aca6926e6390da9170be3bb09db.png);
-    background-position: 50% 273%;
+        백그라운드 포지션 2개의 %를 준 이유는 잘 모르겠다. */
+    background-image: url(images/1e337aca6926e6390da9170be3bb09db.png);
+    background-position: 10% 70%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 500px;
-    overflow: hidden; */
-    
-    background-image: url(./1e337aca6926e6390da9170be3bb09db.png);
-    background-position: 50% 1%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
+    height: 775px;
     overflow: hidden;
-    /* width: 100%; */
+    padding: 60px 0;
+}
+.headImgContent{
+    /* background-color: rgba(224, 255, 255, 0.274); */
+    width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+    height: inherit;
+    position: relative;
+}
+.headImgContent>img{
+    width: 200px;
+}
+.headContent{
+    position: absolute;
+    width: 600px;
+    height: 360px;
+    top: 300px;
+    right: 100px;
+    /* background-color: aliceblue; */
+    text-align: right;
+}
+.headContent>h1{
+    color: #f13e35;
+    font-size: 90px;
+    margin : 0;
+}
+.headContent>h2{
+    /* background-color: orange; */
+    font-size: 70px;
+    color: white;
+    margin : 0;
+}
+.headContent>p{
+    font-size: small;
+    width: 500px;
+    text-align: right;
+    color: white;
+    position: absolute;
+    right: 0;
+}
+.buyButton{
+    display: inline;
+    width: 140px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f13e35;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 280px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.body{
+    height: 1000px;
+    background-color: rgb(245,245,245);
 }

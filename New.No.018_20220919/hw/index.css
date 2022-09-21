@@ -176,6 +176,9 @@
     color: aliceblue;
     font-weight: 600;
 }
+.rps:hover{
+    background-color: #ffc75e;
+}
 /* .startBtn{
     background-image: url();
     
@@ -291,6 +294,7 @@
     background-image: url(images/KakaoTalk_20220918_124352892_01.jpg);  */
     /* background-image: url(images/pngtree-pink-gradient-stereo-effect-game-start-pixel-style-background-image_373407.jpg); */
     background-image: url(images/free-icon-bitcoin-838352.png);
+    /* background-image: url(images/free-icon-rock-paper-scissors-6690115.png); */
     margin: auto;
     border-radius: 30%;
     
@@ -310,6 +314,7 @@
     background-image: url(images/KakaoTalk_20220918_124352892_01.jpg);  */
     /* background-image: url(images/pngtree-pink-gradient-stereo-effect-game-start-pixel-style-background-image_373407.jpg); */
     background-image: url(images/free-icon-bitcoin-838352.png);
+    /* background-image: url(images/free-icon-rock-paper-scissors-6690115.png); */
     margin: auto;
     border-radius: 30%;
 
