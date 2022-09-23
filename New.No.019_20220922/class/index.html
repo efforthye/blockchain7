@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    
+    <script>
+
+        // 이처럼 new가 붙은 애들이 클래스를 생성하는 것이다.
+        console.log(new Date());
+        console.log(Symbol("a"));
+        console.log(new Set([1, 2, 3])); //Set(3) {1, 2, 3}
+        console.log();
+
+
+        // 자바스크립트에는 원래 클래스가 없었으나 
+        // C++, C#, Java 등을 사용하는 개발자들의 요청으로 추가되었다.
+
+        // Block7이라는 클래스를 선언해 만듬(중요)
+        class Block7{
+
+            // constructor : 생성자
+            // 생성자를 기준으로 객체를 생성한다. (중요)
+            constructor(count){
+                // 클래스의 count를 선언(정의)해 매개변수 count로 초기화한다.(중요)
+                // this : 객체이다. 즉 생성되는 객체의 count키에 count값을 초기화한 것이다.(중요)
+                this.count = count;
+            }
+
+            // 클래스의 메서드를 선언한다.
+            consoleLog(){
+                console.log("클래스, 블록 7기의 "+this.count+"번째 학생입니다.");
+                // 블록 7기의 1번째 학생입니다.
+            }
+
+        }
+
+        // Block7 클래스를 새롭게 생성한다.
+        // 생성된 객체는 Block7을 기준으로 하기 때문에 개발자도구에 이름이 붙어있다.
+        // new Block7, 즉 new를 붙이고 호출 시 constructor를 호출한다.
+        // 매개변수는 constructor의 매개변수로 전달된다.
+        // 여기서 매개변수 1은 카운트로 들어간다고 한다.
+        const block7 = new Block7(1); 
+
+        // block7의 consoleLog 메서드를 호출한다.
+        block7.consoleLog(); // 여기에서 호출했기 때문에 위 메서드의 콘솔로그가 찍혔음
+        console.log(block7); //Block7 {count: 1}
+
+
+        // 위쪽에선 클래스로 만든 것을 이번엔 객체로 만들었다.
+        const block7Obj = {
+            count : 1,
+            consoleLog(){
+                console.log("객체, 블록 7기의 "+this.count+"번째 학생입니다.");
+                // 블록 7기의 1번째 학생입니다.
+            }
+        }
+        block7Obj.consoleLog(); // 여기에서 호출했기 때문에 객체의 콘솔로그가 찍혔음
+        console.log(block7Obj); //{count: 1, consoleLog: ƒ}
+
+        // 원래 기능을 조각조각 나눠서 개발하라고 했다고 함(캡슐화) ㄷ..
+
+
+        // class => class명령어로 클래스 선언
+        // 아래는 함수형으로 클래스 선언한 것임.. 결국엔 얘도 클래스인듯?
+        // 다른 점 : function이 옛날 방법이다. class가 없었을 시절..? 상속이 안됨!
+        function Block7Func(count){
+            this.count = count;
+        }
+
+        // prototype : 클래스개념이 없을 시절 클래스처럼 사용한 것이다..?
+          // https://www.nextree.co.kr/p7323/
+        // 화살표 함수는 this가 안잡히기 때문에 function..
+        // 화살표 함수의 this = root이다. window는 dom 최상위? 뭐래 
+        Block7Func.prototype.consoleLog = function(){
+            console.log("객체, 블록 7기의 "+this.count+"번째 학생입니다.");
+        }
+        const block7func = new Block7Func(2);
+        block7func.consoleLog();
+        console.log(block7func);
+
+
+        // extends를 사용해 Block7을 상속받아 Student 클래스를 만든다.
+        class Student extends Block7{
+
+            // 생성자는 객체를 new를 붙여 생성할 때 사용되는 메서드이다.
+            constructor(name, count){
+
+                // super는 부모(Block7)의 생성자(constructor)를 가져오는 놈이다.(호출)
+                // new Block7(number)
+                super(count);
+                
+                // 잘은 모르겠으나 해줘야하는듯.
+                this.name = name;
+
+            }
+
+            // 콘솔로그를 자식(Student)에서 재정의했다고 생각하면 된다.
+            consoleLog(){
+                console.log(`이름은 ${this.name}입니다.`);
+
+                // 상속받은 부모의 콘솔로그 메서드를 가져온것이다.
+                super.consoleLog();
+            }
+        }
+        const kjk = new Student('김정규', 1);
+        kjk.consoleLog(); //이름은 김정규입니다.
+        console.log(kjk);
+        console.log(new Date()); //최소한으로 쓰는 게 좋다.
+
+        
+
+    </script>
+</body>
+</html>

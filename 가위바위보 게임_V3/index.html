@@ -1,0 +1,84 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <img src="https://cdn.imweb.me/upload/S2020090710444c43a5dc5/c2828d18e8477.png" alt="비트코인" class="bitcoin">
+            <p id="coinCount" class="coinCount"></p>
+        </div>
+        <div id="content">
+            <div class="backgroundCircle"></div>
+            <div id="victory1" class="victoryDefeat victory1">이겼다</div>
+            <div id="victory2" class="victoryDefeat victory2">이겼다</div>
+            <div id="defeat" class="victoryDefeat"><span>졌다</span></div>
+            <div id="same" class="victoryDefeat"><span>비겼다</span></div>
+            <div class="arrow"></div>
+
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+
+            <div class="circleTop"></div>
+            <div class="circle">
+                <div id="num">
+                    <div class="num num1">4</div>
+                    <div class="num num2">1</div>
+                    <div class="num num3">2</div>
+                    <div class="num num4">7</div>
+                    <div class="num num5">4</div>
+                    <div class="num num6">2</div>
+                    <div class="num num7">3</div>
+                    <div class="num num8">20</div>
+                    <div class="num num9">1</div>
+                    <div class="num num10">2</div>
+                    <div class="num num11">6</div>
+                    <div class="num num12">1</div>
+                    <div class="num num13">3</div>
+                    <div class="num num14">2</div>
+                    <div class="num num15">1</div>
+                    <div class="num num16">1</div>
+                </div>
+            </div>
+            <div class="smallCircleWrap">
+                <div class="smallCircleTop"></div>
+                <div class="smallCircle">
+                    <div class="circleImgTop"></div>
+                    <div id="circleImg" class="circleImg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="RPS">
+                <div id="scissors" class="s">
+                    <img src="https://cdn.imweb.me/upload/S2020090710444c43a5dc5/67623007e78a4.png" alt="가위" class="rps">
+                    <div><span>가위</span></div>
+                </div>
+                <div id="rock" class="r">
+                    <img src="https://cdn.imweb.me/upload/S2020090710444c43a5dc5/b976686c189ba.png" alt="바위" class="rps">
+                    <span>바위</span>
+                </div>
+                <div id="paper" class="p">
+                    <img src="https://cdn.imweb.me/upload/S2020090710444c43a5dc5/4458050db485e.png" alt="보" class="rps">
+                    <span>보</span>
+                </div>
+            </div>
+            <div class="coinHoleWrap">
+                <div class="ironPlate">
+                    <div class="coinHole"></div>
+                </div>
+                <div id="startBtnWrap">
+                    <button type="button" id="startBtn" class="startBtn">START</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+

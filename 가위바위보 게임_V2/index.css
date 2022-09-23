@@ -1,0 +1,588 @@
+.num{
+    display: inline;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+}
+.num:nth-child(2n){
+    color: brown;
+}
+.num1{
+    transform: rotate(22.5deg);
+    left: 179px;
+    top: 10px;
+}
+.num2{
+    transform: rotate(45deg);
+    left: 222px;
+    top: 38px;
+}
+.num3{
+    transform: rotate(67.5deg);
+    left: 250px;
+    top: 80px;
+}
+.num4{
+    transform: rotate(90deg);
+    left: 260px;
+    top: 130px;
+}
+.num5{
+    transform: rotate(112.5deg);
+    left: 250px;
+    top: 180px;
+}
+.num6{
+    transform: rotate(135deg);
+    left: 222px;
+    top: 222px;
+}
+.num7{
+    transform: rotate(157.5deg);
+    left: 179px;
+    top: 250px;
+}
+.num8{
+    transform: rotate(180deg);
+    left: 130px;
+    top: 260px;
+}
+.num9{
+    transform: rotate(202.5deg);
+    left: 80px;
+    top: 250px;
+}
+.num10{
+    transform: rotate(225deg);
+    left: 38px;
+    top: 222px;
+}
+.num11{
+    transform: rotate(247.5deg);
+    left: 10px;
+    top: 180px;
+
+}
+.num12{
+    transform: rotate(270deg);
+    left: 0px;
+    top: 130px;
+}
+.num13{
+    transform: rotate(292.5deg);
+    left: 10px;
+    top: 80px;
+}
+.num14{
+    transform: rotate(315deg);
+    left: 38px;
+    top: 38px;
+
+}
+.num15{
+    transform: rotate(337.5deg);
+    left: 80px;
+    top: 10px;
+}
+.num16{
+    left: 130px;
+    top: 0;
+}
+#wrap{
+    width: 400px;
+    height: 600px;
+    background-color: rgb(245,245,245);
+    margin: auto;
+    border: 4px solid black;
+    border-radius: 10px;
+}
+#header{
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color: black;
+    border-bottom: 3px solid black;
+
+}
+.bitcoinWrap{
+    display: inline;
+
+}
+.bitcoin{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    
+}
+.coinCount{
+    color: rgba(255, 166, 0, 0.815);
+    font-weight: 700;
+    font-size: 26px;
+    display: inline;
+    margin: 0;
+}
+#content{
+    background-color: orange;
+    height: 450px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    position: relative;
+}
+#footer{
+    float: left;
+    width: 400px;
+    background-color: rgb(130, 203, 228);
+    border-radius: 3px;
+}
+#RPS{
+    display: flex;
+    width: 260px;
+    height: 76px;
+    padding: 8px;
+    float: left;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.rps{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(245,245,245);
+    border-radius: 10%;
+    border: 2px solid rgb(255,166,0);
+    cursor: pointer;
+}
+#RPS span{
+    display: block;
+    margin-top: 6px;
+    background-color: rgb(255, 166, 0);
+    border-radius: 10px;
+    color: aliceblue;
+    font-weight: 600;
+}
+.rps:hover{
+    background-color: #ffc75e;
+}
+.arrow{
+    position: absolute;
+    background-image: url("images/arrow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    left: 170px;
+    top: 8px;
+    /* background-color: rebeccapurple; */
+}
+.victoryDefeat{
+    position: absolute;
+    background-color: rgb(185, 0, 0);
+    width: 140px;
+    height: 130px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    /* border: 1px solid white; */
+}
+.victory2{
+    right: 0;
+    text-align: right;
+}
+#defeat{
+    bottom: 0;
+    position: absolute;
+}
+#defeat>span{
+    position: absolute;
+    bottom: 10px;
+}
+#same{
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    position: absolute;
+}
+#same>span{
+    position: absolute;
+    bottom: 10px;
+    width: 60px;
+    right: 10px;
+}
+.circleTop{
+    height: 70px;
+}
+.circle{
+    background-color: brown;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: auto;
+    border: 2px solid black;
+    position: absolute;
+    left: 46px;
+    background: conic-gradient(
+        white 0deg 11.25deg,
+        brown 11.25deg 33.75deg, white 33.75deg 56.25deg,
+        brown 56.25deg 78.75deg , white 78.75deg 101.25deg, 
+        brown 101.25deg 123.75deg , white 123.75deg 146.25deg, 
+        brown 146.25deg 168.75deg, white 168.75deg 191.25deg, 
+        brown 191.25deg 213.75deg, white 213.75deg 236.25deg, 
+        brown 236.25deg 258.75deg, white 258.75deg 281.25deg , 
+        brown 281.25deg 303.75deg, white 303.75deg 326.25deg, 
+        brown 326.25deg 348.75deg, white 348.75deg 360deg
+    );
+}
+.smallCircleWrap{
+    position: absolute;
+    top: 70px;
+    left: 100px;
+}
+.smallCircleTop{
+    height: 50px;
+}
+.smallCircle{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+}
+.circleImgTop{
+    height: 25px;
+}
+.circleImg{
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("images/free-icon-bitcoin-838352.png");
+    margin: auto;
+    border-radius: 30%;
+    animation: rsp1 2s 1s infinite linear;
+}
+.circleImg2{
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("images/free-icon-bitcoin-838352.png");
+    margin: auto;
+    border-radius: 30%;
+    animation: rsp1 0.4s infinite linear;
+}
+@keyframes rsp {
+    40%{
+    background-image: url("images/r.png");
+    }
+    80%{
+    background-image: url("images/p.png");
+    }
+    100%,0%{
+    background-image: url("images/s.png");
+    }
+}
+@keyframes rsp1 {
+    40%{
+    background-image: url("images/KakaoTalk_20220918_124352892.jpg");
+    }
+    80%{
+    background-image: url("images/KakaoTalk_20220918_124352892_02.jpg");
+    }
+    100%,0%{
+    background-image: url("images/KakaoTalk_20220918_124352892_01.jpg");
+    }
+}
+.backgroundCircle{
+    width: 400px;
+    height: 405px;
+    background-color: rgb(231, 110, 12);
+    position: absolute;
+    border-radius: 50%;
+    top: 18px;
+}
+.coinHoleWrap{
+    display: inline;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 96px;
+    position: relative;
+}
+.ironPlate{
+    margin: 0;
+    padding: 0;
+    display: inline;
+    float: left;
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    top: 6px;
+    border-radius: 5px;
+    background-color: lightgray;
+    left: 30px;
+    border: 2px solid rgb(226, 226, 226);
+}
+.coinHole{
+    margin: 0;
+    padding: 0;
+    display: inline;
+    float: left;
+    width: 15px;
+    height: 60px;
+    margin-top: 7px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 3px solid brown;
+    background-color: rgb(10, 49, 49);
+    position: absolute;
+}
+#startBtnWrap{
+    display: inline;
+    /* margin-left: 10px; */
+    float: left;
+}
+.startBtn{
+    width: 50px;
+    height: 50px;
+    background-image: url("images/free-icon-bitcoin-838352.png");
+    background-size: contain;
+    cursor: pointer;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 50%;
+    border: none;
+    float: left;
+    position: absolute;
+    margin-left: 58px;
+    margin-top: 23px;
+}
+.start{
+    width: 50px;
+    height: 50px;
+    background-image: url("images/free-icon-rock-paper-scissors-6690115.png");
+    background-image: url("images/free-icon-bitcoin-838352.png");
+    background-size: contain;
+    cursor: pointer;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 50%;
+    border: none;
+    float: left;
+    position: absolute;
+    margin-left: 58px;
+    margin-top: 23px;
+    animation: start 0.5s 1s alternate;
+}
+@keyframes start {
+    25%{
+        transform: rotate(-90deg);
+        margin-left: 58px;
+    }
+    38%{
+        transform: rotate(-130deg);
+        color: rgba(10, 49, 49, 0);
+    }
+    50%{
+        transform: rotate(-180deg);
+        margin-left: 50px;
+    }
+    62%{
+        transform: rotate(-240deg);
+    }
+    75%{
+        transform: rotate(-270deg);
+        margin-left: 48px;
+        width: 30px;
+        height: 30px;
+    }
+    88%{
+        transform: rotate(-300deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+        margin-left: 43px;
+        opacity: 0;
+    }
+} 
+.win{
+    animation: circleRotate 5s infinite;
+}
+@keyframes circleRotate {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.userPick{
+    background-color: #FFC107;
+    border: 2px solid rgb(255, 123, 0);
+}
+.victory{
+    animation: rainbow 1.3s infinite;
+    border: 3px solid white;
+} 
+.same{
+    background-color: #FFC107;
+    border: 3px solid white;
+    animation: rainbow-font 1s infinite;
+}
+.defeat{
+    background-color: black;
+    border: 3px solid cadetblue;
+    color: cadetblue;
+    animation: defeat 1s infinite;
+}
+@keyframes defeat{
+    0%, 100%{
+        background-color: black;
+        border: 3px solid cadetblue;
+        color: cadetblue;
+    }
+    50%{
+        border: 3px solid white;
+        color: white;
+    }
+}
+@keyframes rainbow{
+    100%,0%{
+        background-color: rgb(255,0,0);
+        color: black;
+    }
+    8%{
+        background-color: rgb(255,127,0);
+        color: black;
+    }
+    16%{
+        background-color: rgb(255,255,0);
+        color: white;
+    }
+    25%{
+        background-color: rgb(127,255,0);
+        color: white;
+    }
+    33%{
+        background-color: rgb(0,255,0);
+        color: black;
+    }
+    41%{
+        background-color: rgb(0,255,127);
+        color: black;
+    }
+    50%{
+        background-color: rgb(0,255,255);
+        color: white;
+    }
+    58%{
+        background-color: rgb(0,127,255);
+        color: white;
+    }
+    66%{
+        background-color: rgb(0,0,255);
+        color: black;
+    }
+    75%{
+        background-color: rgb(127,0,255);
+        color: black;
+    }
+    83%{
+        background-color: rgb(255,0,255);
+        color: white;
+    }
+    91%{
+        background-color: rgb(255,0,127);
+        color: white;
+    }
+}
+@keyframes rainbow-font{
+    100%,0%{
+        color: rgb(255,0,0);
+    }
+    8%{
+        color: rgb(255,127,0);
+    }
+    16%{
+        color: rgb(255,255,0);
+    }
+    25%{
+        color: rgb(127,255,0);
+    }
+    33%{
+        color: rgb(0,255,0);
+    }
+    41%{
+        color: rgb(0,255,127);
+    }
+    50%{
+        color: rgb(0,255,255);
+    }
+    58%{
+        color: rgb(0,127,255);
+    }
+    66%{
+        color: rgb(0,0,255);
+    }
+    75%{
+        color: rgb(127,0,255);
+    }
+    83%{
+        color: rgb(255,0,255);
+    }
+    91%{
+        color: rgb(255,0,127);
+    }
+}
+.displayBlock{
+    display: block;
+}
+.displayNone{
+    display: none;
+}
+.animationTwoSec{
+    animation: rsp1 2s 1s infinite linear;
+}
+.animation04Sec{
+    animation: rsp1 0.4s infinite linear;
+}
+.animationZeroSec{
+    animation: rsp1 0s infinite linear;
+}
+.rotateZeroDeg{
+    rotate: 0deg;
+}
+.backgroundImgScissors{
+    background-image: url("images/KakaoTalk_20220918_124352892_01.jpg");
+}
+.backgroundImgRock{
+    background-image: url("images/KakaoTalk_20220918_124352892.jpg");
+}
+.backgroundImgPaper{
+    background-image: url("images/KakaoTalk_20220918_124352892_02.jpg");
+}
+.coinRotateMinus{
+    transform: rotateY(-720deg);
+}
+.coinRotatePlus{
+    transform: rotateY(720deg);
+}
+.transition{
+    transition: all 2s;
+}

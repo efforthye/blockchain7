@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closer</title>
+    <!-- class 잘 안 쓰이는 것처럼 closer도 잘은 안 쓰인다고 한다. -->
+    <!-- 이론적으로만 기억하고, 필요할 때 closer를 찾아서 사용하도록 한다. -->
+    <!-- 호이스팅, closer, scope 등 면접 때 질문으로 쓰이니까 이론을 잘 알아두기 -->
+    <!-- stack, queue 등 면접 질문으로 나올 수 있다.(중요) 모르겠으면 외우기 -->
+    <!-- 보통 shift 안쓰고 slice를 사용한다. 뭔지는 알아야 한다 그래도 -->
+    <!-- 트리는 하나의 점에 두개가 있으면 이진트리, 여러개가 있으면 그냥 트리.. 마인드맵? -->
+</head>
+<body>
+    <script>
+        function leeJH(){
+            // 함수의 스코프 내에서 지역변수로 name을 선언
+            let name;
+
+            // class를 생성해서 get, set 메서드를 만들었다.
+            class LeeJH{
+
+                // get메서드는 함수의 지역변수 name을 가져오는 놈이다.
+                get(){
+                    // return this.name;
+                    return name;
+                }
+
+                // set메서드는 받은 데이터를 지역변수 name에 정의해준다.
+                set(data){
+                    // this.name = name;
+                    name = data;
+                }
+
+                // name을 확인하기 위해 콘솔로그를 띄우는 메서드를 만들었다.
+                consoleLog(){
+                    // console.log(this.name);
+                    console.log(name);
+                }
+            }
+            // 함수의 리턴으로 이 클래스를 생성해 내보내준다.
+            // 객체로 내보내준것이다.
+            return new LeeJH();
+        }
+
+        const tempJH = leeJH();
+        tempJH.set("리재혁");
+        // tempJH.consoleLog();
+
+        // get으로 전역에서 지역변수에 있는 값을 가져올 수 있게 되었다.
+        // tempJH.get() 값을 바꿀수는 없고 데이터를 영역 안에서만 사용할 수 있게 막아두는 역할을 해준다.
+        // 이렇게 보안 가능하다고 한다.
+        console.log(tempJH.name); //undefined
+        console.log(tempJH.get()); //리재혁
+
+        // 둘은 다르다 아래는 객체
+        let name;
+        let temp = {name};
+
+
+
+    </script>
+</body>
+</html>

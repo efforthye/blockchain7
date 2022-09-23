@@ -8,22 +8,6 @@ body{
     background-color: rgb(245,245,245);
 }
 
-/* 미디어 쿼리 참고 : https://juni-official.tistory.com/134 */
-/* PC */
-@media screen and (min-width:1024px) {
-
-}
-
-/* 태블릿 */
-@media screen and (min-width:768px) and (max-width: 1023px) {
-
-}
-
-/* 모바일 */
-@media screen and (max-width:767px){
-
-}
-
 .navigation{
     position: fixed;
     z-index: 1;
@@ -120,3 +104,50 @@ body{
     height: 1000px;
     background-color: rgb(245,245,245);
 }
+
+
+/* 미디어 쿼리 참고 : https://juni-official.tistory.com/134 */
+/* PC : 원래 min-width가 1024px임 */
+/* 태블릿 : 원래 min-width는 768px, max-width를 1023px로 해야함 */
+/* 모바일 : 원래 max-width가 767px으로 되어있었음 */
+
+/* 컴퓨터 */
+@media screen and (min-width:1024px) {
+
+}
+
+
+/* 노트북 */
+@media screen and (min-width:990px) and (max-width: 1200px) {
+    .header{
+        /* width: 1023px; */
+    }
+    .headContent{
+        right: 300px;
+
+    }
+}
+
+/* 태블릿 */
+@media screen and (min-width:770px) and (max-width:989.99px){
+    .headContent{
+        right: 500px;
+    }
+}
+
+/* 가로 휴대폰 */
+@media screen and (max-width:769.99px) {
+    /* 배경 사진 높이 줄이고 다시 배치 */
+
+    .headContent{
+        /* display: none; */
+        right: 500px;
+    }
+    .headContent>h1{
+        width: 500px;
+    }
+}
+
+
+
+/* 휴대폰 */

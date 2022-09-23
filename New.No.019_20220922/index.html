@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>❤</div>
+    <script>
+        // 대문자 A를 2진수로 출력함
+        console.log(((65)).toString(2)); //1000001
+
+        // 대문자 A를 16진수로 출력함
+        console.log(((65)).toString(16)); //42
+
+        // \u는 유니코드를 뜻한다.
+        // 유니코드로 ഀ를 출력함
+        console.log('\u0D00'); //ഀ
+
+        // 유니코드로 [가]를 출력함
+        console.log('\uAC00'); //가
+
+        // 변수의 저장 방법(자바스크립트)
+        // 선언 : 위치만 잡고 있겠지
+        let name = "정경훈";
+        // let count = 0;
+
+        // name을 이가원으로 바꿈 : 다시 위치를 잡고 name이라는 이름을 바꿔준다.
+        // 기존(위쪽)의 name은 남아있다. (자바스크립트의 특징)
+        // 다른 언어는 남아있지 않고 그냥 변수 자체가 교체된다고 한다.
+        name = "이가원";
+
+        // 가비지 컬렉터(쓰레기)
+        // 알아서 위의 놈(정경훈)을 처리해준다.
+
+        // 용량을 아끼려고 고민해서 나온 게 자료구조이다.
+        // 어떻게 하면 공간을 적게 차지할 것인가? 최적화해서 나온 게 자료구조이다.
+        // 메모리를 알아야 자료구조를 얘기할 수 있다.
+
+        // 자료 구조란? : 한정된 용량(메모리, 공간)에 최적화시켜서 많은 데이터를 쓸 수 있도록 설계된 것이다.
+        // call stack, memory heap이라는 놈이 있다.
+        // 딱히 중요하진 않지만 Web API : DOM을 관리한다.....
+            // https://developer.mozilla.org/ko/docs/Web/API
+        // Callback Queue 이런 것도 있다.
+        // call, memory, callback : 그냥 어떨 때 쓰는지 용어, 그 뒤의 것이 자료구조이다.
+
+        // 중요 키워드 : stack, heap, Queue이다.
+        // 스택(stack) : 선입 후출(처음에 넣은 게 마지막 것부터 빠져서 가장 마지막에 빠지는 것) 
+        // 스택은 push와 pop이다.
+            // 먼저 들어간게 나중에 나온다.(책을 무조건 위에서부터 하나씩 차곡차곡, 하노이의탑처럼..)
+            // 함수에서 많이 쓰이며 스택은 생각보다 많이 작다고 한다.
+            // 방법 2. 10end 9end 8end
+            function stackOVerFlow(count){ //매개변수로 선언
+                console.log(count);
+
+                // 스택이 넘쳤다. 계속 자기 자신을 먼저 호출한다.
+                // stackOVerFlow();
+
+                // 쌓았다가 위에서부터 하나씩 뽑아낸다.(스택)
+                if(++count<10){
+                    stackOVerFlow(count);
+                    console.log(count+"end");
+                }
+            }
+            stackOVerFlow(0); 
+
+            // 방법 1. 10end 10end 10end
+            // let count = 0; // 전역변수로 선언해야함
+            // function stackOVerFlow(){
+            //     console.log(count++);
+            //     if(count<10){
+            //         stackOVerFlow(count);
+            //         console.log(count+"end");
+            //     }
+            //     console.log(count+"end");
+            // }
+            // stackOVerFlow();
+
+            
+        // 큐(queue, call back) : 선입선출(음식점, 먼저 들어간 것이 먼저 나온다.)
+            // 키 다운, 키 업 클릭도 마찬가지로 마우스 레프트 다운, 업이 있다.(window.onmousedown)
+            // 큐는 보통 사용자 입력에 대해서 관리한다.
+            // 큐는 push와 shift이다.
+                
+
+        // 힙(heap) : 객체, 배열은 저장하는 방식이 다른데.. 그 놈들을 저장할 때 사용한다.
+            // 상당히 마구잡이로 데이터가 위치한다고 한다. 
+              // (스택은 쌓이고, 큐는 쌓이고 먼저 들어온게 먼저 나가는 건데,)
+              // 힙은 아무데나 그냥 던저놓는다. 그래서 자바스크립트의 배열은 배열이 아니고 유사배열도 따로 있는 것이다.
+              // 메모리 관리가 되게 중요한데, 자바스크립트가 
+
+
+        
+    </script>
+</body>
+</html>

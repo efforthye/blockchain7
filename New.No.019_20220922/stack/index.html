@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>❤</div>
+    <script>
+        // 기본 노드, 부모
+        class Node{
+            // 생성자에서 data를 저장(정의)한다.
+            constructor(data){
+                
+                this.data = data;
+            }
+        }
+
+        // 기본 노드를 상속받아 스택 노드를 생성한다.
+        class StackNode extends Node{
+        // class StackNode{
+            // data와 head를 받아서 진행한다.
+            // head는 다음 데이터이다.
+            constructor(data, head){
+                // this.data = data;
+                // 부모 노드(기본 노드)의 생성자를 호출(실행)한다.
+                super(data);
+                // head를 생성한다. 값을 받아오지 않으니까 선언만 해둔듯
+                this.head;
+            }
+            // data 매개변수를 넣다.
+            push(data){
+                // pop을 하다보면 전부 없앨 수 있기 때문에 
+                // 현재 노드의 data또한 삭제될 수 있기 때문이라고 한다..
+                // 만약 data가 없으면, 현재 노드의 data에 전달받은 매개변수 data를 정의한다.
+                if(!this.data){
+                    this.data = data;
+                // 만약 head(다음 데이터)가 있으면, head가 있다는 얘기는 마지막 노드(순서)가 아니라는 뜻이다.
+                }else if(this.head){
+                    // 마지막 순서가 아니기 때문에 다음 노드에 데이터를 넣도록 한다.
+                    this.head.push(data);
+                // 다음 데이터가 없고, 현재 데이터가 있을 때 head에 새로운 노드를 추가해준다.
+                }else{
+                    this.head = new StackNode(data);
+                }
+            }
+            pop(){
+                // this? : 객체에 head가 있을 수 있는가?
+                if(this?.head?.head){
+                    return this.head.pop();
+                }else if(!this?.head){
+                    const temp = this.data;
+                    this.data = undefined;
+                    return temp;
+                }else{
+                    const temp = this.head.data;
+                    delete this.head;
+                    this.head = undefined;
+                    return temp;
+                }
+            }
+        }
+        const stack = new StackNode(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        console.log(stack);
+        // console.log(stack.pop());
+        // console.log(stack.pop());
+        console.log(stack);
+        
+
+
+
+        // // 양아치 코드? 이해 못했다.
+        // // Stack 클래스 생성
+        // class Stack{
+        //     // 생성자로 this.arr 배열을 만듬
+        //     constructor(){
+        //         this.arr = [];
+        //     }
+        //     // data 매개변수를 받는 push라는 메서드를 만듬
+        //     push(data){
+        //         // this.arr 배열에 data로 넘어온 값을 집어넣는다.
+        //         this.arr.push(data);
+        //     }
+        //     pop(){
+        //         return this.arr.pop();
+        //     }
+        //     log(){
+        //         console.log(this.arr);
+        //     }
+        // }
+        // const stack = new Stack();
+        // stack.push(1);
+        // stack.push(2);
+        // stack.push(3);
+        // stack.log();
+        // console.log(stack.pop());
+
+        
+
+
+    </script>
+</body>
+</html>

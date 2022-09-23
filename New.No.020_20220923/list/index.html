@@ -1,0 +1,179 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked List</title>
+</head>
+<body>
+    <!-- 배열 : 메모리 상에서 연속된 데이터 -->
+    <!-- 자바스크립트의 배열(list) : 메모리상에서 무작위로 위치하고, 
+        첫 배열의 끝이 두 번째 배열을 가르켜 연결되는 형태이다. heap에 저장된다. -->
+    <!-- 스택 : 그냥 순서대로 쌓인다. 마지막에 쌓인 게 먼저 나간다. -->
+    <!-- call stack은 메모리에 공간이 따로 있는데, call back queue -->
+
+    
+    <script>
+        const listNode = {
+            // 노드의 데이터
+            data : undefined,
+            // 다음 노드(다음 노드)
+            next : undefined,
+            // 노드 추가(아무데나 던져주고 얘는 여기에 연결해라를 지정해준 것이라고 한다.(뭐라는거야?))
+            insert(data){
+                // 다음 노드가 있으면
+                if(this.next){
+                    // 그 노드에 추가
+                    this.next.insert(data);
+                // 다음 노드가 없으면
+                }else{
+                    // 여기에 추가
+                    this.next = {...listNode, data};
+                }
+            },
+        }
+        const listRoot = {...listNode, data:1};
+        listRoot.insert(2);
+        listRoot.insert(3);
+        console.log(listRoot);
+
+
+        // 이론과 다르지만 대충 만들어본 리스트 기능이다.
+        const listArr = {
+            arr : [],
+            insert(data){
+                this.arr.push(data);
+            },
+            remove(data){
+                let isDelete = false; //1,2,3,4,3
+
+                // 같지 않으면 배열에 뽑아내? 잘 모름
+                this.arr = this.arr.filter((item)=> { //{1,2,4,3} (3지워짐)
+                    if(item != data || isDelete){
+                        return true;
+                    }else{
+                        isDelete = true;
+                        return false;
+                    }
+                });
+
+                // this.arr = [
+                //     ...this.arr.slice(0, this.arr.indexOf(data)),
+                //     ...this.arr.slice(0, this.arr.indexOf(data)+1)
+                // ];
+                return this.arr.length;
+            },
+            contains(data){
+                return this.arr.contains(data);
+            }
+        }
+
+
+        // 아래는 공부하고 싶으면 해보세요
+        // 하나의 데이터(점, 노드)이다.
+        function SingleNode(data){
+            // 노드의 데이터, 다음 노드의 데이터
+            this.data = data;
+            this.next = undefined;
+        }
+
+        // Single Linked List
+        function SingleList(){
+            // 리스트의 시작, 끝, 리스트의 사이즈
+            this.head = undefined;
+            this.tail = undefined; // 편하게 하려고, 후에 원형 리스트에서 사용하려고 만듬
+            this.size = 0;
+        }
+
+        // 추가 메서드가 클래스이기 때문에 프로토타입에 추가한다.
+        // prototype에 method로 추가한다.
+        SingleList.prototype.insert = function(data){
+            // 시작점이 없으면(즉 리스트가 하나도 없으면)
+            if(!this.head){
+                // 리스트에 노드를 추가한다.
+                this.head = new SingleNode(data);
+                // 끝 점도 정의해준다.(노드가 하나밖에 없으면 시작이자 끝점이다.)
+                this.tail = this.head;
+            // 시작점(머리)가 있으면
+            }else{
+                // 임시로 하나 만든다.
+                const temp = new SingleNode(data);
+                // 현재 끝에 만들어진 노드를 다음 노드로 연결한다.
+                this.tail.next = temp;
+                // 만든 노드를 끝에 정의한다.
+                this.tail = temp;
+            }
+            // 사이즈를 키운다. 리턴은 사실 없어도 상관없다.
+            return ++this.size;
+        }
+
+        // 삭제 메서드
+        SingleList.prototype.remove = function(data){
+            // 만약 처음이 없으면 리턴
+            if(!this.head){
+                return;
+            }
+            // 처음의 data가 삭제하려는 data이면 처음의 next를 임시로 저장한다.
+            if(this.head.data == data){
+                const temp = this.head.next;
+                // 처음을 삭제한다.
+                delete this.head;
+                // 임시로 저장된 노드를 처음으로 정의한다.
+                this.head = temp;
+                // 하나 지웠으니 사이즈도 줄인다.
+                this.size--;
+                return;
+            }
+            // 현재 어떤 노드를 확인하는지 현재 노드를 변수에 정의해놓는다.
+            let curr = this.head;
+
+            // 끝이 아니면 계속 돌아야 한다.
+            // 현재 노드가 끝인지 확인, 끝이 아니면 실행한다.
+            while(curr !== this.tail){
+                // 다음 노드가 없으면 리턴해준다. 사실상 필요없는 코드라고 한다.
+                if(!curr.next){
+                    return;
+                }
+                // 현재 노드의 다음 노드의 데이터가 삭제하려는 데이터와 같으면
+                if(curr.next.data === data){
+                    // 현재 노드의 다다음 노드를 임시로 정의한다.
+                    const temp = curr.next.next;
+                    // 현재의 다음 노드를 삭제한다. 2의 다음노드 3번을 삭제~
+                    delete curr.next;
+                    // 현재의 다음 노드에 임시로 정의했던 노드를 가져와 담음
+                    // 기존의 다다음 노드
+                    curr.next = temp;
+                    // 데이터 삭제했으니 사이즈 줄이기
+                    this.size--;
+                    return;
+                }
+                // 다음 노드의 데이터가 삭제할 노드가 아니면 현재 노드를 다음 노드로 바꿔준다.(1다음 2번째놈넣어줌.)
+                curr = curr.next;
+            }
+        };
+
+        // 존재 여부 확인 메서드
+        SingleList.prototype.contains = function(data){
+            console.log(data);
+            // 현재 노드 설정
+            let curr = this.head;
+            // 처음의 데이터가 찾으려는 데이터이면 true를 리턴함
+            if(curr.data === data){
+                return true;
+            }
+            // 다음 노드의 데이터를 확인해서 같으면 true를 반환함
+            while(curr !== this.tail){
+                if(curr.next.data === data){
+                    return true;
+                }
+                curr = curr.next;
+            }
+            // 모든 노드 확인했는데 여기까지 오면 없다고 판단 가능
+            return false;
+        };
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventListener, 콜백</title>
+    <style>
+        #eventListener{
+            background-color: aliceblue;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="eventListener">click!</div>
+    <script>
+        // 선생님 저번에 코인 중첩된 거 이벤트리스너 써서 그렇다고 함
+        // 이런 게 보통 콜백이라고 함
+        // 이벤트 루프는 node.js 들어가서 한다고 함
+        document
+            .getElementById("eventListener")
+            .addEventListener("click", ()=>{console.log(1)});
+        document
+            .getElementById("eventListener")
+            .addEventListener("click", ()=>{console.log(2)});
+        document
+            .getElementById("eventListener")
+            .addEventListener("click", ()=>{console.log(3)});
+
+    </script>
+</body>
+</html>
