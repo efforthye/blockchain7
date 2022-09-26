@@ -70,7 +70,7 @@ class DoubleLinkedList{
             return curr.data;
             
         }
-        // 삭제 시 현재가 끝이 아니면
+        // 삭제 시 현재가 끝이 아니면 반복한다.
         while(curr !== this.tail){
             // 현재 다음 노드의 데이터가 데이타와 같으면
             if(curr.next.data === data){
@@ -91,8 +91,19 @@ class DoubleLinkedList{
             }
         }
     }
-
-
+    // 얘는 뭐하는 놈이냐
+    contains(data){
+        // 현재가 헤드
+        let curr = this.head;
+        while(true){
+            // 헤드 데이터가 없으면 다음으로 넘어감
+            if(curr.data === data) return true;
+            // 헤드 데이터가 있으면 없다고 false로 리턴한다.
+            if(!curr.next) return false;
+            // ㅇㅅㅇ
+            curr= curr.next;
+        }
+    }
 }//DoubleLinkedList class end
 
 const testDouble = new DoubleLinkedList();
