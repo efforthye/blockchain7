@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class && prototype</title>
+</head>
+<body>
+    
+    <script>
+        // 함수
+        function ClassTest1(value){
+            this.a = 1;
+            this.b = value;
+        }
+        const tempTest1 = new ClassTest1(2);
+
+        // 클래스
+        class ClassTest2{
+            constructor(value){
+                this.a = 1;
+                this.b = value;
+            }
+        }
+        const tempTest2 = new ClassTest2(2);
+        tempTest1.a = tempTest2.b = 4;
+
+        console.log(tempTest1);
+        console.log(tempTest2);
+
+    </script>
+</body>
+</html>
