@@ -96,8 +96,53 @@
                 }// while문 end
             }//insert() end
 
+
             // 이진트리 삭제 메서드(생각해보자)
             remove(data, node = this.root){
+                // 루트(node)가 없으면 리턴
+                if(!this.root)return;
+
+                // 지우려는 데이터가 현재 노드의 데이터보다 작으면?,, node의 왼쪽에서 찾는다.
+                if(node.data > data){
+
+                    // 현재 노드에 왼쪽 노드가 있으면
+                    if(node.left){
+                        // data : 1, node.left: this.root -> node.left로 바꿔준다.(중요)
+                        node.left = this.remove(data, node.left);
+
+                    // 현재 노드에 왼쪽 노드가 없기 때문에 remove 메서드를 끝낸다.
+                    }else {
+                        // 입력한 데이터가 없기 때문.
+                        return undefined;
+
+                    }
+                // 지우려는 데이터가 현재 노드의 데이터보다 크면?
+                }else if(node.data < data){
+                    
+                    // 위의 것을 복사해 오른쪽으로 바꿔준다.
+                    if(node.right){
+                        // data : 1, node.left: this.root -> node.left로 바꿔준다.(중요)
+                        node.right = this.remove(data, node.right);
+
+                    // 현재 노드에 왼쪽 노드가 없기 때문에 remove 메서드를 끝낸다.
+                    }else {
+                        // 입력한 데이터가 없기 때문.
+                        return undefined;
+
+                    }
+                // 크지도 않고 작지도 않으면?(정답)
+                }else{
+                    // 그 놈을 삭제해 준다.
+                    // 현재 노드의 왼쪽에 
+                    return undefined; // 임시 코드
+                }
+                // remove 재귀함수를 위해 마지막에 현재 노드를 반환해준다
+                // 그래야 재귀함수의 left에 넣어줄 수 있기 때문에 안그러면 undefined됨
+                return node;
+
+
+
+
                 // data : 삭제할 놈
                 // node : 맨 위에 놈을 node에 정의해 줌
 
@@ -108,8 +153,8 @@
                     // 2. 왼쪽 자식 중에서 가장 큰 값을 15자리로 옮긴다.
                     // 그 놈을 찾는 방법이 궁금 if while?
 
-                console.log(data);
-                console.log(node);
+                // console.log(data);
+                // console.log(node);
             };
             // 위의 코드를 풀어서 쓴 내용이다.
             // remove(data, node){
@@ -120,14 +165,22 @@
         }//BinarySearchTree class end - 이진 검색 트리
 
         let testBinarySearchTree = new BinarySearchTree();
-        testBinarySearchTree.insert(227);
-        testBinarySearchTree.insert(777);
-        testBinarySearchTree.insert(727);
-        testBinarySearchTree.insert(141);
-        testBinarySearchTree.insert(1229);
-        testBinarySearchTree.insert(18);
-        testBinarySearchTree.insert(666);
-        testBinarySearchTree.insert(780);
+        testBinarySearchTree.insert(8);
+        testBinarySearchTree.insert(4);
+        testBinarySearchTree.insert(12);
+        testBinarySearchTree.insert(2);
+        testBinarySearchTree.insert(6);
+        testBinarySearchTree.insert(10);
+        testBinarySearchTree.insert(14);
+        testBinarySearchTree.insert(1);
+        testBinarySearchTree.insert(3);
+        testBinarySearchTree.insert(5);
+        testBinarySearchTree.insert(7);
+        testBinarySearchTree.insert(9);
+        testBinarySearchTree.insert(11);
+        testBinarySearchTree.insert(13);
+        testBinarySearchTree.insert(15);
+        testBinarySearchTree.remove(1);
         console.log(testBinarySearchTree);
 
         
@@ -136,6 +189,17 @@
 
 
 
+        // testBinarySearchTree.insert(777);
+        // testBinarySearchTree.insert(727);
+        // testBinarySearchTree.insert(141);
+        // testBinarySearchTree.insert(1229);
+        // testBinarySearchTree.insert(18);
+        // testBinarySearchTree.insert(666);
+        // testBinarySearchTree.insert(780);
     </script>
 </body>
 </html>
+
+
+
+
