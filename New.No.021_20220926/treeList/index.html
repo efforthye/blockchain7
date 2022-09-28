@@ -99,6 +99,7 @@
 
             // 이진트리 삭제 메서드(생각해보자)
             remove(data, node = this.root){
+
                 // 루트(node)가 없으면 리턴
                 if(!this.root)return;
 
@@ -108,13 +109,9 @@
                     // 현재 노드에 왼쪽 노드가 있으면
                     if(node.left){
                         // data : 1, node.left: this.root -> node.left로 바꿔준다.(중요)
+                        // 이 놈이 반환한 값 node를 알기 위해서 리턴이 없어서.. 값을 못찾음
+                        // 함수에 리턴을 안하니까 값이 없어서 node를 리턴해줌.. node.left에 대입해줘야 하니까
                         node.left = this.remove(data, node.left);
-
-                    // 현재 노드에 왼쪽 노드가 없기 때문에 remove 메서드를 끝낸다.
-                    }else {
-                        // 입력한 데이터가 없기 때문.
-                        return undefined;
-
                     }
                 // 지우려는 데이터가 현재 노드의 데이터보다 크면?
                 }else if(node.data < data){
@@ -124,17 +121,42 @@
                         // data : 1, node.left: this.root -> node.left로 바꿔준다.(중요)
                         node.right = this.remove(data, node.right);
 
-                    // 현재 노드에 왼쪽 노드가 없기 때문에 remove 메서드를 끝낸다.
-                    }else {
-                        // 입력한 데이터가 없기 때문.
-                        return undefined;
-
                     }
                 // 크지도 않고 작지도 않으면?(정답)
                 }else{
-                    // 그 놈을 삭제해 준다.
-                    // 현재 노드의 왼쪽에 
-                    return undefined; // 임시 코드
+                    // 정답인데 left right 둘다 없으면?(하위 노드가 아예 없다.)
+                    if(!node.left && !node.right){
+                        // 루트를 비워준다.(맨위 루트가 없으면 리턴했었음)
+                        // 1을넣고 1을 바로 지울 떄 여기에 해당한다.(현재 노드가 삭제할 노드, 자식이 둘다 없음)
+                        if(node===this.root){
+                            console.log(this.root);
+                            this.root = undefined;
+                        // 왼쪽 노드가 없다 : 오른쪽 노드는 있다. => 왼쪽 노드 지우면서 오른쪽 노드 리턴
+                        }else if(!node.left){
+                            // 추가
+                            if(node === this.root) this.root = node.right;
+                            // 상위 객체에 넣어준다.
+                            return node.right;
+                        // 오른쪽 노드가 없다 : 왼쪽 노드는 있다. => 오른쪽 노드 지우면서 왼쪽 노드 리턴
+                        }else if(!node.right){
+                            // 추가
+                            if(node === this.root) this.root = node.left;
+                            return node.left;
+                        }else{
+                            // 양쪽 다 있을 때 오른쪽놈의 제일작은애를 찾아
+                            let tempNode = node.right;
+                            // 오른쪽 놈의 왼쪽의 왼쪽놈이 있으면 계속 tempNode에 왼쪽놈을 담음
+                            while(tempNode.left){
+                                tempNode = tempNode.left;
+                            }
+                            // 삭제할 놈을 바꿔준다.
+                            node.data = tempNode.data;
+                            // 맨밑 빈공간을 이제 지워준다. (12(노드라이트)를 기준으로 9를 삭제한다.)
+                            // 리무브 함수를 타고와서 둘다 자식이 없다에 해당돼 undefined가 나온다.
+                            node.right = this.remove(tempNode.data, rode.right);
+                        }
+                    }
+
                 }
                 // remove 재귀함수를 위해 마지막에 현재 노드를 반환해준다
                 // 그래야 재귀함수의 left에 넣어줄 수 있기 때문에 안그러면 undefined됨
@@ -185,7 +207,7 @@
 
         
         // testBinarySearchTree.remove(1);
-        testBinarySearchTree.remove();
+        // testBinarySearchTree.remove();
 
 
 

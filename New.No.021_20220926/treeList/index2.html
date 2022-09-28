@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이진 트리</title>
+</head>
+<body>
+    <script>
+
+        // 이진 트리
+        class BinaryNode{
+            // 생성자
+            constructor(data){
+                // 받아온 data 값을 this.data에 넣어준다.
+                this.data = data;
+                // 이진 트리의 왼쪽와 오른쪽을 만들고, 비워둔다.
+                this.left = null;
+                this.right = null;
+            }
+        }// 이진 트리 end
+
+
+        // 이진 탐색 트리
+        class BinarySearchTree{
+
+            // 생성자
+            constructor(){
+                // 이진 탐색 트리의 최상위 노드를 비워 놓는다.
+                this.root = null;
+            }
+
+            // 입력 메서드
+            insert(data){
+
+                // this.root인 null이 출력된다.
+                console.log(this.root);
+
+                // 만약 this.root가 null이면
+                if(!this.root){
+                    // this.root에 새로운 이진 트리를 만들고 data값을 넣어주고 끝낸다.
+                    // 새로운 이진 트리에 입력값 1이 들어가고 left, right는 null인 상태가 된다.
+                    this.root = new BinaryNode(data);
+                    return;
+                }
+
+                // 새로 만든 this.root를 node라는 변수에 담아 새로 정의해준다.
+                let node = this.root;
+
+                // 리턴될 때까지 반복한다.
+                while(true){
+
+                    // 새로 입력한 data가 기존 노드의 data보다 작을 때 : 왼쪽에 넣어야 한다.
+                    if(data < node.data){
+                        // 일단 기존 노드에 left가 있는지 확인한다.
+                        if(node.left){
+                            // 있으면 다음 아래 노드로 타고 들어가기 위해 
+                            // node에 node.left라는 새 공간을 정의해준다.
+                            node = node.left;
+                        }else{
+                            // 기존 노드에 left가 없으면 기존 노드의 왼쪽 공간에
+                            // 새로운 노드를 만들어 값을 넣어주고 리턴한다. 
+                            node.left = new BinaryNode(data);
+                            return;
+                        }
+                    
+                    // 새로 입력한 data가 기존 노드의 data보다 클 때 : 오른쪽에 넣어야 한다.
+                    }else if(node.data < data){
+                        // 만약 기존 노드의 오른쪽에 값이 있으면
+                        if(node.right){
+                            // 다음 노드에서 값을 비교하기 위해 오른쪽으로 타고 들어간다.
+                            // 노드를 노드의 오른쪽으로 정의해준다. 
+                            node = node.right;
+                        // 만약 기존 노드의 오른쪽에 값이 없으면
+                        }else{
+                            // 그대로 노드의 오른쪽에 새로운 값을 추가해 노드를 만들어 리턴한다.
+                            node.right = new BinaryNode(data);
+                            return;
+                        }
+                    
+                    // 새로 입력한 data가 기존 노드의 data와 같을 때는 노드를 추가하지 않고 리턴해준다.
+                    // 이진 탐색 트리 자체가 중복값을 갖지 않게 하려고 만든 것이기 때문이다.
+                    }else return;
+                }
+            }// 입력 메서드 end
+
+
+            // data값을 받는 삭제 메서드, node변수에 this.root(최상위 노드)를 담아준다.
+            remove(data, node = this.root){
+                // 만약 최상위 노드가 없으면 리턴해준다.
+                if(!this.root)return;
+                // 만약 삭제할 data가 최상위 노드의 data보다 작으면 : 노드의 왼쪽으로 들어간다.
+                if(data < node.data){
+                    // 만약 최상위 노드의 왼쪽에 노드가 있으면
+                    if(node.left){
+                        // 재귀함수를 호출해 작으면 node에 node.left를
+                        // 크면 node에 node.right를 번갈아 넣어 
+                        // 맨 밑 노드까지 이동한다.
+                        node.left = this.remove(data, node.left);
+                    }
+                }else if(node.data < data){
+                    if(node.right){
+                        node.right = this.remove(data, node.right);
+                    }
+                // 삭제할 data가 현재 node의 data에 비해 크지도 않고 작지도 않을 때
+                }else{
+                    // 만약 현재 노드의 하위 노드가 아무것도 없을 때
+                    if(!node.left && !node.right){
+                        // 현재 노드가 삭제할 노드
+                        if(node===this.root){
+                            // 삭제해줌
+                            this.root = undefined;
+                        }else if(!node.left){
+                            if(node === this.root) this.root = node.right;
+                            return node.right;
+                        }else if(!node.right){
+                            if(node === this.root) this.root = node.left;
+                            return node.left;
+                        }else{
+                            let tempNode = node.right;
+                            while(tempNode.left){
+                                tempNode = tempNode.left;
+                            }
+                            node.data = tempNode.data;
+                            node.right = this.remove(tempNode.data, rode.right);
+                        }
+                    }
+                    // 그 외의 경우는 그냥 빠져나간다.
+                }
+                return node;
+            };
+        }// 이진 탐색 트리 end
+
+        let testBinarySearchTree = new BinarySearchTree();
+        testBinarySearchTree.insert(1);
+        testBinarySearchTree.insert(8);
+        testBinarySearchTree.insert(4);
+        testBinarySearchTree.insert(12);
+        testBinarySearchTree.insert(2);
+        // testBinarySearchTree.insert(6);
+        // testBinarySearchTree.insert(10);
+        // testBinarySearchTree.insert(14);
+        // testBinarySearchTree.insert(1);
+        // testBinarySearchTree.insert(3);
+        // testBinarySearchTree.insert(5);
+        // testBinarySearchTree.insert(7);
+        // testBinarySearchTree.insert(9);
+        // testBinarySearchTree.insert(11);
+        // testBinarySearchTree.insert(13);
+        // testBinarySearchTree.insert(15);
+        testBinarySearchTree.remove(1);
+        console.log(testBinarySearchTree);
+
+    </script>
+</body>
+</html>

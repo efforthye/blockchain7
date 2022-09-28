@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>완전이진트리</title>
+</head>
+<body>
+    <script>
+        class TreeNode{
+            constructor(data){
+                this.data = data;
+                this.left = undefined;
+                this.right = undefined;
+            }
+            insert(node){
+                if(!this.left){
+                    this.left = node;
+                }else if(!this.right){
+                    this.right = node;
+                }else{
+                    // left와 right를 둘 다 넣고 나면 ~을 위해 배열 리턴
+                    return [this.left, this.right];
+                }
+                // 배열 안에 노드가 하나니까 length가 1이 된다. 위의 코드는 2가 됨
+                return [node];
+            }
+        }
+
+        // 배열에 만든 순서대로 추가해 배열로 리턴하고 넣었을 때
+        // 순서대로 left right를 비교해 넣을 수 있다. node객체
+        class CompleteBinaryTree{
+            constructor(){
+                this.root = undefined;
+            }
+            insert(data){
+                const tempNode = new TreeNode(data);
+                if(!this.root) this.root = tempNode;
+                else{
+                    let tempArr = [this.root];
+                    let isInsert = false; //is, boolean값이고 insert 즉 넣었냐?
+                    let idx = 0;
+
+                    while(!isInsert){
+                        // tempResult : 임시 저장 결과값
+                        // TreeNode insert()의 return 값이다.
+                        const tempResult = tempArr[idx].insert(tempNode);
+
+                        if(tempResult.length==1){
+                            isInsert = true;
+                        }else{
+                            // concat() : 배열 뒤에 추가하는 메서드
+                            tempArr = tempArr.concat(tempResult);
+                            idx++;
+                        }// if~else end
+                    }// while end
+                }// if~else end
+            }// insert method end
+        }// CompleteBinaryTree class end
+
+    </script>
+</body>
+</html>
