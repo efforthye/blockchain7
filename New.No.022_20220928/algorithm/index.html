@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알고리즘</title>
+</head>
+<body>
+    <pre>
+        <strong>알고리즘</strong>이란 어떤 문제를 해결하기 위한 일련의 절차나 방법을 공식화한 형태로 표현한 것이다.<br>
+        우리는 지금까지 알고리즘을 해왔다. <span>플로우차트</span>(https://app.diagrams.net/)로.<br>
+        보통 알고리즘이라고 얘기를 하는 것은, <strong>하나의 기능</strong>을 뜻한다. 함수라고 생각해도 된다.<br><br>
+        그래서 알고리즘에는 조건들이 있다. 조건 : 입력, 출력, 명확성, 유한성, 효율성<br><br>
+        입력 : 하나 이상의 데이터를 입력받는다(매개변수)<br>
+        출력 : 2개 이상의 다른 결과가 있어야 한다.(return)<br>
+        명확성 : 과정이 명확하고 모호하지 않은 명령어로 되어 있어야 한다.<br>
+        유한성 : 끝나야 한다. 종결성이라고도 하며 무한대로 실행되면 안 된다.<br>
+        효율성 : 실행 가능해야 한다. 검증이 되어야 한다. 그만큼 빨리 돌아야 한다.<br><br>
+        시간복잡도(big O 표현법) : <br>
+          알고리즘이 끝날 때까지의 시간을 표기한다. <br>
+          입력값은 n이다.<br>
+          O(1) : 무조건 한 번 돈다.<br>
+          O(log n) : n지수 만큼 돈다.<br>
+          O(n) : n번 돈다.<br>
+          O(n log n) : n의 n승 지수만큼 돈다.<br>
+          O(n^2) : n 제곱만큼 돈다.<br>
+          O(2^n) : 2의 n승만큼 돈다.<br>
+          O(n!) : 팩토리얼, 이하생략<br>
+    </pre>
+
+    <script>
+        function o1(data){
+            console.log(data);
+        }
+        function on(data){
+            for(let i = 0; i<data.length; i++){
+                console.log(data[i]);
+            }
+        }
+        // 제곱
+        function on2(data){
+            for(let i = 0; i<data.length; i++){
+                for(let j = 0; j<data.length; j++){
+                    console.log(data[i]);
+                }
+            }
+        }
+
+
+        // function solution(n){
+    
+        // let nString = n+"";
+        // for(let i = 0; i<n.length; i++){
+        //     return n[1];
+        // }
+    
+    
+        // // var answer = 0;
+        // // // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+        // // console.log('Hello Javascript');
+        // // return answer;
+        // }
+
+    </script>
+</body>
+</html>

@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>완전이진트리</title>
+    <!-- 완전 이진 트리는 사실상 배열이라고 한다. -->
 </head>
 <body>
     <script>
@@ -19,10 +20,12 @@
                 }else if(!this.right){
                     this.right = node;
                 }else{
-                    // left와 right를 둘 다 넣고 나면 ~을 위해 배열 리턴
+                    // left와 right를 둘 다 넣고 나면 
+                    // 다음 노드 아래에 넣기 위해 다음 놈 배열 리턴
+                    // 리턴시 배열 length는 2가 된다.
                     return [this.left, this.right];
                 }
-                // 배열 안에 노드가 하나니까 length가 1이 된다. 위의 코드는 2가 됨
+                // 배열 안에 노드가 하나니까 length가 1이 된다. 
                 return [node];
             }
         }
@@ -33,9 +36,11 @@
             constructor(){
                 this.root = undefined;
             }
+
             insert(data){
                 const tempNode = new TreeNode(data);
                 if(!this.root) this.root = tempNode;
+
                 else{
                     let tempArr = [this.root];
                     let isInsert = false; //is, boolean값이고 insert 즉 넣었냐?
@@ -54,9 +59,22 @@
                             idx++;
                         }// if~else end
                     }// while end
-                }// if~else end
+                }// else end (this.root가 있을 때)
             }// insert method end
+
+            delete(){
+
+            }
+
+
         }// CompleteBinaryTree class end
+
+        const tempBinaryTree = [9, 9, 9, 9, 9];
+        // [root, root.left, root.right, root.left.left, root.left.right, root.right.left, root.right.right]
+        tempBinaryTree.push(9);
+        tempBinaryTree.push(9);
+        tempBinaryTree.push(9);
+        console.log(tempBinaryTree);
 
     </script>
 </body>
