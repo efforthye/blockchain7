@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버블 정렬</title>
+    <!-- 앞에서부터 둘을 비교해 계속 확인, 계속 비교, 계속 비교해 자리를 바꿈 -->
+    <!-- 배열의 길이만큼 비교해 상당히 안 좋다고 함. 나중에 사용할때 배열의 값이 i와 i+1이 같으면 끝내주면 될거같음 -->
+</head>
+<body>
+    <script>
+        function swap(arr, idx1, idx2){
+            const temp = arr[idx1];
+            arr[idx1]= arr[idx2];
+            arr[idx2] = temp;
+        }
+
+        const dataArr = [727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282, 119, 3838, 0];
+
+        function bubbleSort(arr){
+            // 시간 복잡도 O(n^2) : n의 제곱으로, 미친듯이 느리다는 뜻이다.
+            // 내일 log a 함
+            // 원본을 훼손하지 않기 위해 임시 배열을 사용함
+            const tempArr = [...arr];
+
+            // 배열 길이만큼 for문을 돌림
+            for(let i = 0; i<tempArr.length; ++i){
+                // 배열 길이 -1만큼 for문을 돌림
+                // j와 j+1을 비교하기 위해 다음것을 확인해야 하니까 -1해줌
+                // 즉 j+1이 배열 길이보다 작아야 한다.
+                // j와 j+1비교해야하는데 맨뒤놈이 j가되면 안되니까 -1을 해줌
+                for(let j = 0; j<tempArr.length-1; ++j){
+                    // 만약 배열을 초과하면
+                    if(tempArr[j]>tempArr[j+1]){
+                        swap(tempArr, j, j+1);
+                    }
+                }
+            }
+            return tempArr;
+        }
+        console.log(dataArr);
+        console.time('bubbleSort');
+        console.log(bubbleSort(dataArr));
+        console.timeEnd('bubbleSort');
+
+
+    </script>
+</body>
+</html>
