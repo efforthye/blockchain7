@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력 정렬</title>
+    <!-- 입력할 때 비교해서 입력한다. 나머지 배열을 옆으로 치워줘야 한다. -->
+</head>
+<body>
+    <script>
+
+        function swap(arr, idx1, idx2){
+            const temp = arr[idx1];
+            arr[idx1]  = arr[idx2];
+            arr[idx2]  = temp;
+        }
+
+        const dataArr = [727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282, 119, 3838, 0];
+
+        function insertSort(arr){
+            const tempArr = [...arr];
+
+            // 배열 1번째부터 시작 계속 키워줌(이전것과 비교하기 위해 )
+            for(let i = 1; i<tempArr.length; ++i){
+                // j를 계속 마이너스해 값을 비교함
+                for(let j = i-1; -1<j; --j){
+                    // i가 j보다 작으면(j(i-1)와 j+1(i)을 비교)
+                    if(tempArr[j+1]<tempArr[j]){
+                        // 값을 바꿔준다.
+                        swap(tempArr, j, j+1);
+                    }
+                }
+            }
+
+            return tempArr;
+        }
+
+        console.log(dataArr);
+        console.time('insertSort');
+        console.log(insertSort(dataArr));
+        console.timeEnd('insertSort');
+
+        // 
+        // is***            << boolean, 참거짓
+        // ***s || ***Arr   << 배열
+        // ***Data
+        // 동사***          << 함수 or 메서드
+        // on***            <<이벤트 함수
+        // get || set       
+        // ***Api           << Node.js에서 사용합니다. 보통 통신 관련, 
+        //                  즉 서버에 요청하거나 서버에서 요청받는 함수 || 메서드 feat.RESTAPI
+
+    </script>
+</body>
+</html>
