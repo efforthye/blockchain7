@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>병합 정렬</title>
+    <!-- 반으로 나누고 반의 반을 나누고.. 나머지를 나눠준다. -->
+    <!-- 나눠논 것을 다시 합치면서 크기를 비교해 자리를 바꾼다.다. -->
+    <!-- 함수가 두개가 필요하다. 나누는 것과 합치는 것 -->
+</head>
+<body>
+    <script>
+        let count = 0;
+
+        // 병합(합치는) 함수
+        function merge(leftArr, rightArr){
+
+            const result = [];
+            let leftIdx = 0, rightIdx = 0;
+
+            // 좌우 배열의 인덱스가 배열의 크기보다 작으면
+            while(leftIdx<leftArr.length && rightIdx<rightArr.length){
+                // 왼쪽 배열의 아이템이 오른쪽 배열의 아이템보다 작으면
+                if(leftArr[leftIdx]<rightArr[rightIdx]){
+                    // 결과 배열에 왼쪽 아이템을 넣어주고 왼쪽 인덱스를 증가시킨다.
+                    result.push(leftArr[leftIdx++]);
+                }else{
+                    // 결과 배열에 오른쪽 아이템을 넣어주고 오른쪽 인덱스를 증가시킨다.
+                    result.push(rightArr[rightIdx++]);
+                }
+            }
+
+            return [
+                ...result,                  // 결과와
+                ...leftArr.slice(leftIdx),  // 왼쪽에 남은 배열 
+                ...rightArr.slice(rightIdx) // 오른쪽에 남은 배열 
+            ];
+
+
+
+            // let leftItem = leftArr[0];
+            // let rightItem = rightArr[0];
+
+            // let leftIdx = 0, rightIdx = 0;
+
+            // while(leftArr.length || rightArr.length){
+            //     if(leftItem<rightItem){
+            //         result.push(leftItem);
+            //         if(leftArr.length){
+            //             leftArr.shift();
+            //             leftItem = leftArr[0];
+            //         } 
+            //     }else{
+            //         result.push(rightItem);
+            //         if(rightArr.length){
+            //             rightArr.shift();
+            //             rightItem = rightArr[0];
+            //         } 
+            //     }
+            // }
+            // return result;
+
+            // count--;
+            // console.log("merge count : "+count, [...leftArr, ...rightArr]);
+            // return [...leftArr, ...rightArr]; // 서로다른 배열을 합쳐 리턴해준다..
+        }
+
+        // 분리 함수
+        function mergeSort(arr){
+
+            console.log("seperate count : "+count," "+arr);
+            // 배열 길이가 1이면 더이상 자를 수 없으므로 리턴값을 보냄(리턴하면 카운트는 증가하지 않음)
+            // merge()에 매개변수로 들어갈 놈을 return하는 것이다.
+            if(arr.length == 1) return arr;
+
+            // 배열 절반(가운데)를 찾는다.
+            // 홀수이거나 .3333이 나오면 안되니까 parseInt를 통해 정수로 바꿔준다. 
+            const midPoint = parseInt(arr.length/2);
+            count++;
+
+            // 병합 함수를 호출해 합쳐준다.(leftArr : 0~중간, rightArr : 중간~끝)
+            return merge(
+                // merge 들어가기 전에 매개변수인 mergeSort를 계속 호출하고 넘어가도 나머지 매개변수를 호출함
+                // 마지막을 return해줬으니 1개는 끝나고 나머지 배열 중간에서 마지막까지 자름(하나씩 잘라지게)
+                // 중간중간 나눠진 것을 호출할 때마다 사실은 두개가 같이 호출되었던 거임
+                // 하지만 왼쪽 먼저 리턴을 계속 해버렸을 뿐이고 나머지도 해줘야 하는거임
+                mergeSort(arr.slice(0, midPoint)),
+                mergeSort(arr.slice(midPoint))
+            )
+
+
+        }
+
+        const dataArr = [214, 1818, 500, 6, 8282, 119, 3838, 0];
+        // const dataArr = [727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282, 119, 3838, 0];
+        console.log(mergeSort(dataArr));
+
+        const temp = ()=>{}
+        // setTimeout을 이렇게 함수를 호출해 사용할 수 있다.
+        setTimeout(temp, 1000);
+
+        // 이러면 temp()의 리턴값을 확인한 뒤 실행함
+        setTimeout(temp(), 1000);
+
+
+
+
+
+
+
+
+
+        // function swap(arr, idx1, idx2){
+        //     const temp = arr[idx1];
+        //     arr[idx1]  = arr[idx2];
+        //     arr[idx2]  = temp;
+        // }
+
+        // // const dataArr = [727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282, 119, 3838, 0];
+
+        // function mergeSort(arr){
+        //     const tempArr = [...arr];
+
+
+        // }
+
+        // console.log(dataArr);
+        // console.time('mergeSort');
+        // console.timeEnd('mergeSort');
+
+
+    </script>
+</body>
+</html>

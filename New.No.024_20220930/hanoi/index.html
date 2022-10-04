@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanoi</title>
+</head>
+<body>
+    <script>
+        function hanoi(n, start, end){
+            start = 1;
+            end = 3;
+
+            // 1이면 n이 처음에 start end
+            // 2이면 n은 end로 가야하지만 위의놈들때문에 못가니까
+            // n이 2이상이면 
+            // n-1을 start와 end가 아닌 곳으로 전부 보내줘야 함
+            // 순서는 맨 마지막 놈들부터 1~~
+            // 맨 마지막까지 오면 return도 넣어주고..
+            // 
+            
+            //n이 결국 end로 가야함
+            //n-1은 현재위치에서 end가아닌곳?
+            //n만큼 배열에 추가?
+            // 1개이면 하나를 start를 end에 옮기고 끝
+            // 2개이면 위에것을 end가 아닌곳에 옮기고 
+
+            // 1. n-1을 나머지에 다 옮긴다.
+            // 2. 그놈을 end에 옮긴다.array
+            // 3. n-1들을 최종목적지에 옮긴다.(출발지만 다름)
+            // n이 짝수인지 홀수인지
+            // 결과값이 아닌곳에 전체를 옮기는 식으로 재귀함수가 이뤄져야 함
+
+            // 나머지를 전부 옮기고 전부 옮기고 전부 옮기고 전부 옮김
+
+            let aa;
+            aa = hanoi()+hanoi();
+
+
+            // 이동 경로가 들어갈 배열
+            let array = [];
+
+            if(n==1){
+                array.push([start, end]);
+            }
+            if(n==2){
+                array.push([]);
+            }
+
+
+
+            return array;
+        }
+        console.log(hanoi(1));
+
+    </script>
+</body>
+</html>
