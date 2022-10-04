@@ -3,10 +3,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>퀵 정렬 - 이해하기 쉬운 버전(정석은 아님)</title>
+    <title>퀵 정렬 - 이해하기 쉬운 버전(정석은 아님, merge처럼 적은 것)</title>
 </head>
 <body>
     <script>
+        // 정상적인, 이론적인 퀵 정렬이 아니다.
         function quickSort(arr){
             if(arr.length<2) return arr;
             let pivot = arr.shift();
