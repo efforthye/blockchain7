@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀵 정렬</title>
+    <!-- 하나를 기준으로 잡고 그의 기준으로 좌우(작냐크냐)를 나눈다. -->
+    <!-- 비교는 첫번째 놈 기준으로 left right를 만든다음 -->
+</head>
+<body>
+    <script>
+
+        // 퀵 정렬을 도와주는 함수
+        function quickSortHelper(arr, left, right){
+            const pivotIdx = left++;
+            while(left <= right){
+                while(arr[left]<arr[pivotIdx]) left++;
+                while(arr[pivotIdx]<arr[right]) right--;
+                if(left<=right){
+                    const temp = arr[left];
+                    arr[left] = arr[right];
+                    arr[right] = temp;
+                    left++;
+                    right--;
+                }
+            }
+            const temp = arr[pivotIdx];
+            arr[pivotIdx] = arr[right];
+            arr[right] = temp;
+            return right;
+        }
+        // 림림이 왜 이렇게 나약해 아프지말고
+        //  화이팅★
+
+        // 퀵 정렬 함수
+        function quickSort(arr, left, right){
+            let idx = quickSortHelper();
+            if(left < idx-1) quickSort(arr, left, idx-1);
+            if(idx+1 < right) quickSort(arr, idx+1, right);
+        }
+
+        const dataArr = [727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282, 119, 3838, 0];
+        
+
+
+    </script>
+</body>
+</html>
+김영준 正正正正正正正正正正正正正正正
+
+quickSort
+// quickSort 재귀함수 부분이 merge같다는 것을 이해해야 한다.
