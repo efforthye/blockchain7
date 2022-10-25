@@ -192,9 +192,14 @@ body, html{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    display: none;
 }
 .btn-box{
     justify-content: space-evenly;
+    /* display: none; */
+}
+.btn-box.on, .sign-input.on{
+    display: block;
 }
 #user-info input{
     padding: 5px;

@@ -1,0 +1,33 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태초마을</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        async function getRoot(){
+            // 차이 : 상대주소, 절대주소
+            const data = await axios.get("/");
+            const fullUrldata = await axios.get("http://localhost:8080");
+            console.log(data.data);
+            console.log(fullUrldata.data);
+        }
+        async function postRoot(){
+            const data = await axios.post("/?data=name&age=10", {id : "happyworld"});
+            const fullUrldata = await axios.post("http://localhost:8080?data=name&age=10", {id : "happyworld"});
+            console.log(data.data);
+            console.log(fullUrldata.data);
+        }
+        
+
+
+    </script>
+
+    <button onclick="getRoot()">getRoot</button>
+    <button onclick="postRoot()">postRoot</button>
+
+</body>
+</html>

@@ -229,17 +229,37 @@ document.getElementById("sign-in").onclick = async function(e){
     });
     console.log(data.data);
 
-    // 이름 추가payload
-    // new Buffer.from(document.cookie.split("=")[1].split(".")[1], "base64").toString();
-    console.log(JSON.parse(atob(document.cookie.split("=")[1].split(".")[1])));
+    // 이름 payload 토큰을 쿠키에 추가
+    const tempName = JSON.parse(window.atob(document.cookie.split("=")[1].split(".")[1])).name;
 
     // 로그인 시 user-name에 로그인 정보를 띄운다.
-    // if(data.data.name){
-    //     console.log("hi");
-    //     document.getElementById("user-name").innerText = 
-    //         data.data.name +"님 어서오세요.";
-    // }
+    if(tempName){
+        console.log(tempName);
+        document.getElementById("user-name").innerText = 
+        tempName +"님 어서오세요.";
+        [...document.getElementsByClassName("btn-box")].forEach(elem=>{
+            elem.classList.toggle("on");
+        });
+    }
 }
+// 로그아웃
+document.getElementById("sign-out").onclick = function(e){
+    e.preventDefault();
+
+    
+    document.getElementById("user-name").innerText = "";
+
+    [...document.getElementsByClassName("btn-box")].forEach(elem=>{
+        elem.classList.toggle("on");
+    });
+    
+    [...document.getElementsByClassName("btn-box")].forEach(elem=>{
+        elem.classList.toggle("on");
+    });
+    
+}
+
+
 // 회원가입
 document.getElementById("sign-up").onclick = async function(e){
     e.preventDefault();
