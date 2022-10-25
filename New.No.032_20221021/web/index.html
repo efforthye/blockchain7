@@ -1,0 +1,65 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div id="board">
+            <ul id="list">
+                <!-- <li>
+                    <div class="title">
+                        <h3>제목제목</h3>
+                        <img src="./images/angle-up-solid.svg" alt="list-item-btn">
+                    </div>
+                    <div class="text">
+                        <p>내용내용</p>
+                    </div>
+                    <div class="text">
+                        <p>내용내용</p>
+                        <textarea>
+                    </div>
+                </li> -->
+                <!-- <li>2</li> -->
+            </ul>
+            <ul id="page"></ul>
+        </div>
+        <div id="user-input-container" class="on">
+        <!-- <div id="user-input-container"> -->
+            <div id="menu-btn-box">
+                <img id="menu-btn" src="./images/bars-solid.svg" alt="menu button">
+                <!-- <img id="user-btn" src="./images/user-solid.svg" alt="user button"> -->
+            </div>
+            <div id="user-box">
+                <form id="user-info">
+                    <div id="user-name"></div>
+                    <div class="sign-input">
+                        <input type="text" id="id" name="id" placeholder="ID">
+                        <input type="password" id="pw" name="pw" placeholder="Password">
+                        <input type="text" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="btn-box">
+                        <button id="sign-in">Sign In</button>
+                        <button id="sign-up">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+            <form id="board-add">
+                <label for="board-title">
+                    글 제목 : <input type="text" id="board-title" placeholder="제목을 입력하세요." autocomplete="off">
+                </label>
+                <label for="board-text">
+                    <textarea name="board-text" id="board-text" placeholder="내용을 입력하세요." cols="30" rows="10"></textarea>
+                </label>
+                <!-- form 안에 있는 button은 기본적으로 form의 submit을 실행한다. -->
+                <button>업로드</button>
+            </form>
+        </div><!--//#user-input-container end-->
+    </div><!--//#root end-->
+    <script src="index.js"></script>
+</body>
+</html>

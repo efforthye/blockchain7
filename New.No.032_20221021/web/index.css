@@ -1,0 +1,240 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body, html{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+
+    /* 순서대로 맨 왼쪽한테 없는 포맷이면 오른쪽 것을 사용한다. */
+    /* font-family: 'Courier New', Courier, monospace; */
+}
+#root{
+    display: flex;
+    height: 100%;
+}
+#board{
+    /* 영역이 남는 공간만큼 늘어난다. 다른 요소에도 넣으면 반반 나눠진다. */
+    flex: 1;
+    height: 100%;
+    overflow: auto;
+    padding: 20px 50px;
+}
+#list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+}
+#list li{
+    padding: 0;
+    margin: 0;
+    border: 1px solid lightgray;
+    width: 100%;
+    margin-bottom: 5px;
+}
+#list li div *{
+    pointer-events: none;
+}
+#list .title{
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    background-color: rgb(231, 231, 231);
+    align-items: center;
+}
+#list .title h3{
+    flex: 1;
+}
+#list .title img{
+    width: 30px;
+    /* transform: scaleY(-1); */
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in-out;
+
+}
+#list .title img.on{
+    /* transform: scaleY(1); */
+    transform: rotate(360deg);
+
+}
+
+#list .text{
+    width: 100%;
+    padding: 0px 30px;
+    margin: 0;
+    transition: padding 0.3s ease-in-out;
+    
+    /* 수정 */
+    display: flex;
+    align-items: center;
+}
+#list .text p{
+    font-size: 0;
+    transition: font-size 0.5s ease-in-out;
+    
+    /* 수정 */
+    flex: 1;
+}
+#list .text.on{
+    /* padding: 10px 30px 20px; */
+    padding: 10px 30px;
+    
+}
+#list .text.on p{
+    font-size: 1rem;
+}
+
+/* 수정 */
+#list .text textarea{
+    display: none;
+    height: 200px;
+    width: 100%;
+    resize: none;
+    pointer-events: auto;
+    flex: 1;
+}
+#list .text.on.edit p{
+    display: none;
+}
+#list .text.on.edit textarea{
+    display: block;
+}
+#list li .text .list-btn-box{
+    display: none;
+}
+#list li .text .list-btn-box img{
+    width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    pointer-events: auto;
+    /* animation: width 1s; */
+}
+#list li .text.on .list-btn-box{
+    display: flex;
+}
+
+#list li .text.on .cancel{
+    display: none;
+}
+#list li .text.on.edit .delete{
+    display: none;
+}
+#list li .text.on.edit .cancel{
+    display: block;
+}
+
+
+
+
+
+
+#page{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* width: fit-content; */
+    
+}
+#page li{
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 3px 5px;
+
+}
+#page li.now{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+#user-input-container{
+    width: 50px;
+    padding: 10px;
+    background-color: rgb(245,245,245);
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+    overflow: hidden;
+}
+#user-input-container.on{
+    width: 300px;
+}
+
+#menu-btn-box{
+    margin-bottom: 20px;
+    /* display: flex;
+    justify-content: space-between; */
+}
+#menu-btn{
+    width: 30px;
+    cursor: pointer;
+}
+/* #user-btn{
+    width: 26px;
+    cursor: pointer;
+    margin-left: 20px;
+} */
+
+
+#user-box{
+
+}
+#user-info{
+    width: 280px;
+}
+.sign-input, .btn-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-box{
+    justify-content: space-evenly;
+}
+#user-info input{
+    padding: 5px;
+    margin: 0 5px;
+    width: 100%;
+}
+#user-info button{
+    padding: 5px 10px;
+    margin: 5 15px 20px;
+
+}
+
+
+
+#board-add{
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+#user-input-container.on #board-add{
+    opacity: 1;
+}
+
+label{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+#board-title{
+    padding: 5px;
+}
+#board-text{
+    width: 100%;
+    resize: none;
+    padding: 10px;
+}
+
+
+@keyframes width{
+    0%{width: 10px;}
+    100%{width: 30px;}
+}
+

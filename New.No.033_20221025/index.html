@@ -1,0 +1,130 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간만에 노드 없이</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- naver login API(외부 서비스) 주소 가져오기 -->
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
+    <!-- kakao login API 주소 가져오기 : 버전을 2.0.0으로 -->
+    <!-- <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="${INTEGRITY_VALUE}" crossorigin="anonymous"></script> -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="naverIdLogin">
+    </div>
+    <!-- <button id="naverLogout">log out</button> -->
+    <button id="kakaoIdLogin"><img src="kakao_login_medium_narrow.png" alt="카카오 로그인 이미지"></button>
+    <p>
+        # API : Application Programing Interface<br>
+        간단하게 생각하면 외부 서비스를 사용한다는 것이다.<br>
+        - 비교 : 라이브러리는 외부에서 기능하는 코드를 가져와서 사용한다.<br>
+        API는 우리쪽에 저장된 데이터, 코드 등은 없지만 외부에서 데이터를 받아 사용한다.<br>
+        대표적 API : Naver, KaKao, Google 등에서 지원하는 로그인, 지도, 파파고, Youtube의 영상 API 등등..<br>
+
+
+    </p>
+    
+    <script>
+        console.log(naver);
+        console.log(Kakao);
+
+        // 네이버 로그인 정보 설정
+        const naverLogin = new naver.LoginWithNaverId({
+            clientId : 'gMpA2IPlIPzX0mgtCjzp', // 내 어플리케이션 아이디 입력
+            callbackUrl : 'http://127.0.0.1:5500/New.No.033_20221025/index.html', // 아까 넣은 그대로
+            isPopup : false, // 팝업창으로 로그인을 띄울 것인가?
+            loginButton : {color : 'green', type : 2, height : 40}, // type을 1~3중에 하나 고르면 로그인 버튼이 바뀐다.
+
+        });
+
+        // 네이버 로그인을 띄운다.
+        naverLogin.init();
+
+        // 네이버 로그인 정보를 받아온다.(아이디 토큰, 닉네임 등)
+        naverLogin.getLoginStatus((status)=>{
+            if(status){
+                console.log(naverLogin);
+                console.log(naverLogin.user);
+            }
+        });
+
+        // 네이버 로그아웃은 직접 만들어줘야 한다. -> 네이버에 직접 들어가 로그아웃 하는 걸로 바뀜)
+        naverLogin.logout();
+
+        // 카카오 로그인
+        document.getElementById("kakaoIdLogin").onclick=()=>{
+            // naverLogin.logout(); // 작동안함 
+
+            // 계속 리다이렉트돼서 일단 네이버 로그아웃에 카카오 로그인을 넣어둠
+            Kakao.Auth.authorize({
+                redirectUri : "http://127.0.0.1:5500/New.No.033_20221025/index.html",
+            });
+            
+            // Kakao.init("7bae64307ab88473a19e8f8386bfa4a8");
+            // console.log(window.Kakao.Auth);
+            // console.log(Kakao.Auth);
+        }
+
+
+        // 카카오 로그인 : https://developers.kakao.com/docs/latest/ko/getting-started/sdk-js
+        Kakao.init('7bae64307ab88473a19e8f8386bfa4a8'); // 내 어플리케이션 자바스크립트 키
+        Kakao.isInitialized();
+
+
+
+
+
+        // 카카오 로그인 정보
+        // function requestUserInfo() {
+        //     Kakao.API.request({
+        //     url: '/v2/user/me',
+        //     })
+        //     .then(function(res) {
+        //         console.log(JSON.stringify(res));
+        //     })
+        //     .catch(function(err) {
+        //         console.log(
+        //         'failed to request user information: ' + JSON.stringify(err)
+        //         );
+        //     });
+        // }
+
+        // requestUserInfo();
+
+        console.log(window.Kakao);
+
+
+
+        // // Before
+        // Kakao.API.request({
+        // url: '/v2/user/me',
+        // success: function(response) {
+        //     console.log(response);
+        // },
+        // fail: function(error) {
+        //     console.log(error);
+        // },
+        // });
+
+        // // After
+        // Kakao.API.request({
+        // url: '/v2/user/me',
+        // })
+        // .then(function(response) {
+        //     console.log(response);
+        // })
+        // .catch(function(error) {
+        //     console.log(error);
+        // });
+
+
+
+
+
+    </script>
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>

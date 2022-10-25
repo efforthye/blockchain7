@@ -1,0 +1,189 @@
+*{
+    transition-duration: 0.8s;
+}
+html{
+    /* 스크롤 바를 없앤다. */
+    overflow: hidden;
+    scroll-behavior: smooth;
+    font-family: "NEXON Lv2 Medium", sans-serif;
+}
+html, body{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.readMore{
+    width: 100px; height: 40px;
+    position: absolute;
+    left: 1473px;
+    top: 650px;
+    cursor: pointer;
+    display: none;
+}
+/* 여기 아래부터 */
+.headerAllWrap{
+    background-repeat: no-repeat;
+    /* background-color: lightpink; */
+    position: relative;
+
+    /* 배경 이미지 조절 */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    /* vh : 화면 크기를 기준으로 한 높이이며, 1vh는 10px이다. */
+    height: 100vh;
+    animation: headerBackground 20s linear infinite;
+}
+@keyframes headerBackground {
+    from{background-image: url("images/bam.png");}
+    15%{background-image: url("images/bam.png");}
+    20%{background-image: url("images/toast.png");}
+    35%{background-image: url("images/toast.png");}
+    40%{background-image: url("images/coldBrew.png");}
+    55%{background-image: url("images/coldBrew.png");}
+    60%{background-image: url("images/croiffle.png");}
+    75%{background-image: url("images/croiffle.png");}
+    80%{background-image: url("images/lightHouse3.png");}
+    to{background-image: url("images/lightHouse3.png");}
+}
+.headerWrap{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+#header{
+    position: absolute;
+    width: 75%;
+    height: inherit;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.headInfo{
+    height: 90px;
+    display: flex;
+    align-items: flex-end;
+}
+.headInfoContent{
+    height: 50px;
+    background-color: #f3f3f36c;
+    width: 100%;
+    border: 1px solid white;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+.headInfoContent>div{
+    height: inherit;
+    display: inline;
+    display: flex;
+}
+.headInfoContent>div ul{
+    display: inline;
+}
+.headInfoContent>div li{
+    color: white;
+    display: inline;
+    margin: 0 15px;
+}
+.headInfoContent>div a:first-child{
+    border-right: 1px solid white;
+}
+.headInfoLeft>ul{
+    padding: 0;
+}
+.header{
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 800;
+    color: white;
+}
+.header h1{
+    text-shadow: 2px 2px 6px rgb(70, 70, 70);
+    color: white;
+    font-size: 36px;
+}
+.header li{
+    font-size: 19;
+    color: white;
+    font-weight: 700;
+    text-shadow: 1px 1px 6px rgb(70, 70, 70);
+}
+.header>ul{
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+.header div{
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #F3F3F3;
+    color: black;
+}
+.header>a>div{
+    box-shadow: 1px 1px 3px rgba(70, 70, 70, 0.562);
+}
+/* 여기 위까지 */
+.bodyAllWrap{
+    /* height: 2000px; */
+    background-color: #F3F3F3;
+
+}
+.newMenu{
+
+}
+.section{
+    /* position: relative; */
+    width: 100%;
+    height: 100vh;
+}
+.section2{
+    width: 100%;
+    height: 100vh;
+    background-color: coral;
+}
+/* #section1 {
+    background-color: red;
+    transition: all 700ms ease 0s;
+}
+#section2 {
+    background-color: blueviolet;
+    height: 6480px;
+}
+#section3 {
+    background-color: blue;
+    height: 5400px;
+}
+#section4 {
+    background-color: lightblue;
+    height: 4320px;
+}
+#section5 {
+    background-color: green;
+    height: 3240px;
+}
+#section6 {
+    background-color: yellow;
+    height: 2160px;
+}
+#section7 {
+    background-color: orange;
+    height: 1080px;
+} */
