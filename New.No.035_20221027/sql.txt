@@ -1,0 +1,121 @@
+# DB 사용(접속) 방법
+- USE testing1; : testing1 DB에 접속한다.
+
+CREATE SCHEMA `testing` DEFAULT CHARACTER SET utf8mb4 ;
+
+CREATE TABLE `testing`.`new_table` (
+  `idx` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `password` VARCHAR(256) NULL,
+  `id` VARCHAR(45) NULL,
+  `create_at` DATE NULL,
+  PRIMARY KEY (`idx`));
+
+# CREATE : 생성하는 명령어
+- DB, TABLE
+
+# DEFAULT CHARACTER SET utf8mb4;
+- utf8mb4 방식으로 인코딩한다. 저장할 때의 방식이다.
+- txt파일 만들 때 인코딩 방식 설정하는 것과 같은 의미이다.
+
+# `testing`.`new_table`
+- `DB명`.`생성할테이블명`
+
+# (`idx` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `password` VARCHAR(256) NULL,
+  `id` VARCHAR(45) NULL,
+  `create_at` DATE NULL,
+  PRIMARY KEY (`idx`));
+- (`컬럼명` 자료형옵션, `컬럼명` 자료형옵션, 옵션)
+- idx 컬럼명을 INT 자료형을 사용하여 생성하되 idx는 빈값이면 안된다.
+- name 컬럼명을 VARCHAR(45) 자료형을 사용하여 생성하고 빈값이 들어가도 된다.
+- PRIMARY KEY(고유 식별 컬럼, 값?)으로 idx를 설정한다.
+
+# 자료형 - 간단
+- BOOLEAN : 1BYTE, 참거짓
+# 자료형 - 숫자
+- TINYINT : 1BYTE의 정수(-128~127, 0~255)
+  (잡설 : 127+1 => -128 << Be폭력주의 간디의 탄생 : 0-1 => 255)
+- INT : 4BYTE의 정수(-2,147,483,648 ~ 2,147,483,647)
+- BIGINT : 8BYTE의 정수
+- FLOAT : 4BYTE의 실수
+  (FLOAT는 계산할 때 확률적으로 오류가 뜬다.)
+- DOUBLE : 8BYTE의 실수
+  (DOUBLE은 FLOAT보다는 조금 덜 오류가 뜬다.)
+- BIT(n) : n BIT의 정수이다. 몇개이든지 n을 내가 설정한다.
+  (만약 BIT(4)이면 0부터 2의 4승인 16개 까지니까 0~15이다.)
+# 자료형 - 문자
+- CHAR(n) : n BYTE의 문자이다. n 만큼을 차지한다. 최대 2의 8승 BYTE까지 가능
+  ASCII : 1BYTE(8bit), 최대 2^8글자(0~126 : 2^7-1(7비트), 앞의 1비트를 버리고 총 8bit 사용)
+  UTF-8 : 1~3BYTE(최대 글자수 : 2^8/3 ~ 2^8)
+  UTF-8MB4 : 1~4BYTE
+  UTF-16 : 3BYTE 
+- VARCHAR(n) : 최대 n BYTE의 가변 문자이다. 최대 2의 8승 BYTE까지 가능
+  만약 1글자 넣으면 1BYTE만 차지한다. 길이를 전부 차지하지 않는다.
+- TEXT : 최대 2^16 BYTE의 가변 문자
+- LONGTEXT : 최대 2^32 BYTE의 가변 문자
+# 자료형 - 시간
+- DATE : 3BYTE, 날짜(YYYY-MM-DD)
+- DATETIME : 8BYTE, 날짜와 시간(YYYY-MM-DD HH:MM:SS)
+- TIMESTAMP : 4BYTE, UTC형태의 날짜와 시간(YYYY-MM-DD HH:MM:SS)
+- YEAR : 1BYTE, 연도(YYYY)
+
+# 옵션들
+- NOT NULL : 빈값이면 안됨
+- UNIQUE : 값이 중복되면 안됨 하나만 있어야 함
+- PRIMARY KEY : 고유한 키, 고유 식별 키(고유 식별 컬럼)
+- FOREIGN KEY : 테이블 연결 시 사용함
+- CHECK : 저장할 데이터의 범위나 조건을 지정한다.
+- DEFAULT : 기본값
+- AUTO_INCREMENT : index의 값을 자동 증가시킨다.(중요)
+- COMMENT : 설명
+
+
+SELECT * 
+FROM testing.new_table;
+# SELECT : 데이터를 가져온다.
+- * : 전부
+- FROM : 어떤 테이블에서 가져올 것인지
+
+SELECT * 
+FROM testing.new_table
+WHERE name="어쩌구";
+# WHERE : 조건문, name이 어쩌구인 놈들 전부(*)가져옴
+
+SELECT name, id 
+FROM testing.new_table
+WHERE name LIKE "어쩌구";
+# LIKE : name에 '어쩌구'가 포함되어 있으면 name을 가져온다.
+
+SELECT * 
+FROM testing.new_table
+ORDER BY name DESC;
+# ORDER BY : name을 기준으로 내림차순(DESC)으로 가져온다.(ASC : 오름차순)
+
+SELECT COUNT
+FROM testing.new_table;
+# COUNT : 개수 가져오기
+
+
+INSERT INTO `tablename`(`idx`, `name`)
+VALUES('0', `kitty`);
+# INSERT : 데이터를 저장한다.
+# INTO : 어디 테이블에 저장할지
+# (`idx`, `name`) : 데이터 넣을 컬럼명들을 적는다.
+# VALUES('0', 'kitty') : 어떤 값들인지 컬럼명 순서대로 적는다.
+
+INSERT INTO `testing`.`new_table`
+SET `idx`='2', `name`='kitty', `password`='hihi', `id`='happyworld', `create_at`='2022-10-27';
+# SET : 어떤 컬럼에 어떤 데이터를 넣을(INSERT) 것인지 하나하나 세팅해주는 것이다.
+# `` : 객체(컬럼명)
+# '' : 고유값(스트링이나 숫자 등등 데이터)
+
+
+
+-- INSERT INTO `testing`.`new_table` (`idx`, `name`, `password`, `id`, `create_at`) 
+-- VALUES ('0', '박혜림', 'happyworld', 'hellokitty', '2022-10-27');
+
+-- INSERT INTO `testing`.`new_table` (`idx`, `name`, `password`, `id`, `create_at`) 
+-- VALUES ('1', '박예성', 'happyworld2', 'hellokitty2', '2022-10-27');
+
