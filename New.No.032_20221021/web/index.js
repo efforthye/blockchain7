@@ -223,20 +223,25 @@ getList();
 // 로그인
 document.getElementById("sign-in").onclick = async function(e){
     e.preventDefault();
+
     const data = await axios.post("/api/user/login", {
         id : document.forms["user-info"].id.value,
         pw : document.forms["user-info"].pw.value
     });
     console.log(data.data);
 
-    // 이름 payload 토큰을 쿠키에 추가
+    // 이름, payload 토큰을 쿠키에 추가
+    // 1. 쿠키를 받아서 자름, 2. 
+    // document.cookie가 뭔지
+    // atob : base64인 놈을 string으로 바꿔줌
+    // 객체의 name을 가져옴
     const tempName = JSON.parse(window.atob(document.cookie.split("=")[1].split(".")[1])).name;
 
     // 로그인 시 user-name에 로그인 정보를 띄운다.
     if(tempName){
         console.log(tempName);
         document.getElementById("user-name").innerText = 
-        tempName +"님 어서오세요.";
+            tempName +"님 어서오세요.";
         [...document.getElementsByClassName("btn-box")].forEach(elem=>{
             elem.classList.toggle("on");
         });
@@ -263,6 +268,7 @@ document.getElementById("sign-out").onclick = function(e){
 // 회원가입
 document.getElementById("sign-up").onclick = async function(e){
     e.preventDefault();
+    // 여기에서 await가 필요한 이유?? : 서버에서 처리 될때까지 기다려야 하기 때문
     const data = await axios.post("/api/user/regist", {
         id : document.forms["user-info"].id.value,
         pw : document.forms["user-info"].pw.value,
