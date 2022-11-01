@@ -12,6 +12,7 @@
             // 차이 : 상대주소, 절대주소
             const data = await axios.get("/");
             const fullUrldata = await axios.get("http://localhost:8080");
+            console.log(data);
             console.log(data.data);
             console.log(fullUrldata.data);
         }
@@ -21,7 +22,7 @@
             console.log(data.data);
             console.log(fullUrldata.data);
         }
-        
+
 
 
     </script>

@@ -49,7 +49,7 @@ app.post("/",(req,res)=>{
 });
 
 app.get("/api", (req,res)=>{
-    res.send(req.query);
+    // res.send(req.query);
     res.json(req.query);
 });
 
@@ -90,8 +90,10 @@ app.get("/testing1", (req,res)=>{
 
 app.get("/search", async (req,res)=>{
     // const data = (await axios.get("http://localhost:8080")).data;
-    // const data = await axios.get("https://www.youtube.com");
-    const data = await axios.get("http://localhost:8080");
+    const data = await axios.get("https://www.youtube.com");
+    // const data = (await axios.get("https://www.youtube.com")).data;
+    // const data = await axios.get("https://www.naver.com");
+    // const data = await axios.get("http://localhost:8080");
     res.send(data.data);
 
 });
