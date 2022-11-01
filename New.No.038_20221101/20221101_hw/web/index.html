@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 과제</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- 로그인 후 채팅하는 페이지 구현, 로그아웃 구현 : axios 사용 x -->
+    <input type="text" name="" id="login" placeholder="로그인">
+    <button id="loginBtn">로그인</button>
+    <button id="logoutBtn">로그아웃</button>
+    <div id="loginUser"></div>
+    <!-- #loginUser div에 그냥 때려박은 놈들을 ul의 li로 추가되도록 하기 -->
+    <!-- <ul>
+        <li></li>
+    </ul> -->
+    <!-- <button id="logoutBtn"></button> -->
+
+    <input type="text" name="" id="chat" placeholder="메시지">
+    <button id="sendBtn">채팅 보내기</button>
+    <div id="chatList"></div>
+
+    <script>
+        const login = document.getElementById("login");
+        const loginBtn = document.getElementById("loginBtn");
+        const logoutBtn = document.getElementById("logoutBtn");
+        const loginUser = document.getElementById("loginUser");
+        const chat = document.getElementById("chat");
+        const sendBtn = document.getElementById("sendBtn");
+
+        let loginCheck = 0;
+        // let loginUserCheck = "";
+
+        function socket(){
+            const socket = io();
+
+            // 로그인 버튼 누르면 
+            loginBtn.onclick = () =>{
+                if(!login.value)return;
+                if(loginCheck == 0){
+                    loginCheck = 1;
+                    loginUser.innerHTML = login.value+"님 안녕하세요.";
+                    // loginUserCheck = login.value;
+                    socket.emit("login", login.value);
+                }else{
+                    alert("이미 로그인 되어있습니다.");
+                    return;
+                }
+            }
+            socket.on("login-message", (data)=>{
+                console.log(data);
+                chatList.innerHTML += `<div style="color:green">${data}</div>`;
+            });
+
+            // 로그아웃 버튼을 누르면
+            logoutBtn.onclick = () =>{
+                if(loginCheck==1){
+                    loginCheck = 0;
+                    loginUser.innerHTML = "";
+                    socket.emit("logout", login.value);
+                }else{
+                    alert("로그인 상태가 아닙니다.");
+                    return;
+                }
+            }
+            socket.on("logout-message", (data)=>{
+                console.log(data);
+                chatList.innerHTML += `<div style="color:red">${data}</div>`;
+            });
+
+            // 보내기 버튼 누르면
+            sendBtn.onclick = () =>{
+                if(loginCheck==0){
+                    alert("로그인 상태가 아닙니다.");
+                    return;
+                } 
+                if(!chat.value){
+                    alert("메시지를 입력해주세요.");
+                    return;
+                }
+                // console.log({user : login.value, chat : chat.value});
+                // chatList.innerHTML += chat.value;
+                socket.emit("send", {user : login.value, chat : chat.value});
+            }
+            socket.on("send-message", (data)=>{
+                chatList.innerHTML += `<div>${data}</div>`;
+            });
+
+        }
+        socket();
+
+    </script>
+</body>
+</html>
