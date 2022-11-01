@@ -1,4 +1,5 @@
 // /api/board
+console.log("/api/board");
 
 const router = require("express").Router();
 

@@ -1,4 +1,5 @@
 // /api/user
+console.log("/api/user");
 
 const router = require("express").Router();
 const crypto = require("crypto-js");
@@ -73,9 +74,10 @@ router.post("/login", (req,res)=>{
     console.log(req.cookies.cookie_name);
 
     // if( userList[req.body.id]?.pw === req.body.pw){
-    // 로그인 성공(로그인 정보 및 암호화 비밀번호 일치)
+    // 로그인 성공(암호화 비밀번호 일치)
     if( userList[req.body.id]?.pw === crypto.SHA256(req.body.pw).toString()){
         // name 추가
+        // 쿠키 추가
         res.cookie("log_jwt", 
             jwt.sign({name : userList[req.body.id].name}, "block7testing", {
                 algorithm : "HS256", 

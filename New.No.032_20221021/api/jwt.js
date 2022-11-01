@@ -12,7 +12,7 @@ const crypto = require("crypto-js");
 // parse : json을 객체로 바꾸고, stringify : 객체를 json 형식으로 바꿔준다.
 // alg : 어떠한 알고리즘을 사용할 것인가. (종류 : HS256,384,512 / RS, ES, PS256,384,512... 동일)
 // alg 기본값은 HS256이므로 그거 사용하면 됨. 이 놈은 암호화하는 놈임.
-const tempHeader = JSON.stringify({name : "block7", alg: "HS256"})
+const tempHeader = JSON.stringify({name : "block7", alg: "HS256"});
 
 // JWT(json web token)는 base64url 형식의 포맷을 사용한다.
 // base64는 : ASCII(아스키)코드를 기준으로 데이터를 저장하는 포맷이다.
@@ -60,3 +60,5 @@ console.log(`jwt : ${jwt}`);
 // 그걸 포함해서 보내 서버쪽에서 확인을 할 수 있다고 한다. 정상적 로그인인지...
 // 양방향으로 개인정보 저장하면 큰일난다고 한다. (중요) 단방향으로만 !!
 // 보통 복호화 자체를 잘 안 한다고 한다.
+
+// 어떻게 사용?

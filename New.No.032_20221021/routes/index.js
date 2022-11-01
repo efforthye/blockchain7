@@ -1,4 +1,5 @@
 // /api는 여기로 들어옴
+console.log("/api");
 
 const router = require("express").Router();
 
@@ -14,6 +15,7 @@ router.use("/", (req,res,next)=>{
 router.use("/user", user);
 
 
+// 이 놈이 필요한 이유는?
 module.exports = router;
 
 // import / export
