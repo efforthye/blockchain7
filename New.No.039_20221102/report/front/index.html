@@ -58,11 +58,19 @@
             logInElem.onclick = () =>{
                 socket.emit("login", {id:nameElem.value});
             }
+            logOutElem.onclick = () =>{
+                socket.emit("logout");
+            }
 
             socket.on("login", (data)=>{
                 logInBoxElem.classList.toggle("on");
                 logOutBoxElem.classList.toggle("on");
                 userInfoElem.innerText = data.id;
+            });
+            socket.on("loginInfo", (data)=>{
+                const tempElem = document.createElement("li");
+                tempElem.innerText = data.id + "님이 접속하셨습니다.";
+                chatElem.append(tempElem);
             });
 
             socket.on("logout", (data)=>{
@@ -70,13 +78,6 @@
                 logOutBoxElem.classList.toggle("on");
                 userInfoElem.innerText = data.id;
             });
-
-            socket.on("loginInfo", (data)=>{
-                const tempElem = document.createElement("li");
-                tempElem.innerText = data.id + "님이 접속하셨습니다.";
-                chatElem.append(tempElem);
-            });
-
             socket.on("logoutInfo", (data)=>{
                 const tempElem = document.createElement("li");
                 tempElem.innerText = data.id + "님이 잡아와!";
