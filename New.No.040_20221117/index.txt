@@ -1,0 +1,46 @@
+# React : npm i -g create-react-app
+- React : Facebook에서 만든 라이브러리이다.
+- View(FrontEnd)만을 위해 제작되었다. 
+- npm/yarn을 이용하지만 BackEnd가 아니다.
+- yarn이라는 패키지 매니저를 사용한다.
+- yarn : Node.js 자바스크립트 런타임 환경을 위해 개발한 소프트웨어 패키지 시스템, npm 패키지 관리자의 대안으로서
+- npm으로 안 된다는 이야기는 아니라고 한다. -> ??
+- npm i -g create-react-app으로 설치한다.
+- npx create-react-app testing : testing이라는 폴더를 만들고 그 안에 react를 기본 세팅한다.
+- cd testing으로 해서 npm start하면 lacalhost:3000으로 알아서 접속된다.
+- javascript와 html 문법을 함께 js파일에 작성하고 있다.
+  FM대로 하면 원래는 JSX파일에 작성해야 한다고 한다. (*.jsx)
+  tsx, ts는 정확하게 지켜져야 한다.(어디에? : 타입 스크립트는 자바스크립트를 
+    똑같이 쓰는건데 type, 자료형에 대해서 더 정확하게 나타내게한 도구임, 
+    어쨌든 정확하게 구분해서 써야 한다고 함.) 단 js, jsx는 크게 따지지 않는다.
+  JSX : Javascript XML의 약자로, Javascript를 확장한 문법이다. 파일명 앞자리 꼭 대문자(중요)
+  이는 React의 대표적인 특징 중 하나이다.
+  js에 JSX를 작성하지 않아도 js가 좀 널널한 성격이라서 그냥 써도 되긴 한다고 함.
+- component는 구조의 단위이다. html, javascript를 포함한다.
+- React 상에서만 사용하는 DOM이 있다. 렌더링에 바로 적용되지는 않는다.
+  해당 DOM을 가상 돔(Virtual DOM) 이라고 한다.
+  React는 Virtual DOM을 수정하고, 수정된 부분만을 실제 DOM에 적용한다.
+  let, var 등등은 변화하더라도 React에서 감지하지 못한다.
+  변화를 감지했을 때만, 그 부분만을 리랜더링해서 보여주기 때문에 
+  let을 사용하는 경우에는 변화가 없다. 가상 돔에서만 변화가 일어났을 뿐이다.
+  그래서 그것을 감지할 수 있도록 우리가 해줘야 한다.
+- state라는 단위? 개념이 있다. state는 상태라는 뜻인데, 현재 React의 상태를 확인하고 
+  변경되었을 때 그 변경 사항을 React에 알려주는 놈이다. 변화하면 리랜더링도 된다.
+    useState() 메서드(중요)
+    const [count1, setCount1] = useState(0); 해주고 버튼 onClick 함수 안에
+                console.log(count1);
+                setCount1(count1+1);
+    위처럼 하고 버튼 태그 안에 {count1} 출력
+
+
+
+
+# npm install 명령어
+-D : 개발 시에만 사용하는 디팬던시
+-g : golbal으로, 전역에서 사용하는 라이브러리이다.
+npm list -g : 전역에 설치된 라이브러리를 확인한다.
+npm i -g create-react-app으로 설치한다. -> 어디에? : 아무데나
+npx create-react-app testing : testing이라는 폴더를 만들고 그 안에 react를 기본 세팅한다.
+
+# package.json에 깔린 것
+- ESLint : 자바스크립트 코드에서 발견되는 문제시되는 패턴들을 식별하기 위한 정적 코드 분석 도구이다.
