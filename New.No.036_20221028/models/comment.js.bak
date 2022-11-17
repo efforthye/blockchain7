@@ -34,7 +34,7 @@ module.exports = class Comment extends Sequelize.Model {
             as : ""
         });
 
-        // 코멘트들을 보드에 연결시킴
+        // 댓글들을 보드에 연결시킴
         db.Comment.belongsTo(db.Board, {
             foreignKey : "board_id",
             targetKey : "id",
