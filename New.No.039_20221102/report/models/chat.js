@@ -20,4 +20,14 @@ module.exports = class Chat extends Sequelize.Model {
             collate: "utf8mb4_general_ci"
         })
     }
+    static associate(db){
+        // 채팅(n)과 유저(1) 연결
+        Chat.belongsTo(db.User,{
+            foreignKey : "user_id",
+            targetKey : "id" // db.User의 sourceKey
+        });
+
+
+
+    }
 }
