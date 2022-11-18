@@ -19,7 +19,7 @@
 }
 
 .num-pad{
-  width: 100px;
+  /* width: 100px;
   height: 100px;
   background-color: rgb(245,245,245);
   font-size: 32px;
@@ -29,7 +29,7 @@
   border: 1px solid black;
   border-radius: 10px;
   cursor: pointer;
-  margin: 10px;
+  margin: 10px; */
 }
 
 
