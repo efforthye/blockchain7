@@ -1,3 +1,11 @@
+import styled from "styled-components";
+
 export default function List(){
-    return <div></div>;
+    return (
+        <ListStyled>
+            
+        </ListStyled>
+    );
 }
+
+const ListStyled = styled.div``;
