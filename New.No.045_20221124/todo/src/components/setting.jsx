@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 
 // 전부 대문자인 변수명 : 고정된 설정값이라는 뜻(개발자들의 규칙(중요))
+// 언제언제 사용하는지를 공부다하고 검색검색해서 여기에 설명설명 적기~~
+// 1. TodoModal.jsx에서 상태 버튼 클릭하는 .. 때문에 사용사용~~
+// 2. Item.jsx... 어쩌구저쩌구
 export const STATUS = {
   ToDo: 0,
   InProgress: 1,
