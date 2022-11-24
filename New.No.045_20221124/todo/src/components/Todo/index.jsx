@@ -29,8 +29,8 @@ export default function Todo() {
 
             </List>
             <Routes>
-                <Route path={'add'} element={<TodoModal setList={setList} />}/>
-                <Route path={'edit'} element={<TodoModal/>}/>
+                <Route path={'add'} element={<TodoModal setList={setList} func={"Add"}/>}/>
+                <Route path={'edit'} element={<TodoModal setList={setList} func={"Edit"}/>}/>
             </Routes>
         </div>
     );

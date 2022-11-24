@@ -22,7 +22,9 @@ export default function Item({ item, index, setList }) {
         </td>
         <td>
             {/* 수정은 수정할 창이 필요하기 때문에 삭제와 다르게 라우터로 보내준다. */}
-            <Link to={"/edit"}>
+            {/* state index를 보낸 이유 : TodoModal에서 수정할때 사용하기 위함 */}
+            {/* item은 수정할때 이미 입력되어있던 값을 가져오기 위해서이다. */}
+            <Link to={"/edit"} state={{index, item}}>
                 <TodoBtn className='todo'><img src={penImg} alt="penImg"></img></TodoBtn>
             </Link>
         </td>
