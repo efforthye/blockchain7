@@ -1,6 +1,16 @@
 
 import styled from 'styled-components';
 
+
+// 전부 대문자인 변수명 : 고정된 설정값이라는 뜻(개발자들의 규칙(중요))
+export const STATUS = {
+  ToDo: 0,
+  InProgress: 1,
+  Complete: 2,
+}
+export const STATUSLIST = ['ToDo', 'In Progress', 'Complete'];
+
+
 // default를 붙이지 않으면 App.js에서 중괄호를 통해 가져옴(중요) {TodoBtn}
 // default는 파일 당 하나만 들어갈 수 있다.(중요)
 // 파일 자체가 컴포넌트를 내보내면 파일이름도 대문자로 시작하고,

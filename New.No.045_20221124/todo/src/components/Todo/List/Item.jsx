@@ -1,18 +1,24 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { TodoBtn } from '../../setting';
+import { STATUSLIST, TodoBtn } from '../../setting';
 // List폴더 안에 이미지 들어있음
 // 만약 svg이면 svg filter color검색해보기
 // 이미지에 그대로 넣어주면 아이콘 색상 바꿀 수 있음
 import penImg from './edit4.png';
 import removeImg from './remove.png';
 
-export default function Item() {
+
+export default function Item({ item, index }) {
+
     return (<ItemTr>
-        <td>1</td>
-        <td>1</td>
+        <td>{index+1}</td>
+        <td>{item.taskName}</td>
         <td>
-            <TodoBtn className='todo' style={{ cursor: "default" }}>Todo</TodoBtn>
+            <TodoBtn
+                className={STATUSLIST[item.status].toLowerCase().replace(" ", "-")}
+                style={{ cursor: "default" }}>
+                {STATUSLIST[item.status]}
+            </TodoBtn>
         </td>
         <td>
             {/* 수정은 수정할 창이 필요하기 때문에 삭제와 다르게 라우터로 보내준다. */}

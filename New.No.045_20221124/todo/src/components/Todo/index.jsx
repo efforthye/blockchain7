@@ -9,7 +9,11 @@ import { useState } from 'react';
 
 export default function Todo() {
 
-    const [list, setList] = useState([]);
+    const [list, setList] = useState([
+        {taskName : "가원이언니 밥 뺏어먹기", status : 0},
+        {taskName : "냠냠", status : 1},
+        {taskName : "ㅇㅅㅇ", status : 2},
+    ]);
 
 
     return (

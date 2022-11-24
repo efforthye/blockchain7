@@ -1,18 +1,35 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { TodoBtn } from '../setting';
 
+import { STATUSLIST, STATUS } from '../setting';
+
 export default function TodoModal() {
+
+    const [taskName, setTaskName] = useState("");
+    const [status, setStatus] = useState(STATUS.ToDo);
+
     return (
         <TodoModalBox>
             <TodoModalInnerBox>
                 <div>
-                    <input type="text" placeholder='Task Name'></input>
+                    <input
+                        type="text"
+                        placeholder='Task Name'
+                        value={taskName} //데이터 동기화, 넣어줘야 나중에 예외처리도 가능하다고함(중요)
+                        onInput={(e)=>{
+                            setTaskName(e.target.value.slice(0,30));
+                        }}
+                    >
+
+                    </input>
                 </div>
                 <div>
-                    <TodoBtn className='todo on'>Todo</TodoBtn>
-                    <TodoBtn className='in-progress'>In Progress</TodoBtn>
-                    <TodoBtn className='complete'>Complete</TodoBtn>
+                    {STATUSLIST.map((item, index) => (
+                        // Item에서 className 복붙해와서 STATUSLIST[index]로 바꿈
+                        <TodoBtn key={`TodoBtn-${index}`} className={STATUSLIST[index].toLowerCase().replace(" ", "-")}>{item}</TodoBtn>
+                    ))}
                 </div>
                 <div>
                     <Link to={"/"}>
@@ -27,6 +44,12 @@ export default function TodoModal() {
         </TodoModalBox>
     );
 }
+
+
+// eslint-disable-next-line no-lone-blocks
+{/* <TodoBtn className='todo on'>Todo</TodoBtn>
+                    <TodoBtn className='in-progress'>In Progress</TodoBtn>
+                    <TodoBtn className='complete'>Complete</TodoBtn> */}
 
 const TodoModalBox = styled.div`
     width : 100vw;

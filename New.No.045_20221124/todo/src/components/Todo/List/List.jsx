@@ -15,11 +15,11 @@ export default function List({list}) {
             </thead>
             <tbody>
                 {/* 할 일을 추가하면 추가됨 */}
-                <Item />
-                <Item />
+                {/* <Item /> */}
+                {/* <Item /> */}
                 {list.map((item, index)=>(
-                    <Item key={`Item-${index}`} item={item} />
-                ))};
+                    <Item key={`Item-${index}`} item={item} index={index} />
+                ))}
             </tbody>
         </ListTable>
     );
