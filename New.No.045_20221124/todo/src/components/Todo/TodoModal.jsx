@@ -14,7 +14,7 @@ export default function TodoModal({ setList, func }) {
 
     // 수정사항이 이미 들어있도록 함 만약 없으면 빈값 혹은 기본값(오~~) ㄴㄴㄴ
     // 기존값이 없으면(추가버튼클릭) 처음만드는설정, 이미 있으면 수정창띄우기임
-    const [taskName, setTaskName] = useState(item.taskName?item.taskName:""); 
+    const [taskName, setTaskName] = useState(item?item.taskName:""); 
     const [status, setStatus] = useState(item?item.status:STATUS.ToDo);
 
     return (
