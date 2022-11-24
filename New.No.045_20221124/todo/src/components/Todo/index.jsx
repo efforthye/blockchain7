@@ -25,7 +25,7 @@ export default function Todo() {
 
                 </Link>
             </TodoModalBtnBox>
-            <List list={list}>
+            <List list={list} setList={setList}>
 
             </List>
             <Routes>

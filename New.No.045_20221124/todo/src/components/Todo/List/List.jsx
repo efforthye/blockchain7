@@ -1,7 +1,8 @@
 import styled  from 'styled-components';
 import Item from './Item';
 
-export default function List({list}) {
+// Todo/index.js에서 받아옴
+export default function List({list, setList}) {
     return (
         <ListTable>
             <thead>
@@ -18,7 +19,7 @@ export default function List({list}) {
                 {/* <Item /> */}
                 {/* <Item /> */}
                 {list.map((item, index)=>(
-                    <Item key={`Item-${index}`} item={item} index={index} />
+                    <Item key={`Item-${index}`} item={item} index={index} setList={setList} />
                 ))}
             </tbody>
         </ListTable>

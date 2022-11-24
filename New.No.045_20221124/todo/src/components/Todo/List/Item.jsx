@@ -7,11 +7,11 @@ import { STATUSLIST, TodoBtn } from '../../setting';
 import penImg from './edit4.png';
 import removeImg from './remove.png';
 
-
-export default function Item({ item, index }) {
+// Todo/List/List.jsx에서 받아옴
+export default function Item({ item, index, setList }) {
 
     return (<ItemTr>
-        <td>{index+1}</td>
+        <td>{index + 1}</td>
         <td>{item.taskName}</td>
         <td>
             <TodoBtn
@@ -26,7 +26,18 @@ export default function Item({ item, index }) {
                 <TodoBtn className='todo'><img src={penImg} alt="penImg"></img></TodoBtn>
             </Link>
         </td>
-        <td><TodoBtn className='todo'><img src={removeImg} alt="removeImg"></img></TodoBtn></td>
+        <td>
+            {/* 삭제 버튼 */}
+            <TodoBtn className='todo' onClick={()=>{
+                setList(list=>{
+                    const before = list.slice(0, index);
+                    const after = list.slice(index+1);
+                    return [...before, ...after];
+                });
+            }}>
+                <img src={removeImg} alt="removeImg"></img>
+            </TodoBtn>
+        </td>
     </ItemTr>);
 }
 
