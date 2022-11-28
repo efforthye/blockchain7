@@ -2,39 +2,16 @@
 // Deprecated : 중요도가 떨어져 더이상 사용되지 않고 앞으로 사라지게 될 컴퓨터 시스템 기능 등이다.
 // @reduxjs/toolkit 라이브러리의 configureStore() 메서드 : createStore()가 사라지고 나서 대신하게 된 함수이다.
 // createStore가 살아난 이유 : 기존의 코드와 사용자들이 너무 많아서 수정을 다 못 한다고 항의했나봄. 
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 // Provider : React에서 Redux를 사용하기 위한 Root컴포넌트를 가져오는 친구이다.
 import { Provider } from 'react-redux';
 // composeWithDevTools : 브라우저의 Redux DevTool과 연결해주는 함수이다.
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 
 import logo from './logo.svg';
 import './App.css';
 
-// reducer 함수는 Redux 내에서 dispatch가 보내준 action을 받아 
-// 작업을 진행한 후 state를 변경(재정의)한다....(중요한듯?)
-// dispatch가 보내준 action 내에는 type과 payload가 있다고 한다.
-const reducer = (state, action) =>{
-  console.log(state, action);
-
-  // action의 type이 plus일 경우 기존의 state에 1을 추가한다.
-  // 리턴된 값은 state에 그대로 정의된다.
-  switch(action.type){
-    case "plus" :
-      return { test : state.test+"1" };
-    default :
-      return state;
-  }
-
-}
-
-// store : state 저장소를 생성한다. (엄청엄청 중요~~ useContext처럼 이곳저곳에서 사용가능한 전역변수같은 느낌임)
-// useState를 사용하지 않는 대신 이걸 사용한다고 함. 쓰기는 좀 어려운데 잘 쓰게되면 너무 편할듯?
-// createStore() 첫 번째 매개변수 : reducer 함수 전체를 전달, 두 번째 매개변수 : 초기 상태 전달, 세 번째 매개변수 : devtool에 연결한다. (중요)
-// 초기 상태 : initialize(), initializeState ..? 금요일에 배웠다고 함
-// const store = createStore((state) => state, {test : "하이"}, composeWithDevTools());
-const store = createStore(reducer, {test : "하이"}, composeWithDevTools());
-
+import store from './components/store';
 
 function App() {
 
@@ -62,7 +39,11 @@ function App() {
           // dispatch() 메서드를 사용해서 action(객체)을 reducer에 전달한다.
           // dispatch : action을 reducer에 전달한다~~
           store.dispatch({type : 'plus', payload:{} });
-        }}>+</button>
+          
+        }}>+1</button>
+        <button onClick={()=>{
+          store.dispatch({type : 'plus2', payload:{}});
+        }}>+2</button>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
