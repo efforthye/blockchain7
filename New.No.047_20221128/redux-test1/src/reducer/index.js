@@ -1,21 +1,8 @@
-const reducer = (state, action) => {
+// combineReducers() 메서드 : 전달받은 reducer의 모음 객체를 하나로 묶어준다.
+import {combineReducers} from 'redux';
 
-    const { type, payload } = action;
+import count1 from './count1';
+import count2 from './count2';
 
-    switch (type) {
-        case "inputPlus":
-            // 객체 안에 기존의 state가 있고 count1을 추가함
-            // payload.input : count1프로퍼티에 payload로 받은 input 프로퍼티
-            return { ...state, count1: state.count1 + payload.input }
-
-        case "inputMinus":
-            // 객체 안에 기존의 state가 있고 count1을 추가함
-            // payload.input : count1프로퍼티에 payload로 받은 input 프로퍼티
-            return { ...state, count1: state.count1 - payload.input }
-
-        default:
-            return state;
-    }
-}
-
-export default reducer;
+// combineReducers() 메서드는 하나로 통합된 reducer 메서드를 반환한다.
+export default combineReducers({count1, count2});
