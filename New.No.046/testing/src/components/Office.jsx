@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 
-import { OfficeContext } from "./ReducerTest";
+import { OfficeContext } from "./ReducerTest.jsx";
 
 export default function Office() {
   const { result, requestDispatch } = useContext(OfficeContext);

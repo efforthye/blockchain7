@@ -1,0 +1,32 @@
+# Redux에 대해서
+- Redux는 상태(state)를 관리해주는 상태 관리 라이브러리이다.
+- 보통은 전역 상태 값 이라고 생각하면 된다.(중요)
+- Redux가 생겨난 배경과 특징 : 
+- Redux의 특징 : FLUX 모델을 사용한다. 
+  FLUX 모델이란 기존에 많이 사용했던 MVC 모델 패턴의 단점을 보완하기 위해 개발되었다.
+  MVC(Model, View, Controller) 모델 : 컨트롤러에서 모델에 갔다가 뷰와 통신하는 방식이다.
+    데이터가 바뀌면 뷰에서 모델(DB)로 간다. 또한 데이터가 바뀌면 출력해줘야 하니까 뷰로 가야한다.
+  FLUX 모델 : 우리가 어떠한 액션을 주고, 그 애가 Dispatch로 받아서 Store로 가고, 그게 그대로 View에 나타난다.
+    View 쪽에서는 다시 Action으로 간다. Dispatch와 Store사이에 Reducer가 끼게 된다고 한다.(이해x, 중요)
+
+# Redux 용어 정리
+- Store : 저장소, state들을 모아둔 객체이다.
+- Action : 요청, 요청 내용에 대해 목적(type, 어떤 일을 해달라)과 필요한 내용(payload)을 담은 객체이다.(중요)
+- Dispatch : 요청을 받아 Reducer에게 전달하는 함수
+- Reducer : 요청을 실행하는 함수
+
+# Redux의 3가지 원칙
+- Single Source Of Truth(진실은 하나의 근원으로부터) : state를 담고 있는 저장소(store)는 하나만 있어야 한다는 뜻이다.
+- State is read-only(상태는 읽기만 가능하다) : state를 변경(재정의)하는 방법은 action을 dispatch로 전달하는 것 뿐이다.
+- Changes are made with pure functions(변화는 순수 함수로 작성되어야 한다.) : reducer는 순수 함수로 작성되어야 한다.
+  순수 함수? : 같은 매개변수가 전달되었을 때, 항상 같은 값을 반환하는 함수이다. 외부의 값을 변경시키지 않아야 한다.
+              함수 외부의 변수를 변경하지 않고, 외부의 변수에 의존하지 않고, 매개변수 또한 변경하지 않는다.
+
+# Redux 라이브러리 설치 명령어(해당 리액트 폴더에 들어감)
+- yarn add redux 
+- yarn add react-redux
+- yarn add redux-devtools-extension --dev
+
+# 크롬 확장 프로그램 설치(Redux DevTools 설치한다.)
+- https://chrome.google.com/webstore/search/redux?hl=ko&
+- Redux를 추가하면 콘솔에 ~~~가 생긴다.
