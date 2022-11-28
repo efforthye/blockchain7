@@ -55,7 +55,7 @@ export default function TodoModal({ setList, func }) {
                     {/* 모달창에서 상태 버튼 클릭시 on클래스를 붙인다. */}
                     {/* setting.jsx에서 export해주었던 현재 상태가 담긴 배열인 STATUSLIST를 가져와서 */}
                     {/* 버튼에 상태들을 나열해 쭈르륵 띄우기 위해 각각을 map으로 돌려주었다. */}
-                    {STATUSLIST.map((item, index) => (
+                    {STATUSLIST.map((statusItem, index) => (
                         // Item에서 className 복붙해와서 STATUSLIST[index]로 바꿈
                         <TodoBtn
                             // 클래스 이름은 해당 리스트를 소문자로 바꾸고 빈공백을 없애 -를 넣어준 값으로 하였다
@@ -70,7 +70,7 @@ export default function TodoModal({ setList, func }) {
                             }}
                             key={`TodoBtn-${index}`}
                         >
-                            {item}
+                            {statusItem}
                         </TodoBtn>
                     ))}
                 </div>
@@ -88,7 +88,7 @@ export default function TodoModal({ setList, func }) {
                             // 만약 라우터 값이 Edit(편집)이라면
                             } else if (func === "Edit") {
                                 // 투두 리스트를 바꿔준다.
-                                setList((list) => {
+                                setList((list, index) => {
                                     // 0부터 현재 값까지 자르고, 현재 값+1부터 끝까지 자르면
                                     // 자기 자신만 빼고 나머지를 잘라낸 것이 되는데,
                                     // 유저가 입력한 값인 taskName과 상태를 가져와 
