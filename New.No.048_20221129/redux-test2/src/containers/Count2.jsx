@@ -8,9 +8,8 @@ const Count2Container = ({count2, plus, minus, input}) =>{
     return <Count2Comp count2={count2} plus={plus} minus={minus} input={input} />;
 }
 
-// 상태를 props로 바꿔준다. App.js에서 보낸 props를 여기서 받을 수 있다.
 const mapStateToProps = (state, props) =>{
-    // 객체 내의 값이 그대로 props에 전달된다고 한다.
+    // 객체 내의 값이 그대로 Count2Container의 props에 전달된다.
     return {count2 : state.count2, ...props};
 }
 const mapDispatchToProps = (dispatch) =>{
@@ -27,4 +26,5 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
+// Count2Container컴포넌트의 props로 전달
 export default connect(mapStateToProps, mapDispatchToProps)(Count2Container);

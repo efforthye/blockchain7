@@ -18,6 +18,7 @@ const Count1Container = () =>{
         render((state)=> !state);
     }
     const input = (input) =>{
+        // store에 dispatch로 action({type:'count1/input',payload:내용..})을 전달한다.
         store.dispatch(action.input(input));
         render((state)=> !state);
     }
