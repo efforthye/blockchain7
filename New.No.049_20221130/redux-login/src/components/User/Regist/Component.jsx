@@ -8,6 +8,8 @@ const RegistComponent = ({onClick}) => {
     const [userPw, setPw] = useState("");
     const [userName, setName] = useState("");
 
+    console.log("---등록 컴포넌트---", onClick);
+
     return (
         <RegistBox>
             <input type={'text'} value={userId} placeholder={'아이디'} onInput={(e)=>{
@@ -20,8 +22,10 @@ const RegistComponent = ({onClick}) => {
                 setName(e.target.value);
             }}></input>
             <button onClick={()=>{
-                // 부모한테서 props로 받아옴
-                onClick();
+                console.log("버튼 온클릭");
+
+                // onClick() : 부모한테서 props로 받아옴
+                onClick(userId, userPw, userName);
             }}>회원가입</button>
         </RegistBox>
     );
