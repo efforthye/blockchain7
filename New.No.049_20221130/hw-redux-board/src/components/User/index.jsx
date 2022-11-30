@@ -49,7 +49,13 @@ const mapStateToProps = (state, props) => {
 export default connect(mapStateToProps)(UserComponent);
 
 const UserBox = styled.div`
-    border : 1px solid black;
+    background-color : rgb(245,245,245);
+    // border : 1px solid black;
     border-radius : 5px;
     padding : 10px;
+
+    a{
+        color : black;
+        text-decoration : none;
+    }
 `;

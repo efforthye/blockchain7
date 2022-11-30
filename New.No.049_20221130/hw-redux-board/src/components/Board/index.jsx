@@ -11,11 +11,11 @@ const BoardComponent = ({userName}) => {
     return (
         <BoardBox>
             <div>
-                <Link to={'/board'}>Board</Link>
+                <Link to={'/board'}>게시판</Link>
                 {/* 유저 이름이 있으면 등록버튼을 띄운다. */}
                 {!userName ? <></> : (<>
                     {" "}
-                    | <Link to={'/board/regist'}>Regist</Link>
+                    | <Link to={'/board/regist'}>등록</Link>
                 </>)}
             </div>
 
@@ -42,7 +42,10 @@ const mapStateToProps = (state, props) => {
 export default connect(mapStateToProps)(BoardComponent);
 
 const BoardBox = styled.div`
-    border : 1px solid black;
-    border-radius : 5px;
+    margin : 5px 0;
+    border : 1px solid gray;
+    // border-radius : 5px;
+    min-height : 400px;
     padding : 10px;
+    padding: 30px 40px;
 `;
