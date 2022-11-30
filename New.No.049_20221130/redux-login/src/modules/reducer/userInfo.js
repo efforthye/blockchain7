@@ -47,7 +47,7 @@ export const reducer = (state = initialize, action) => {
       }
 
     case TYPE.LOGOUT:
-      return state = [];
+      return initialize; //초기화
 
     default:
       return state;
