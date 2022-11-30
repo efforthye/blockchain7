@@ -1,9 +1,14 @@
 import { connect } from "react-redux";
+import { action } from "../../../modules/reducer/userInfo";
+import store from "../../../modules/store";
 import InfoComponent from "../Info/Component";
 
 const InfoContainer = ({userName}) =>{
     console.log(userName);
-    return <InfoComponent userName={userName} />;
+    const onClick = () => {
+        store.dispatch(action.logOut());
+    };
+    return <InfoComponent userName={userName} onClick={onClick} />;
 }
 
 const mapStateToProps = (state, props) =>{
