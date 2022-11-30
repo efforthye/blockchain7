@@ -2,13 +2,14 @@ import { useState } from "react";
 import styled from "styled-components";
 import store from "../../../modules/store";
 
+// 3. onClick을 부모 컴포넌트(RegistContainer)로부터 props로 받는다.
 const RegistComponent = ({onClick}) => {
 
     const [userId, setId] = useState("");
     const [userPw, setPw] = useState("");
     const [userName, setName] = useState("");
 
-    console.log("---등록 컴포넌트---", onClick);
+    console.log("3. 등록 컴포넌트...", onClick);
 
     return (
         <RegistBox>
@@ -22,7 +23,9 @@ const RegistComponent = ({onClick}) => {
                 setName(e.target.value);
             }}></input>
             <button onClick={()=>{
-                console.log("버튼 온클릭");
+                // 4. 사용자가 Regist 버튼을 클릭했을 때 부모의 onClick 함수를 호출한다.
+                // 매개변수로 userId, userPw, userName를 전달해준다.
+                console.log("4. 버튼 온클릭");
 
                 // onClick() : 부모한테서 props로 받아옴
                 onClick(userId, userPw, userName);

@@ -6,17 +6,28 @@ import { action } from '../../../modules/reducer/userDB';
 
 const RegistContainer = () =>{
 
+    // 1. onClick을 선언한다.
     // 컴포넌트에 전해준다.
     const onClick = (userId, userPw, userName) =>{
-        console.log("등록 컨테이너 온클릭, 이제 디스패치로 해당 액션 리듀서에 액션 보낸다.")
 
-        // store.dispatch() : 리듀서에게 액션값을 보내줌 ,action.regist() : 타입과 페이로드 설정해줌
-        // 액션의 페이로드에 필요한 매개변수를 보내줌(userId, userPw, userName)
+        // 5. onClick을 호출당했다. 매개변수로 userId, userPw, userName를 받았다.
+        console.log("5. 등록 컨테이너 온클릭, 6. 이제 디스패치로 해당 액션 리듀서에 액션 보낸다.")
+
+        // 6. store의 dispatch를 호출했다. 매개변수로 action의 regist를 호출해 리턴값을 전달했다.
+        // -> 즉 dispatch 호출보다 action의 regist 호출이 먼저 실행된다.
+        // 6-1. action의 regist를 호출했다. userId, userPw, userName을 매개변수로 전달했다.
+        // 10. dispatch를 호출했다. action.regist의 return값(action)을 매개변수로 전달했다.
+        // 11. dispatch는 reducer를 호출하며 action을 전달한다.
+        // ... store.dispatch() : 리듀서에게 액션값을 보내줌 ,action.regist() : 타입과 페이로드 설정해줌
+        // ... 액션의 페이로드에 필요한 매개변수를 보내줌(userId, userPw, userName)
         store.dispatch(action.regist(userId, userPw, userName));
     };
-    console.log("등록 컨테이너", onclick);
 
+    console.log("1. 등록 컨테이너", onclick);
+
+    // 2. onClick을 RegistComponent에 props로 전달한다.
     return <RegistComponent onClick={onClick} />;
+
 }
 export default RegistContainer;
 
