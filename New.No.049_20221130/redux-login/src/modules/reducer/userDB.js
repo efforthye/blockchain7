@@ -34,12 +34,21 @@ export const reducer = (state = initialize, action) => {
   console.log("userDB.js/reducer");
   console.log(action);
   const { type, payload } = action;
+  console.log(state); // 위에서 정의해준 배열이므로 배열을 리턴해주면 된다.
 
   // 13. type에 따라서 state를 재정의한다. 재정의하고 싶은 정보를 return한다.
   // 문제는 현재 출력하는 곳이 없다고 함? 모르겠당~
   switch (type) {
     case TYPE.REGIST:
-      return state;
+      // 이 곳에 예외처리 등의 작업을 해준다.
+      // 만약 state에 동일한 아이디가 있으면 리턴 state 해준다.
+      if(state.find(item=>item.userId === payload.userId)){
+        alert("중복된 아이디입니다.");
+        return state;
+      }else{
+        // 이제 state가 변경되어 redux에서 확인가능
+        return [...state, payload];
+      }
     default:
       return state;
   }
