@@ -1,6 +1,8 @@
+
+
 import RegistComponent from "../Regist/Component";
 
 const RegistContainer = () =>{
-    return <RegistComponent/>;
+    return <RegistComponent onClick={()=>{}} />;
 }
 export default RegistContainer;
