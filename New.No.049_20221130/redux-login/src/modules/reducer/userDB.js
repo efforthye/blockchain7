@@ -53,3 +53,15 @@ export const reducer = (state = initialize, action) => {
       return state;
   }
 };
+
+// 삼항연산자 => 조건 ? 참 : 거짓
+// isBool ? 'true' : 'false'
+// 위를 if문을 써서 사용하려면
+function check(isBool){
+  if(isBool){
+    return 'true';
+  }else{
+    return 'false';
+  }
+}
+const temp = check("hi");
