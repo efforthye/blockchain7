@@ -9,6 +9,9 @@ import { action } from "../../../modules/reducer/userInfo";
 import store from "../../../modules/store";
 import LogInComponent from "../LogIn/Component";
 
+// 요청
+import axios from 'axios';
+
 // 라우터 설정을 위해 유저이름 받아옴
 const LogInContainer = ({userName}) =>{
 
@@ -16,9 +19,14 @@ const LogInContainer = ({userName}) =>{
     // useNavigate() : location.href() 같은 훅이다.
     const navigate = useNavigate();
 
-    const onClick = (id, pw) =>{
+    const onClick = (userId, userPw) =>{
         // 클릭했을 때 dispatch 보낸다. 액션 넣어줄때 state도 보내주면 된다...
-        store.dispatch(action.logIn(id, pw, store.getState().userDB));
+        store.dispatch(action.logIn(userId, userPw, store.getState().userDB));
+
+        // 요청
+        axios.post("http://localhost:8080/api/user/login", {
+            userId, userPw, userName 
+        });
     }
 
     // 라우터2 
