@@ -24,7 +24,7 @@ const BoardComponent = ({userName}) => {
                 <Route path="/board/regist" element={<RegistContainer />}></Route>
             </Routes>
 
-            {/* 게시판 번호, */}
+            {/* 게시판 리스트를 띄운다. */}
             <ListContainer />
 
         </BoardBox>
@@ -48,4 +48,8 @@ const BoardBox = styled.div`
     min-height : 400px;
     padding : 10px;
     padding: 30px 40px;
+    a{
+        text-decoration: none;
+        color: black;
+    }
 `;

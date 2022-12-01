@@ -19,6 +19,7 @@ const LogInContainer = ({userName}) =>{
     const onClick = (id, pw) =>{
         // 클릭했을 때 dispatch 보낸다. 액션 넣어줄때 state도 보내주면 된다...
         store.dispatch(action.logIn(id, pw, store.getState().userDB));
+        navigate("/");
     }
 
     // 라우터2 
@@ -36,7 +37,7 @@ const LogInContainer = ({userName}) =>{
 // 그리고 유저이름을 넣어서 다음 놈한테 프롭스로 보내준다는 뜻이라고 한다.
 const mapStateToProps = (state, props) => {
     return {
-        userName: state.userInfo.userName
+        userName: state.userInfo.userName,
     };
 }
 

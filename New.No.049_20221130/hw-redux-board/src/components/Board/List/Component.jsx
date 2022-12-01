@@ -4,7 +4,7 @@ const ListComponent = ({ boardDB }) => {
     console.log(boardDB);
     return (
         <ListBox>
-            <div>하이</div>
+            {/* <div>하이</div> */}
             <Table class="table">
                 <thead>
                     <tr>

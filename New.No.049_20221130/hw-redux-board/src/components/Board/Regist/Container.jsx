@@ -34,12 +34,14 @@ const RegistContainer = ({ userId, userName }) => {
         // store.dispatch({type : "ihihi", payload : {userId, userName, title, context}});
         // 더 추가하기
         store.dispatch(action.regist(userId, userName, title, context, moment().format('YYYY-MM-DD HH:mm:ss')));
+        
+        navigate("/");
     }
 
     // 만약 보드가 추가되면 네비게이션을 바꿔주려고 한다.(나중에)
-    useEffect(() => {
-        if (!userName) navigate("/");
-    }, [nowTime]);
+    // useEffect(() => {
+    //     if (!userName) navigate("/");
+    // }, [nowTime]);
 
     return <RegistComponent onClick={onClick} />
 }
