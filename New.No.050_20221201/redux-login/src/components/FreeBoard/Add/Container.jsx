@@ -16,10 +16,10 @@ const AddContainer = () =>{
     }
 
     // 로그인 안하면 add가 사라진다.(오호;;)
-    // return !userName || (
-    //     <AddComponent onClick={onClick}/>
-    // )
- return   <AddComponent onClick={onClick}/>
+    return !userName || (
+        <AddComponent onClick={onClick}/>
+    )
+//  return   <AddComponent onClick={onClick}/>
 }
 
 export default AddContainer;

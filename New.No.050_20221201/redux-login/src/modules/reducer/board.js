@@ -30,24 +30,35 @@ export const initialize = [];
 let id = 0;
 
 // 리듀서를 통해 state를 수정함
-export const reducer = (state=[], action) => {
+export const reducer = (state = [], action) => {
     const { type, payload } = action;
     switch (type) {
         case TYPE.ADD:
-            const {title, text, userName} = payload;
+            const { title, text, userName } = payload;
             id++;
 
             // 현재 시간은 리듀서에서 넣는다.
-            return [ 
+            return [
                 // 최신 입력값을 위로 올리기 위해 state를 뒤에 풀어서 넣어줌
-                {id, title, text, userName, createdAt:(new Date()).toLocaleString()}, ...state, 
+                { id, title, text, userName, createdAt: (new Date()).toLocaleString() }, ...state,
             ];
 
-        case TYPE.REMOVE:
-            return state;
+        case TYPE.REMOVE: {
+            // 현재 것을 뺀 나머지만 출력하도록 하기
+            // 현재 것을 가져오는 방법
+            // 아이디 번호를 가져온다(같은 번호가 있는 놈을 찾아옴)
+            const index = state.findIndex((item) => item.id == payload.id);
+            return [...state.slice(0, index), ...state.slice(index + 1)];
+        }
 
-        case TYPE.EDIT:
-            return state;
+        case TYPE.EDIT: {
+            const index = state.findIndex((item) => item.id == payload.id);
+            return [
+                ...state.slice(0, index),
+                { ...state[index], ...payload },
+                ...state.slice(index + 1)
+            ]
+        }
 
         default:
             return state;
