@@ -57,6 +57,10 @@ app.listen(app.get("port"), () =>{
 });
 
 
+// CORS policy
+
+
+
 
 
 // const express = require("express");

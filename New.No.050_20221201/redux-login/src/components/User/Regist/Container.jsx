@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 
 import RegistComponent from "../Regist/Component";
 import { action } from '../../../modules/reducer/userDB';
+import axios from "axios";
 
 const RegistContainer = () =>{
 
@@ -21,6 +22,13 @@ const RegistContainer = () =>{
         // ... store.dispatch() : 리듀서에게 액션값을 보내줌 ,action.regist() : 타입과 페이로드 설정해줌
         // ... 액션의 페이로드에 필요한 매개변수를 보내줌(userId, userPw, userName)
         store.dispatch(action.regist(userId, userPw, userName));
+
+
+        // axios를 통해 express 서버쪽에 회원가입 요청을 보낸다.(중요)
+        axios.post("http://localhost:8080/api/user/regist", {
+            userId, userPw, userName 
+        });
+
     };
 
     console.log("1. 등록 컨테이너", onclick);
