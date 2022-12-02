@@ -4,12 +4,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { initialize as userInfoIni } from "./reducer/userInfo";
 import { initialize as userDBIni } from "./reducer/userDB";
 import { initialize as boardInit } from "./reducer/board";
+import { initialize as commentInit } from "./reducer/comment";
 import { reducer } from "./reducer";
 
 const store = createStore(
   reducer,
   // 이 초기값의 key값이 index.js의 컴바인 리듀서들 이름과 같아야 한다.
-  { userInfo: userInfoIni, ...userDBIni, board : boardInit },
+  { userInfo: userInfoIni, ...userDBIni, board : boardInit, comment : commentInit },
   composeWithDevTools()
 );
 
