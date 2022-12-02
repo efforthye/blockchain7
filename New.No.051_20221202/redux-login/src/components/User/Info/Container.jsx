@@ -2,19 +2,19 @@ import { connect, useSelector } from "react-redux";
 import { action } from "../../../modules/reducer/userInfo";
 import store from "../../../modules/store";
 import InfoComponent from "../Info/Component";
-import axios from "axios";
+// import axios from "axios";
 
 const InfoContainer = ({userName}) =>{
     console.log(userName);
-    const userId = useSelector(state => state.userInfo.userId);
+    // const userId = useSelector(state => state.userInfo.userId);
 
     const onClick = () => {
         store.dispatch(action.logOut());
 
         // 해당 유저 아이디를 useSelector으로 받아와 요청보냄
-        axios.post("http://localhost:8080/api/user/logout", {
-            userId
-        });
+        // axios.post("http://localhost:8080/api/user/logout", {
+        //     userId
+        // });
     };
     return <InfoComponent userName={userName} onClick={onClick} />;
 }

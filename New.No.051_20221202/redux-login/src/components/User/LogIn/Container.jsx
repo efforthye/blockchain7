@@ -10,7 +10,7 @@ import store from "../../../modules/store";
 import LogInComponent from "../LogIn/Component";
 
 // 요청
-import axios from 'axios';
+// import axios from 'axios';
 
 // 라우터 설정을 위해 유저이름 받아옴
 const LogInContainer = ({userName}) =>{
@@ -24,9 +24,9 @@ const LogInContainer = ({userName}) =>{
         store.dispatch(action.logIn(userId, userPw, store.getState().userDB));
 
         // 요청
-        axios.post("http://localhost:8080/api/user/login", {
-            userId, userPw, userName 
-        });
+        // axios.post("http://localhost:8080/api/user/login", {
+        //     userId, userPw, userName 
+        // });
 
         // navigate("/");
     }

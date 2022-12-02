@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 
 import RegistComponent from "../Regist/Component";
 import { action } from '../../../modules/reducer/userDB';
-import axios from "axios";
+// import axios from "axios";
 
 const RegistContainer = () =>{
 
@@ -25,9 +25,9 @@ const RegistContainer = () =>{
 
 
         // axios를 통해 express 서버쪽에 회원가입 요청을 보낸다.(중요)
-        axios.post("http://localhost:8080/api/user/regist", {
-            userId, userPw, userName 
-        });
+        // axios.post("http://localhost:8080/api/user/regist", {
+        //     userId, userPw, userName 
+        // });
 
     };
 
