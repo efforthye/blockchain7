@@ -29,12 +29,14 @@ const BoardContainer = () => {
 
     // 해당 유저만 삭제버튼 띄우려고 유저이름 가져옴
     const userName = useSelector(state => state.userInfo.userName);
+    const userId = useSelector(state => state.userInfo.userId);
 
     return (
         <>
             {/* isCreator로 해당 유저가 맞는지 여부를 보내는듯? */}
             <BoardComponent board={board} remove={remove} isCreator={userName == board.userName} />
-            <CommentContainer />
+            {/* 위에서 가져온 id */}
+            <CommentContainer userName={userName} userId={userId} boardId={id} />
         </>
     )
 

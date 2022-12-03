@@ -26,16 +26,17 @@ export const action = { add, remove, edit };
 
 // 초기값 설정
 export const initialize = [
-    {
-        id: 1,
-        title: "타이틀",
-        text: "내용내용",
-        userName: "혜리미",
-        createdAt: "2022. 12. 2. 오전 9:36:40",
-    }
+    // {
+    //     id: 1,
+    //     title: "타이틀",
+    //     text: "내용내용",
+    //     userName: "혜리미",
+    //     createdAt: "2022. 12. 2. 오전 9:36:40",
+    // }
 ];
 // 수정 삭제를 위해 게시글의 id값을 지정해준다.
-let id = 1;
+// let id = 1;
+let id = 0;
 
 // 리듀서를 통해 state를 수정함
 export const reducer = (state = [], action) => {
