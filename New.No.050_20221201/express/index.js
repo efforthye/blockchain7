@@ -44,6 +44,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 // origin : 원본 주소이며, 해당 원본 주소에 대해서만 요청을 응답하도록 한다.
 // 원본 주소에는 http와 같은 프로토콜, localhost와 같은 도메인 주소, :3000와 같은 포트까지 포함한다.
 // /api와 같은 라우터는 포함하지 않는다.
+// 어떤 서버로 요청보낼 것인지 지정해준다.
 app.use(cors({origin : "http://localhost:3000"}));
 
 
