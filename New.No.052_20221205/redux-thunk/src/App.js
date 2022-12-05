@@ -34,6 +34,7 @@ function App() {
       }}>+</button>
       <button onClick={async () => {
         // 1초간 기다린 후에 액션(temp)을 받아서 dispatch에 액션(temp)을 전달한다.
+        // await 오른쪽에 axios 써주면 됨 서버에 db값가져오라는 요청)))(중요)
         const temp = await promiseTime(action.decrement(), 1);
         dispatch(temp);
         // 이렇게 작성하면 오류가 발생한다.
@@ -45,6 +46,8 @@ function App() {
 
       {/* thunk promise */}
       <button onClick={() => {
+        // 1. 사용자가 클릭한다. 클릭 시 dispatch를 호출하며 action의 asyncIncrement() 를 호출한다. 해당 메서드는 함수를 리턴한다.
+        console.log("1. App.js / thunk+ button click");
         dispatch(action.asyncIncrement());
       }}>thunk+</button>
       <button onClick={() => {

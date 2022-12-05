@@ -1,3 +1,5 @@
+
+// 5. promise 함수를 생성하여 return 한다.
 const promiseTime = (type, time) => {
     // Promise 함수를 사용하기 위해 new Promise를 했다.
     return new Promise((resolve, reject) => {
@@ -5,8 +7,13 @@ const promiseTime = (type, time) => {
         // 매개변수로 전달된 시간 후에 매개변수로 전달된 type을 반환한다.
         // 만약 서버와의 통신(axios)을 사용할 시, setTimeout이 아니라
         // axios의 then 등을 이용해서 resolve 메서드를 호출하라고 한다.(중요)
+        // 6. 위와 마찬가지로 try~catch로 에러를 체크한다.
+        // 6-2. setTimeout()을 사용해 전달된 시간(매개변수 time)만큼 기다린 후에
+        //   resolve를 사용해 결과(매개변수 type)를 반환한다.
         try {
             setTimeout(() => {
+                console.log(`6. setTimeout() to ${type}`);
+
                 // resolve() : 성공시 매개변수를 결과로 전달한다.
                 resolve(type);
             }, time * 1000);
