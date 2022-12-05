@@ -1,5 +1,4 @@
 // redux-thunk : 비동기 처리를 사용하기 위한 미들웨어이다.
-// 비동기 처리 : https://www.daleseo.com/js-async-callback/
 
 // import logo from './logo.svg';
 import './App.css';
