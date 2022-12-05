@@ -76,7 +76,7 @@ const callbackPromise = (text, time) => {
         // try 스코프 내의 코드를 실행한다. 도중 에러가 발생하면 catch error로 전달한다.
 
         try {
-            if(text === "프로미스4"){
+            if(text === "어싱크 확인3"){
                 reject("end");
             }
             setTimeout(() => {
@@ -114,3 +114,24 @@ callbackPromise("프로미스1", 1)
     .catch((error)=>{
         console.log(error);
     });
+
+
+// 평소에 자주 쓰던 방식
+// async : await를 사용하려면 함수의 앞부분에 써줘야 한다. (synchronise))
+// await : 프로미스 함수가 끝날 때까지 기다리도록 한다. 아래의 줄로 내려가지 않는다.
+// 즉, 비동기 작업을 동기처럼 작성할 수 있게 해준다.
+const asyncFunc = async () =>{
+
+    // 중요, await를 사용한 프로미스 함수 호출 시,
+    // reject가 발생하면 catch를 통해 error를 받아준다.(평소에 자주 쓰던 방식임)
+    try {
+        console.log(await callbackPromise("어싱크 확인1", 1));
+        console.log(await callbackPromise("어싱크 확인2", 1));
+        console.log(await callbackPromise("어싱크 확인3", 1));
+        console.log(await callbackPromise("어싱크 확인4", 1));
+        console.log(await callbackPromise("어싱크 확인5", 1));
+    } catch (error) {
+        console.log(error);
+    }
+}
+asyncFunc();
