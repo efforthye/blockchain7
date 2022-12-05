@@ -27,7 +27,7 @@ export const reducer = (state = initialize, action) => {
 
     switch (type) {
         case TYPE.INCREMENT:
-            return state + 1;
+                return state + 1;
 
         case TYPE.DECREMENT:
             return state - 1;
