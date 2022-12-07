@@ -31,3 +31,8 @@ const temp = "javascript를 출력할 수 있다."
   - 확인
 - 순서 없음
 - 순서 없음
+
+--- 안녕하세요
+
+## 이미지
+<img src="/" width="100px"></img>
