@@ -1,0 +1,78 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>안뇽 난 최초 블록! ㅎㅇㅎㅇ 나 생성됨</h1>
+    <h1>초기의 제네시스 블록은(첫번째 블록 필요함) 하드 코딩으로 직접 만들어준다.</h1>
+    <div class="flex-box">
+        <div id="block">
+            <!-- 소프트웨어 버전처럼 블록의 버전 -->
+            <label for="">블록 버전 (블록 버전 초기값)</label>
+            <h3 id="version"></h3>
+
+            <label for="">블록 높이 (제네시스 블록 최초의 블록 높이가 0번)</label>
+            <h3 id="height"></h3>
+
+            <label for="">블록의 생성 시간 (이 블록이 언제 만들어졌는지)</label>
+            <h3 id="timestamp"></h3>
+
+            <label for="">이전 블록 해시</label>
+            <h3 id="previousHash"></h3>
+
+            <label for="">블록 해시 (최초 블록이라서 해시값을 0으로 대체 - js쪽에서 64개의 0으로 채워준다)</label>
+            <h3 id="hash"></h3>
+
+            <!-- 중요 -->
+            <label for="">머클 루트 (최초 블록이라서 0으로 대체)</label>
+            <h3 id="merkleRoot"></h3>
+
+            <label for="">논스 (계속 증가시키다가 퀴즈가 풀렸을 때 도달한 값)</label>
+            <h3 id="nonce"></h3>
+
+            <!-- 난이도의 개수에 따라서 0의 개수(nonce)를 구한다. -->
+            <!-- 난이도 10이면 0이 10개 이상 될 때까지 퀴즈를 푼다고 보면 된다. -->
+            <!-- 그러면 블록 생성 권한이라는 것을 얻는 거라고 한다. -->
+            <!-- 생성 주기가 너무 길면 내릴 수도 있다고 함(이해x) -->
+            <!-- 컴퓨터가 좋아지는 것만큼 난이도도 계속 올리고 있다고 함 -->
+            <label for="">난이도 (블록의 생성 주기를 조절하기 위한 값)</label>
+            <h3 id="difficulty"></h3>
+
+            <label for="">블록내용 (최초블록이니까 그럴싸하게 기사내용 넣어보자)</label>
+            <h3 id="data"></h3>
+        </div>
+    </div>
+
+</body>
+<script>
+    const blockData = {
+        version : "1.0.0", // 첫 버전
+        height : 0, // 첫 번째 블록 첫 번째 인덱스네
+        timestamp : Date.now(), // 생성한 시간임.. Date.now()
+        // previousHash : 우리가 암호화 문자열을 64자리로 만들 것이기 때문에 64로 설정함
+        previousHash : "0".repeat(64), // 이전 블록이 없으니까 그냥 0으로 다 채움 
+        hash : "0".repeat(64), // 블록의 해시도 0으로 다 채움
+        merkleRoot : "0".repeat(64), // 머클루트도 0으로 다 채움
+        nonce : 0,
+        difficulty : 0, // 난이도
+        data : [
+            "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"
+        ],
+    };
+
+    // 객체의 key값들을 뽑아준다. 위의 아이디와 여기 key값을 맞추면 편하니까 맞춰주었다.
+    for (const key in blockData) {
+        console.log(block.children[key]);
+        console.log(blockData[key]);
+        block.children[key].innerHTML = blockData[key];
+    }
+
+</script>
+
+</html>
