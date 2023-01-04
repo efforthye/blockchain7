@@ -52,26 +52,46 @@
 </body>
 <script>
     const blockData = {
-        version : "1.0.0", // 첫 버전
-        height : 0, // 첫 번째 블록 첫 번째 인덱스네
-        timestamp : Date.now(), // 생성한 시간임.. Date.now()
+        version: "1.0.0", // 첫 버전
+        height: 0, // 첫 번째 블록 첫 번째 인덱스네
+        timestamp: Date.now(), // 생성한 시간임.. Date.now()
         // previousHash : 우리가 암호화 문자열을 64자리로 만들 것이기 때문에 64로 설정함
-        previousHash : "0".repeat(64), // 이전 블록이 없으니까 그냥 0으로 다 채움 
-        hash : "0".repeat(64), // 블록의 해시도 0으로 다 채움
-        merkleRoot : "0".repeat(64), // 머클루트도 0으로 다 채움
-        nonce : 0,
-        difficulty : 0, // 난이도
-        data : [
+        previousHash: "0".repeat(64), // 이전 블록이 없으니까 그냥 0으로 다 채움 
+        hash: "0".repeat(64), // 블록의 해시도 0으로 다 채움
+        merkleRoot: "0".repeat(64), // 머클루트도 0으로 다 채움
+        nonce: 0,
+        difficulty: 0, // 난이도
+        data: [
             "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"
         ],
     };
 
     // 객체의 key값들을 뽑아준다. 위의 아이디와 여기 key값을 맞추면 편하니까 맞춰주었다.
     for (const key in blockData) {
+        // 태그
         console.log(block.children[key]);
+        // 객체
         console.log(blockData[key]);
         block.children[key].innerHTML = blockData[key];
     }
+
+    // hash: 블록의 고유 식별자로 블록을 특정하는 값이다.
+    //   해시값에는 블록의 생성일, 버전, 머클루트, 이전 블록 해시, 논스 값이 들어간다.
+    // merkleRoot : 트랜잭션 내용이 머클트리로 구성되고 머클트리로 만들어진 마지막 루트의 뿌리값
+    // 해시값은 16진수 정해진 64자리 암호화를 사용해서 
+
+
+    // 블록체인 거래 변경이 불가능한 이유
+    // 블록의 머클루트 계산에 이전 블록 해시가 포함되어 있기 때문에
+    // 하나의 블록의 내용이 변경되면 변경한 블록부터 다음 블록 해시 변경으로 이어지기 때문에
+    // - 거래 정보 변경 -> 머클루트 변경 -> 머클루트가 변해서 블록 해시가 변경되고
+    // 쉽게 말해서 블록의 거래 정보를 변경하기 위해서 거래 정보를 변경한 블록부터 다시 채굴해야 한다.
+    // 뒤의 블록이 다 변경되기 때문이라고 한다.
+
+
+    // 오늘은 여기까지
+    // 내일은 머클루트도 만들어 보고 
+    // 어떻게 생겼는지, 헷갈리는 부분 질문해보기
 
 </script>
 
