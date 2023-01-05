@@ -1,0 +1,16 @@
+{
+  "name": "merkleroot",
+  "version": "1.0.0",
+  "main": "hash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "merkle": "^0.6.0"
+  }
+}
