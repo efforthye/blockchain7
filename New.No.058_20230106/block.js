@@ -22,6 +22,7 @@ class Block extends InterfaceBlock {
         super();
     }
 
+    // 퀴즈 맞추고 블록을 생성하는 함수
     // 블록 생성 함수
     create(_previousBlock, _adjustmentDifficulty, _adjustmentTimestamp, _data) {
         try {
@@ -33,14 +34,59 @@ class Block extends InterfaceBlock {
             // 기존 블록의 높이를 이전 블록 높이보다 1 증가시킨다.
             this.height = height + 1;
 
-            // 기존 블록의 hash 값을 저장해준다.
+            // 기존 블록의 hash 값을 저장해준다. 오류 확인을 위해??
             this.previousHash = previousHash;
 
+            // 임시 머클루트 값 초기화(정상적인 Root값을 구하도록 호출해준다.)
+            const merkleRoot = this.getMerkleRoot(_data);
+
+            // 만약 에러가 있으면
+            // throw 명령어를 사용해서 try문을 멈추고 catch로 입력값을 전달한다.
+            // merkleRoot에서 오류 발생 시 블록 생성을 멈추는 것이다.
+            if(merkleRoot.isError) throw new Error(merkleRoot.error);
+            // 에러가 없으면 그 값을 블록의 머클루트에 넣어준다.(중요)
+            this.merkleRoot = merkleRoot.value;
             
+            // 임시값 초기화
+            // 논스값 0
+            this.nonce = 0;
+            // 현재 시간으로 초기화
+            this.timestamp = Date.now(); 
 
+            // 난이도 재설정(함수를 통해 재설정했음(중요))
+            this.difficulty = this.getDifficulty({
+                height : this.height,
+                timestamp : this.timestamp,
+                previousDifficulty : _previousBlock.difficulty,
+                _adjustmentDifficulty,
+                _adjustmentTimestamp,
+            });
 
-        } catch (error) {
-            console.error(error);
+            // 메서드 만들기 전에 초기화
+            // createHash : 블록의 해시를 구하는 함수 호출함
+            this.hash = this.createHash(this);
+
+            // 데이터 저장
+            this.data = _data;
+            
+            // 마이닝을 거쳐서 블록 생성
+            // updateBlock : 블록 마이닝(채굴) 함수
+            this.updateBlock(
+                _previousBlock,
+                _adjustmentDifficulty,
+                _adjustmentTimestamp
+            );
+
+            // 새로 생성한 블록(this)을 리턴해줌
+            return this;
+
+        } catch (err) {
+
+            // console.error(err);
+
+            // 에러를 던지고 종료한다.
+            throw new Error(err.message);
+
         }
     }
 
@@ -130,7 +176,7 @@ class Block extends InterfaceBlock {
 
     // 블록 마이닝(채굴) 함수
     // 난이도에 맞게 hash를 생성한다. 문제풀이라고도 한다.
-    updateBlock() {
+    updateBlock(_previousBlock, _adjustmentDifficulty, _adjustmentTimestamp) {
         // 현재 hash를 hex-to-binary를 사용해 binary 형식으로 바꾼다.
         let hashBinary = hexToBinary(this.hash);
 
@@ -189,3 +235,5 @@ class Block extends InterfaceBlock {
     }
 
 }
+
+module.exports = Block;
