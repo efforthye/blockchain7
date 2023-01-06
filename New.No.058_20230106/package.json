@@ -1,0 +1,17 @@
+{
+  "name": "new.no.058_20230106",
+  "version": "1.0.0",
+  "description": "",
+  "main": "block.interface.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "hex-to-binary": "^1.0.1",
+    "merkle": "^0.6.0"
+  }
+}
