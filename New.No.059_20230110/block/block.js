@@ -111,9 +111,9 @@ const temp = new Block(["a"]);
 const blockHash = Block.createHash(temp);
 
 // 0000000000000000000000000000000000000000000000000000000000000000
-console.log(temp.hash); // 0.64 repeat
+// console.log(temp.hash); // 0.64 repeat
 // 013614071417193ECE2320253328D7E1B236EA383645C6A28A4F201608C4EC4F
-console.log(blockHash); 
+// console.log(blockHash); 
 
 
 module.exports = Block;
