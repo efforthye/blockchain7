@@ -104,16 +104,16 @@ class Block extends BlockHeader{
 
 }
 
-// // 제네시스 블록
-// const temp = new Block(["a"]);
-// // const temp = new Block(["a, b, c"]);
-// // 블록으로 해시를 만듦
-// const blockHash = Block.createHash(temp);
+// 제네시스 블록
+const temp = new Block(["a"]);
+// const temp = new Block(["a, b, c"]);
+// 블록으로 해시를 만듦
+const blockHash = Block.createHash(temp);
 
 // 0000000000000000000000000000000000000000000000000000000000000000
-// console.log(temp.hash); // 0.64 repeat
-// // 013614071417193ECE2320253328D7E1B236EA383645C6A28A4F201608C4EC4F
-// console.log(blockHash); 
+console.log(temp.hash); // 0.64 repeat
+// 013614071417193ECE2320253328D7E1B236EA383645C6A28A4F201608C4EC4F
+console.log(blockHash); 
 
 
 module.exports = Block;
