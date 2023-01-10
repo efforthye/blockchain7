@@ -29,6 +29,8 @@ describe("Block Test", ()=>{
 
         const hash = Block.createHash(block2);
         expect(block2.hash).toBe(hash);
+
+        // console.log(block2.hash);
     
     });
 });
