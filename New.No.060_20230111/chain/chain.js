@@ -60,20 +60,23 @@ class Chain{
 
 }
 
-const chain = new Chain();
-// console.log(chain);
-// console.log(chain.chain);
+// // 제네시스 블록이 들어있는 체인 배열 생성
+// const chain = new Chain();
 
-// chain.chain.push({data : "???"});
-// console.log(chain.chain);
+// // 블록 3개 추가
+// chain.createBlock(["asdf"]);
+// chain.createBlock(["asdf2"]);
+// chain.createBlock(["asd3"]);
 
-const block = new Block(["qwer"], chain.lastBlock);
+// // data와 이전 블록을 가지고 블록을 하나 만듦
+// const block = new Block(["qwer"], chain.lastBlock);
+// console.log("lastBlock : ", chain.lastBlock);
 
-chain.createBlock(["asdf"]);
-chain.createBlock(["asdf2"]);
-chain.createBlock(["asd3"]);
+// // 제네시스 블록만 있을 때 추가하려고 함(높이 충돌)
+// chain.add2Chain(block);
 
-chain.add2Chain(block);
+// console.log(chain); // 객체 그 자체
 
-console.log(chain.chain);
+// console.log(chain.chain); // 객체의 체인 
 
+module.exports = Chain;

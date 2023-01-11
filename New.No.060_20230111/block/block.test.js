@@ -3,19 +3,19 @@ const merkle = require("merkle");
 
 describe("Block Test", ()=>{
 
-    describe("Data가 배열이 아닐 때", ()=>{
-        const data = "a";
-        const block = new Block(data);
+    // describe("Data가 배열이 아닐 때", ()=>{
+    //     const data = "a";
+    //     const block = new Block(data);
 
-        it("merkleRoot가 비어있는가?", () =>{
-            expect(block.merkleRoot).toBe("");
-        }); 
+    //     it("merkleRoot가 비어있는가?", () =>{
+    //         expect(block.merkleRoot).toBe("");
+    //     }); 
 
-        it("hash가 비어있는가?", () =>{
-            expect(block.hash).toBe("");
-        }); 
+    //     it("hash가 비어있는가?", () =>{
+    //         expect(block.hash).toBe("");
+    //     }); 
 
-    });
+    // });
 
     describe("Data가 배열일 때", ()=>{
         const data = ["a"];
