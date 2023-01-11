@@ -2,28 +2,37 @@ const Block = require("./block.js");
 const merkle = require("merkle");
 
 describe("Block Test", ()=>{
-    // 우리가 만든 블록의 머클루트와 라이브러리로 머클루트 만든 것이 같은지 확인한다.
-    it("merkle Test", () =>{
-        const data = ["a", "b", "c"];
+
+    describe("Data가 배열이 아닐 때", ()=>{
+        const data = "a";
         const block = new Block(data);
 
-        const merkleRoot = merkle("sha256").sync(data).root();
-        expect(block.merkleRoot).toBe(merkleRoot);
-    
+        it("merkleRoot가 비어있는가?", () =>{
+            expect(block.merkleRoot).toBe("");
+        }); 
+
+        it("hash가 비어있는가?", () =>{
+            expect(block.hash).toBe("");
+        }); 
+
     });
 
-    // hash를 확인한다.
-    it("hash Test", () =>{
-        const data = ["a", "b", "c"];
+    describe("Data가 배열일 때", ()=>{
+        const data = ["a"];
+        const block = new Block(data);
 
-        // 그냥 블록으로 비교하면 이전 블록이 없어서 해시가 0으로 채워지기 때문에 블록 2개를 만든다.
-        const block1 = new Block(data);
-        const block2 = new Block(data, block1);
+        it("merkleRoot가 정상적인가?", () =>{
+            const merkleRoot = merkle("sha256").sync(data).root();
+            expect(block.merkleRoot).toBe(merkleRoot);
+        }); 
 
-        console.log(block2.hash);
-
-        const hash = Block.createHash(block2);
-        expect(block2.hash).toBe(hash);
-    
+        it("hash와 merkleRoot의 길이가 64인가?", () =>{
+            // toHaveLength : 길이 확인
+            expect(block.merkleRoot).toHaveLength(64);
+            expect(block.hash).toHaveLength(64);
+        }); 
+        
     });
+
+
 });
