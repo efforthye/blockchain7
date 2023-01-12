@@ -71,6 +71,28 @@ describe("Block Test", ()=>{
             expect(block.difficulty).toBe(tempDifficultyOptions.adjustmentDifficulty + 1);
 
         });
+
+        it("기준 시간 허용 범위 이내에 생성되었을 경우 난이도를 유지하는가?", ()=>{
+
+            // 10개 이전 블록이 60초(기준시간) 내에 생성되었다.
+            tempDifficultyOptions.adjustmentTimestamp  -=  tempDifficultyOptions.averageGenerationTime; 
+            block.getDifficulty(tempDifficultyOptions);
+            // 10개 이전 블록의 난이도가 현재 난이도와 같은가?
+            expect(block.difficulty).toBe(tempDifficultyOptions.adjustmentDifficulty);
+
+        });
+
+        it("기준 시간보다 오래 걸려서 생성되었을 경우 난이도를 낮추는가?", ()=>{
+
+            // 10개 이전 블록이 100초(기준시간) 내에 생성되었다.
+            tempDifficultyOptions.adjustmentTimestamp  -=  100 * 1000; 
+
+            block.getDifficulty(tempDifficultyOptions);
+
+            // 10개 이전 블록의 난이도보다 현재 난이도가 1 낮은가?
+            expect(block.difficulty).toBe(tempDifficultyOptions.adjustmentDifficulty -1);
+
+        });
         
     });
 
